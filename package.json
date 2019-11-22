@@ -1,0 +1,31 @@
+{
+  "name": "tree-sitter-zig",
+  "version": "0.1.0",
+  "description": "Zig grammar for tree-sitter",
+  "main": "index.js",
+  "scripts": {
+    "test": "tree-sitter test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GrayJack/tree-sitter-zig.git"
+  },
+  "keywords": [
+    "zig",
+    "parser",
+    "tree-sitter",
+    "treesitter"
+  ],
+  "author": "Eric Shimizu Karbstein <gr41.j4ck@gmail.com>",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/GrayJack/tree-sitter-zig/issues"
+  },
+  "homepage": "https://github.com/GrayJack/tree-sitter-zig#readme",
+  "dependencies": {
+    "nan": "^2.14.0"
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "^0.15.12"
+  }
+}
