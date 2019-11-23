@@ -57,6 +57,8 @@ module.exports = grammar({
       $.integer_literal,
       $.float_literal,
       $.boolean_literal,
+      $.null_literal,
+      $.undefined_literal,
       $.char_literal,
       $.string_literal,
       $.multiline_string_literal
@@ -124,6 +126,10 @@ module.exports = grammar({
     )),
 
     boolean_literal: $ => choice('true', 'false'),
+
+    null_literal: $ => 'null',
+
+    undefined_literal: $ => 'undefined',
 
     identifier: $ => /[a-zA-Zα-ωΑ-Ωµ_][a-zA-Zα-ωΑ-Ωµ\d_]*/,
   }
