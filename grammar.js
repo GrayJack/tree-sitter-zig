@@ -1,3 +1,21 @@
+const PREC = {
+  call: 14,
+  errorset: 13,
+  unary: 12,
+  postfix: 11,
+  multiplicative: 10,
+  additive: 9,
+  shift: 8,
+  bitand: 7,
+  bitxor: 6,
+  bitor: 5,
+  comparative: 4,
+  and: 3,
+  or: 2,
+  special: 1,
+  assign: 0,
+}
+
 const numeric_types = [
   'i8',
   'u8',
@@ -69,7 +87,6 @@ module.exports = grammar({
       $.compound_assignment_expr,
       $.unary_expression,
       $.binary_expression,
-      $.comparison_expression,
       $.identifier,
       $._literals,
     ),
@@ -99,34 +116,43 @@ module.exports = grammar({
 
     // Expressions
 
-    assignment_expression: $ => prec.left(seq(
+    assignment_expression: $ => prec.left(PREC.assign, seq(
       field('left', $._expression),
       '=',
       field('right', $._expression),
     )),
 
-    compound_assignment_expr: $ => prec.left(seq(
+    compound_assignment_expr: $ => prec.left(PREC.assign, seq(
       field('left', $._expression),
       field('operator', $.assignment_operator),
       field('right', $._expression)
     )),
 
-    unary_expression: $ => prec.left(seq(
+    unary_expression: $ => prec.left(PREC.unary, seq(
       field('operator', $.unary_operator),
       field('expression', $._expression),
     )),
 
-    binary_expression: $ => prec.left(seq(
-      field('left', $._expression),
-      field('operator', $.binary_operator),
-      field('right', $._expression),
-    )),
+    binary_expression: $ => {
+      const table = [
+        [PREC.and, 'and'],
+        [PREC.or, 'or'],
+        [PREC.bitand, '&'],
+        [PREC.bitor, '|'],
+        [PREC.bitxor, '^'],
+        [PREC.comparative,  choice('==', '!=', '<', '<=', '>', '>=')],
+        [PREC.shift, choice('<<', '>>')],
+        [PREC.additive, choice('+', '-', '++', '+%', '-%')],
+        [PREC.multiplicative, choice('*', '/', '%', '**', '*%', '||')],
+        [PREC.special, choice('orelse', 'catch')],
+      ];
 
-    comparison_expression: $ => prec.left(seq(
-      field('left', $._expression),
-      field('operator', $.comparison_operator),
-      field('right', $._expression),
-    )),
+      return choice(...table.map(([precedence, operator]) => prec.left(precedence, seq(
+        field('left', $._expression),
+        field('operator', alias(operator, $.binary_operator)),
+        field('right', $._expression),
+      ))));
+    },
 
     _literals: $ => choice(
       $.integer_literal,
@@ -202,10 +228,8 @@ module.exports = grammar({
 
     undefined_literal: $ => 'undefined',
 
-    binary_operator: $ => choice('+', '+%', '-', '-%', '*', '*%', '/', '%', '<<', '>>', '&', '|', '^', '||', 'orelse', 'and', 'or', '++', '**'),
     assignment_operator: $ => choice('+=', '-=', '*=', '+%=', '-%=', '*%=', '/=', '%=', '&=', '|=', '^=', '<<=', '>>='),
-    comparison_operator: $ => choice('==', '!=', '<', '<=', '>', '>='),
-    unary_operator: $ => choice('~', '!', '-', '-%'),
+    unary_operator: $ => choice('~', '!', '-', '-%', '&', '?'),
 
     identifier: $ => /[a-zA-Zα-ωΑ-Ωµ_][a-zA-Zα-ωΑ-Ωµ\d_]*/,
   }

@@ -146,90 +146,6 @@ boy or girl;
 vec1 ++ vec2;
 vec1 ** vec3;
 
----
-
-(source_file
-  (binary_expression
-    left: (integer_literal)
-    operator: (binary_operator)
-    right: (integer_literal))
-  (binary_expression
-    left: (identifier)
-    operator: (binary_operator)
-    right: (integer_literal))
-  (binary_expression
-    left: (float_literal)
-    operator: (binary_operator)
-    right: (float_literal))
-  (binary_expression
-    left: (identifier)
-    operator: (binary_operator)
-    right: (identifier))
-  (binary_expression
-    left: (integer_literal)
-    operator: (binary_operator)
-    right: (identifier))
-  (binary_expression
-    left: (integer_literal)
-    operator: (binary_operator)
-    right: (identifier))
-  (binary_expression
-    left: (identifier)
-    operator: (binary_operator)
-    right: (identifier))
-  (binary_expression
-    left: (integer_literal)
-    operator: (binary_operator)
-    right: (integer_literal))
-  (binary_expression
-    left: (integer_literal)
-    operator: (binary_operator)
-    right: (integer_literal))
-  (binary_expression
-    left: (integer_literal)
-    operator: (binary_operator)
-    right: (integer_literal))
-  (binary_expression
-    left: (boolean_literal)
-    operator: (binary_operator)
-    right: (boolean_literal))
-  (binary_expression
-    left: (boolean_literal)
-    operator: (binary_operator)
-    right: (boolean_literal))
-  (binary_expression
-    left: (identifier)
-    operator: (binary_operator)
-    right: (identifier))
-  (binary_expression
-    left: (identifier)
-    operator: (binary_operator)
-    right: (identifier))
-  (binary_expression
-    left: (identifier)
-    operator: (binary_operator)
-    right: (identifier))
-  (binary_expression
-    left: (identifier)
-    operator: (binary_operator)
-    right: (identifier))
-  (binary_expression
-    left: (identifier)
-    operator: (binary_operator)
-    right: (identifier))
-  (binary_expression
-    left: (identifier)
-    operator: (binary_operator)
-    right: (identifier))
-  (binary_expression
-    left: (identifier)
-    operator: (binary_operator)
-    right: (identifier)))
-
-============================================
-Comparison expression
-============================================
-
 a == b;
 10 != 11;
 1.0 < 2.0;
@@ -240,27 +156,141 @@ x >= 2;
 ---
 
 (source_file
-  (comparison_expression
-    left: (identifier)
-    operator: (comparison_operator)
-    right: (identifier))
-  (comparison_expression
+  (binary_expression
     left: (integer_literal)
-    operator: (comparison_operator)
+    operator: (binary_operator)
     right: (integer_literal))
-  (comparison_expression
+  (binary_expression
+    left: (identifier)
+    operator: (binary_operator)
+    right: (integer_literal))
+  (binary_expression
     left: (float_literal)
-    operator: (comparison_operator)
+    operator: (binary_operator)
     right: (float_literal))
-  (comparison_expression
+  (binary_expression
     left: (identifier)
-    operator: (comparison_operator)
-    right: (integer_literal))
-  (comparison_expression
-    left: (integer_literal)
-    operator: (comparison_operator)
+    operator: (binary_operator)
     right: (identifier))
-  (comparison_expression
+  (binary_expression
+    left: (integer_literal)
+    operator: (binary_operator)
+    right: (identifier))
+  (binary_expression
+    left: (integer_literal)
+    operator: (binary_operator)
+    right: (identifier))
+  (binary_expression
     left: (identifier)
-    operator: (comparison_operator)
+    operator: (binary_operator)
+    right: (identifier))
+  (binary_expression
+    left: (integer_literal)
+    operator: (binary_operator)
+    right: (integer_literal))
+  (binary_expression
+    left: (integer_literal)
+    operator: (binary_operator)
+    right: (integer_literal))
+  (binary_expression
+    left: (integer_literal)
+    operator: (binary_operator)
+    right: (integer_literal))
+  (binary_expression
+    left: (boolean_literal)
+    operator: (binary_operator)
+    right: (boolean_literal))
+  (binary_expression
+    left: (boolean_literal)
+    operator: (binary_operator)
+    right: (boolean_literal))
+  (binary_expression
+    left: (identifier)
+    operator: (binary_operator)
+    right: (identifier))
+  (binary_expression
+    left: (identifier)
+    operator: (binary_operator)
+    right: (identifier))
+  (binary_expression
+    left: (identifier)
+    operator: (binary_operator)
+    right: (identifier))
+  (binary_expression
+    left: (identifier)
+    operator: (binary_operator)
+    right: (identifier))
+  (binary_expression
+    left: (identifier)
+    operator: (binary_operator)
+    right: (identifier))
+  (binary_expression
+    left: (identifier)
+    operator: (binary_operator)
+    right: (identifier))
+  (binary_expression
+    left: (identifier)
+    operator: (binary_operator)
+    right: (identifier))
+  (binary_expression
+    left: (identifier)
+    operator: (binary_operator)
+    right: (identifier))
+  (binary_expression
+    left: (integer_literal)
+    operator: (binary_operator)
+    right: (integer_literal))
+  (binary_expression
+    left: (float_literal)
+    operator: (binary_operator)
+    right: (float_literal))
+  (binary_expression
+    left: (identifier)
+    operator: (binary_operator)
+    right: (integer_literal))
+  (binary_expression
+    left: (integer_literal)
+    operator: (binary_operator)
+    right: (identifier))
+  (binary_expression
+    left: (identifier)
+    operator: (binary_operator)
     right: (integer_literal)))
+
+
+============================================
+Complex unary/binary expression
+============================================
+
+a == b and a > 10;
+!a and b;
+!a and b > 10;
+
+---
+
+(source_file
+  (binary_expression
+    left: (binary_expression
+      left: (identifier)
+      operator: (binary_operator)
+      right: (identifier))
+    operator: (binary_operator)
+    right: (binary_expression
+      left: (identifier)
+      operator: (binary_operator)
+      right: (integer_literal)))
+  (binary_expression
+    left: (unary_expression
+      operator: (unary_operator)
+      expression: (identifier))
+    operator: (binary_operator)
+    right: (identifier))
+  (binary_expression
+    left: (unary_expression
+      operator: (unary_operator)
+      expression: (identifier))
+    operator: (binary_operator)
+    right: (binary_expression
+      left: (identifier)
+      operator: (binary_operator)
+      right: (integer_literal))))
