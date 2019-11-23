@@ -296,6 +296,114 @@ a == b and a > 10;
       right: (integer_literal))))
 
 ============================================
+Type expression
+============================================
+
+usize;
+f64;
+
+?i32;
+?Point;
+
+[]u8;
+[_]u8;
+[4]u8;
+[*]u8;
+[]align(16) u8;
+
+*i32;
+*allowzero i32;
+*volatile i32;
+*const Point;
+*align(16) i32;
+
+[]?u32;
+?[]u32;
+*[]u32;
+[]*u32;
+
+?*Point;
+*?Point;
+
+---
+
+(source_file
+  (primitive_type)
+  (primitive_type)
+  (unary_expression
+    operator: (unary_operator)
+    expression: (primitive_type))
+  (unary_expression
+    operator: (unary_operator)
+    expression: (identifier))
+  (array_type
+    (primitive_type))
+  (array_type
+    size: (identifier)
+    (primitive_type))
+  (array_type
+    size: (integer_literal)
+    (primitive_type))
+  (array_type
+    size: (pointer)
+    (primitive_type))
+  (array_type
+    (type_prefix
+      (integer_literal))
+    (primitive_type))
+  (pointer_type
+    (primitive_type))
+  (pointer_type
+    (type_prefix)
+    (primitive_type))
+  (pointer_type
+    (type_prefix)
+    (primitive_type))
+  (pointer_type
+    (type_prefix)
+    (identifier))
+  (pointer_type
+    (type_prefix
+      (integer_literal))
+    (primitive_type))
+  (array_type
+    (optional_type
+      (primitive_type)))
+  (unary_expression
+    operator: (unary_operator)
+    expression: (array_type
+      (primitive_type)))
+  (pointer_type
+    (array_type
+      (primitive_type)))
+  (array_type
+    (pointer_type
+      (primitive_type)))
+  (unary_expression
+    operator: (unary_operator)
+    expression: (pointer_type
+      (identifier)))
+  (pointer_type
+    (optional_type
+      (identifier))))
+
+============================================
+Reference and deference expression
+============================================
+
+&a;
+
+a.*;
+
+---
+
+(source_file
+  (reference_expression
+    value: (identifier))
+  (dereference_expression
+    value: (identifier)))
+
+============================================
 Block expression
 ============================================
 

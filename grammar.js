@@ -95,10 +95,13 @@ module.exports = grammar({
       $.compound_assignment_expr,
       $.unary_expression,
       $.binary_expression,
-      $.identifier,
       $.comptime_block,
       $.block,
+      $.reference_expression,
+      $.dereference_expression,
+      $._type,
       $._literals,
+      $.identifier,
     ),
 
     // Statements
@@ -118,12 +121,14 @@ module.exports = grammar({
       ';'
     ),
 
-    _type: $ => choice(
+    // Expressions
+    _type: $ => prec(-1, choice(
       $.primitive_type,
       $.optional_type,
+      $.pointer_type,
       $.array_type,
       $.identifier,
-    ),
+    )),
 
     primitive_type: $ => choice(...primitive_types),
 
@@ -135,18 +140,33 @@ module.exports = grammar({
     array_type: $ => prec(PREC.array, seq(
       repeat(seq(
         '[',
-        field('size', choice($.integer_literal, $.identifier)),
+        field('size', optional(choice($.integer_literal, $.identifier, alias('*', $.pointer)))),
         ']',
       )),
+      optional(repeat($.type_prefix)),
       // Cannot be another array type, since the sintax already cover muldimentional arrays
       choice(
         $.primitive_type,
         $.optional_type,
+        $.pointer_type,
         $.identifier,
       ),
     )),
 
-    // Expressions
+    pointer_type: $ => seq(
+      '*',
+      optional(repeat($.type_prefix)),
+      $._type,
+    ),
+
+    type_prefix: $ => prec(-1, choice(
+      'const',
+      'volatile',
+      'allowzero',
+      seq('align', '(', $._expression, ')'),
+      seq('promise', '-'),
+    )),
+
     comptime_block: $ => seq(
       'comptime',
       $.block,
@@ -157,6 +177,16 @@ module.exports = grammar({
       repeat($._statement),
       optional($._expression),
       '}'
+    ),
+
+    reference_expression: $ => prec(PREC.unary, seq(
+      '&',
+      field('value', $._expression),
+    )),
+
+    dereference_expression: $ => seq(
+      field('value', $._expression),
+      '.*'
     ),
 
     array_expression: $ => seq(
@@ -294,7 +324,7 @@ module.exports = grammar({
     undefined_literal: $ => 'undefined',
 
     assignment_operator: $ => choice('+=', '-=', '*=', '+%=', '-%=', '*%=', '/=', '%=', '&=', '|=', '^=', '<<=', '>>='),
-    unary_operator: $ => choice('~', '!', '-', '-%', '&', '?'),
+    unary_operator: $ => choice('~', '!', '-', '-%', '?'),
 
     identifier: $ => /[a-zA-Zα-ωΑ-Ωµ_][a-zA-Zα-ωΑ-Ωµ\d_]*/,
   }

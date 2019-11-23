@@ -28,6 +28,13 @@ comptime var a = 10;
 
 var a: ?[4]?u8 = undefined;
 
+const a: []u8 = undefined;
+const b: [*]u8 = undefined;
+
+const a: *u8 = undefined;
+const b: *?u8 = undefined;
+const c: *[*]u64 = undefined;
+
 ---
 
 (source_file
@@ -72,4 +79,33 @@ var a: ?[4]?u8 = undefined;
         size: (integer_literal)
         (optional_type
           (primitive_type))))
-    expression: (undefined_literal)))
+    expression: (undefined_literal))
+  (assignment_statement
+      name: (identifier)
+      type: (array_type
+        (primitive_type))
+      expression: (undefined_literal))
+    (assignment_statement
+      name: (identifier)
+      type: (array_type
+        size: (pointer)
+        (primitive_type))
+      expression: (undefined_literal))
+    (assignment_statement
+      name: (identifier)
+      type: (pointer_type
+        (primitive_type))
+      expression: (undefined_literal))
+    (assignment_statement
+      name: (identifier)
+      type: (pointer_type
+        (optional_type
+          (primitive_type)))
+      expression: (undefined_literal))
+    (assignment_statement
+      name: (identifier)
+      type: (pointer_type
+        (array_type
+          size: (pointer)
+          (primitive_type)))
+      expression: (undefined_literal)))
