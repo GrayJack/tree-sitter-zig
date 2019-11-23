@@ -1,0 +1,26 @@
+============================================
+Empty statements
+============================================
+
+;
+
+---
+
+(source_file (empty_statement))
+
+============================================
+Assigments statements
+============================================
+
+const a = 10;
+var b = 1.1;
+
+---
+
+(source_file
+  (assignment
+    name: (identifier)
+    expression: (integer_literal))
+  (assignment
+    name: (identifier)
+    expression: (float_literal)))
