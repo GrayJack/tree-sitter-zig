@@ -14,6 +14,9 @@ const PREC = {
   or: 2,
   special: 1,
   assign: 0,
+
+  optional: -2,
+  array: -3,
 }
 
 const numeric_types = [
@@ -59,6 +62,7 @@ module.exports = grammar({
 
   conflicts: $ => [
     [$.optional_type, $.unary_operator],
+    [$.array_type, $.array_expression],
   ],
 
   rules: {
@@ -117,15 +121,30 @@ module.exports = grammar({
     _type: $ => choice(
       $.primitive_type,
       $.optional_type,
+      $.array_type,
       $.identifier,
     ),
 
     primitive_type: $ => choice(...primitive_types),
 
-    optional_type: $ => seq(
+    optional_type: $ => prec(PREC.optional, seq(
       '?',
       $._type,
-    ),
+    )),
+
+    array_type: $ => prec(PREC.array, seq(
+      repeat(seq(
+        '[',
+        field('size', choice($.integer_literal, $.identifier)),
+        ']',
+      )),
+      // Cannot be another array type, since the sintax already cover muldimentional arrays
+      choice(
+        $.primitive_type,
+        $.optional_type,
+        $.identifier,
+      ),
+    )),
 
     // Expressions
     comptime_block: $ => seq(

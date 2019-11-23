@@ -26,6 +26,8 @@ threadlocal var a: ?u32 = 10;
 
 comptime var a = 10;
 
+var a: ?[4]?u8 = undefined;
+
 ---
 
 (source_file
@@ -62,4 +64,12 @@ comptime var a = 10;
     expression: (integer_literal))
   (assignment_statement
     name: (identifier)
-    expression: (integer_literal)))
+    expression: (integer_literal))
+  (assignment_statement
+    name: (identifier)
+    type: (optional_type
+      (array_type
+        size: (integer_literal)
+        (optional_type
+          (primitive_type))))
+    expression: (undefined_literal)))
