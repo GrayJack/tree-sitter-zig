@@ -1,0 +1,266 @@
+============================================
+Assigment expression
+============================================
+
+x = 10;
+y = 11.0;
+z = "what";
+w = z;
+
+---
+
+(source_file
+  (assignment_expression
+    left: (identifier)
+    right: (integer_literal))
+  (assignment_expression
+    left: (identifier)
+    right: (float_literal))
+  (assignment_expression
+    left: (identifier)
+    right: (string_literal))
+  (assignment_expression
+    left: (identifier)
+    right: (identifier)))
+
+============================================
+Compound Assigment expression
+============================================
+
+x += 1;
+y -= 11.1;
+z *= w;
+a /= 7;
+b %= 2;
+c &= 0b001100;
+d |= 0xABABAB;
+e ^= 0o777;
+f <<= 1;
+g >>= 2;
+h +%= x;
+i -%= 1;
+j *%= 2;
+
+---
+
+(source_file
+  (compound_assignment_expr
+    left: (identifier)
+    operator: (assignment_operator)
+    right: (integer_literal))
+  (compound_assignment_expr
+    left: (identifier)
+    operator: (assignment_operator)
+    right: (float_literal))
+  (compound_assignment_expr
+    left: (identifier)
+    operator: (assignment_operator)
+    right: (identifier))
+  (compound_assignment_expr
+    left: (identifier)
+    operator: (assignment_operator)
+    right: (integer_literal))
+  (compound_assignment_expr
+    left: (identifier)
+    operator: (assignment_operator)
+    right: (integer_literal))
+  (compound_assignment_expr
+    left: (identifier)
+    operator: (assignment_operator)
+    right: (integer_literal))
+  (compound_assignment_expr
+    left: (identifier)
+    operator: (assignment_operator)
+    right: (integer_literal))
+  (compound_assignment_expr
+    left: (identifier)
+    operator: (assignment_operator)
+    right: (integer_literal))
+  (compound_assignment_expr
+    left: (identifier)
+    operator: (assignment_operator)
+    right: (integer_literal))
+  (compound_assignment_expr
+    left: (identifier)
+    operator: (assignment_operator)
+    right: (integer_literal))
+  (compound_assignment_expr
+    left: (identifier)
+    operator: (assignment_operator)
+    right: (identifier))
+  (compound_assignment_expr
+    left: (identifier)
+    operator: (assignment_operator)
+    right: (integer_literal))
+  (compound_assignment_expr
+    left: (identifier)
+    operator: (assignment_operator)
+    right: (integer_literal)))
+
+============================================
+Unary expression
+============================================
+
+!x;
+~true;
+-%10;
+-11.9;
+
+---
+
+(source_file
+  (unary_expression
+    operator: (unary_operator)
+    expression: (identifier))
+  (unary_expression
+    operator: (unary_operator)
+    expression: (boolean_literal))
+  (unary_expression
+    operator: (unary_operator)
+    expression: (integer_literal))
+  (unary_expression
+    operator: (unary_operator)
+    expression: (float_literal)))
+
+============================================
+Binary expression
+============================================
+
+1 + 2;
+x +% 10;
+11.1 - 0.1;
+y -% z;
+2 * n;
+2 *% m;
+x / t;
+10 % 2;
+1 << 2;
+3 >> 4;
+true & false;
+false | true;
+right ^ left;
+error1 || error2;
+a orelse b;
+x and y;
+boy or girl;
+vec1 ++ vec2;
+vec1 ** vec3;
+
+---
+
+(source_file
+  (binary_expression
+    left: (integer_literal)
+    operator: (binary_operator)
+    right: (integer_literal))
+  (binary_expression
+    left: (identifier)
+    operator: (binary_operator)
+    right: (integer_literal))
+  (binary_expression
+    left: (float_literal)
+    operator: (binary_operator)
+    right: (float_literal))
+  (binary_expression
+    left: (identifier)
+    operator: (binary_operator)
+    right: (identifier))
+  (binary_expression
+    left: (integer_literal)
+    operator: (binary_operator)
+    right: (identifier))
+  (binary_expression
+    left: (integer_literal)
+    operator: (binary_operator)
+    right: (identifier))
+  (binary_expression
+    left: (identifier)
+    operator: (binary_operator)
+    right: (identifier))
+  (binary_expression
+    left: (integer_literal)
+    operator: (binary_operator)
+    right: (integer_literal))
+  (binary_expression
+    left: (integer_literal)
+    operator: (binary_operator)
+    right: (integer_literal))
+  (binary_expression
+    left: (integer_literal)
+    operator: (binary_operator)
+    right: (integer_literal))
+  (binary_expression
+    left: (boolean_literal)
+    operator: (binary_operator)
+    right: (boolean_literal))
+  (binary_expression
+    left: (boolean_literal)
+    operator: (binary_operator)
+    right: (boolean_literal))
+  (binary_expression
+    left: (identifier)
+    operator: (binary_operator)
+    right: (identifier))
+  (binary_expression
+    left: (identifier)
+    operator: (binary_operator)
+    right: (identifier))
+  (binary_expression
+    left: (identifier)
+    operator: (binary_operator)
+    right: (identifier))
+  (binary_expression
+    left: (identifier)
+    operator: (binary_operator)
+    right: (identifier))
+  (binary_expression
+    left: (identifier)
+    operator: (binary_operator)
+    right: (identifier))
+  (binary_expression
+    left: (identifier)
+    operator: (binary_operator)
+    right: (identifier))
+  (binary_expression
+    left: (identifier)
+    operator: (binary_operator)
+    right: (identifier)))
+
+============================================
+Comparison expression
+============================================
+
+a == b;
+10 != 11;
+1.0 < 2.0;
+x <= 1;
+10 > y;
+x >= 2;
+
+---
+
+(source_file
+  (comparison_expression
+    left: (identifier)
+    operator: (comparison_operator)
+    right: (identifier))
+  (comparison_expression
+    left: (integer_literal)
+    operator: (comparison_operator)
+    right: (integer_literal))
+  (comparison_expression
+    left: (float_literal)
+    operator: (comparison_operator)
+    right: (float_literal))
+  (comparison_expression
+    left: (identifier)
+    operator: (comparison_operator)
+    right: (integer_literal))
+  (comparison_expression
+    left: (integer_literal)
+    operator: (comparison_operator)
+    right: (identifier))
+  (comparison_expression
+    left: (identifier)
+    operator: (comparison_operator)
+    right: (integer_literal)))

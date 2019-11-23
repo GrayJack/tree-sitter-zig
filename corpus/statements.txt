@@ -15,12 +15,28 @@ Assigments statements
 const a = 10;
 var b = 1.1;
 
+const a: u32 = 10;
+var b: f128 = x;
+var c: MyType = y;
+
 ---
 
 (source_file
-  (assignment
+  (assignment_statement
     name: (identifier)
     expression: (integer_literal))
-  (assignment
+  (assignment_statement
     name: (identifier)
-    expression: (float_literal)))
+    expression: (float_literal))
+  (assignment_statement
+    name: (identifier)
+    type: (primitive_type)
+    expression: (integer_literal))
+  (assignment_statement
+    name: (identifier)
+    type: (primitive_type)
+    expression: (identifier))
+  (assignment_statement
+    name: (identifier)
+    type: (identifier)
+    expression: (identifier)))

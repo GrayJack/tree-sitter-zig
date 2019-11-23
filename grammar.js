@@ -1,3 +1,34 @@
+const numeric_types = [
+  'i8',
+  'u8',
+  'i16',
+  'u16',
+  'i32',
+  'u32',
+  'i64',
+  'u64',
+  'i128',
+  'u128',
+  'isize',
+  'usize',
+  'c_short',
+  'c_ushort',
+  'c_int',
+  'c_uint',
+  'c_long',
+  'c_ulong',
+  'c_longlong',
+  'c_ulonglong',
+  'c_longdouble',
+  'f16',
+  'f32',
+  'f64',
+  'f128',
+  'comptime_int',
+  'comptime_float',
+]
+
+const primitive_types = numeric_types.concat(['bool', 'void', 'noreturn', 'type', 'anyerror'])
 
 module.exports = grammar({
   name: 'zig',
@@ -29,12 +60,17 @@ module.exports = grammar({
 
     _declaration_statement: $ => choice(
       $.empty_statement,
-      $.assignment,
+      $.assignment_statement,
     ),
 
     // Everything is a expression, except functions
     _expression: $ => choice(
-      // $.assignment,
+      $.assignment_expression,
+      $.compound_assignment_expr,
+      $.unary_expression,
+      $.binary_expression,
+      $.comparison_expression,
+      $.identifier,
       $._literals,
     ),
 
@@ -42,16 +78,55 @@ module.exports = grammar({
     empty_statement: $ => ';',
 
     // Incomplete
-    assignment: $ => seq(
+    assignment_statement: $ => seq(
       choice('const', 'var'),
       field('name', $.identifier),
+      optional(seq(
+        ':',
+        field('type', $._type),
+      )),
       '=',
       field('expression', $._expression),
       ';'
     ),
 
+    _type: $ => choice(
+      $.primitive_type,
+      $.identifier
+    ),
+
+    primitive_type: $ => choice(...primitive_types),
+
     // Expressions
 
+    assignment_expression: $ => prec.left(seq(
+      field('left', $._expression),
+      '=',
+      field('right', $._expression),
+    )),
+
+    compound_assignment_expr: $ => prec.left(seq(
+      field('left', $._expression),
+      field('operator', $.assignment_operator),
+      field('right', $._expression)
+    )),
+
+    unary_expression: $ => prec.left(seq(
+      field('operator', $.unary_operator),
+      field('expression', $._expression),
+    )),
+
+    binary_expression: $ => prec.left(seq(
+      field('left', $._expression),
+      field('operator', $.binary_operator),
+      field('right', $._expression),
+    )),
+
+    comparison_expression: $ => prec.left(seq(
+      field('left', $._expression),
+      field('operator', $.comparison_operator),
+      field('right', $._expression),
+    )),
 
     _literals: $ => choice(
       $.integer_literal,
@@ -65,7 +140,6 @@ module.exports = grammar({
     ),
 
     integer_literal: $ => token(seq(
-      optional('-'),
       choice(
         /[0-9]+/,
         /0x[0-9a-fA-F]+/,
@@ -78,7 +152,6 @@ module.exports = grammar({
       const decimal = /[0-9][0-9_]*/;
       const hexadecimal = /[0-9a-fA-F][0-9a-fA-F_]*/;
       return token(seq(
-        optional('-'),
         choice(
           seq(/0[xX]/, hexadecimal, optional('.'), optional(hexadecimal)),
           seq(decimal, optional('.'), optional(decimal)),
@@ -97,8 +170,7 @@ module.exports = grammar({
     ),
 
     string_literal: $ => seq(
-      optional('c'),
-      '"',
+      choice('"', 'c"'),
       repeat(choice(
         $.escape_sequence,
         /[^"\\]+/,
@@ -107,8 +179,7 @@ module.exports = grammar({
     ),
 
     multiline_string_literal: $ => seq(
-      optional('c'),
-      '\\\\',
+      choice('\\\\', 'c\\\\'),
       repeat(choice(
         $.escape_sequence,
         /.+/,
@@ -130,6 +201,11 @@ module.exports = grammar({
     null_literal: $ => 'null',
 
     undefined_literal: $ => 'undefined',
+
+    binary_operator: $ => choice('+', '+%', '-', '-%', '*', '*%', '/', '%', '<<', '>>', '&', '|', '^', '||', 'orelse', 'and', 'or', '++', '**'),
+    assignment_operator: $ => choice('+=', '-=', '*=', '+%=', '-%=', '*%=', '/=', '%=', '&=', '|=', '^=', '<<=', '>>='),
+    comparison_operator: $ => choice('==', '!=', '<', '<=', '>', '>='),
+    unary_operator: $ => choice('~', '!', '-', '-%'),
 
     identifier: $ => /[a-zA-Zα-ωΑ-Ωµ_][a-zA-Zα-ωΑ-Ωµ\d_]*/,
   }

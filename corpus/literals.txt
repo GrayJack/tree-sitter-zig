@@ -3,7 +3,6 @@ Integer literals
 ============================================
 
 10;
--10;
 0xF;
 0o7;
 0b100;
@@ -14,7 +13,6 @@ Integer literals
   (integer_literal)
   (integer_literal)
   (integer_literal)
-  (integer_literal)
   (integer_literal))
 
 ============================================
@@ -22,7 +20,6 @@ Float literals
 ============================================
 
 123.0;
--123.0;
 123.0E+77;
 123.0e+77;
 
@@ -33,7 +30,6 @@ Float literals
 ---
 
 (source_file
-  (float_literal)
   (float_literal)
   (float_literal)
   (float_literal)
