@@ -294,3 +294,64 @@ a == b and a > 10;
       left: (identifier)
       operator: (binary_operator)
       right: (integer_literal))))
+
+============================================
+Block expression
+============================================
+
+{};
+
+{
+  var x = 10;
+};
+
+{
+  var x = 10;
+  x
+};
+
+---
+
+(source_file
+  (block)
+  (block
+    (assignment_statement
+      name: (identifier)
+      expression: (integer_literal)))
+  (block
+    (assignment_statement
+      name: (identifier)
+      expression: (integer_literal))
+    (identifier)))
+
+============================================
+Comptime Block expression
+============================================
+
+comptime {};
+
+comptime {
+  var x = 10;
+};
+
+comptime {
+  var x = 10;
+  x
+};
+
+---
+
+(source_file
+  (comptime_block
+    (block))
+  (comptime_block
+    (block
+      (assignment_statement
+        name: (identifier)
+        expression: (integer_literal))))
+  (comptime_block
+    (block
+      (assignment_statement
+        name: (identifier)
+        expression: (integer_literal))
+      (identifier))))

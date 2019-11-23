@@ -19,6 +19,13 @@ const a: u32 = 10;
 var b: f128 = x;
 var c: MyType = y;
 
+var d: ?u64 = null;
+
+threadlocal var a = 10;
+threadlocal var a: ?u32 = 10;
+
+comptime var a = 10;
+
 ---
 
 (source_file
@@ -39,4 +46,20 @@ var c: MyType = y;
   (assignment_statement
     name: (identifier)
     type: (identifier)
-    expression: (identifier)))
+    expression: (identifier))
+  (assignment_statement
+    name: (identifier)
+    type: (optional_type
+      (primitive_type))
+    expression: (null_literal))
+  (assignment_statement
+    name: (identifier)
+    expression: (integer_literal))
+  (assignment_statement
+    name: (identifier)
+    type: (optional_type
+      (primitive_type))
+    expression: (integer_literal))
+  (assignment_statement
+    name: (identifier)
+    expression: (integer_literal)))

@@ -122,6 +122,14 @@
         },
         {
           "type": "SYMBOL",
+          "name": "comptime_block"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "block"
+        },
+        {
+          "type": "SYMBOL",
           "name": "_literals"
         }
       ]
@@ -133,6 +141,27 @@
     "assignment_statement": {
       "type": "SEQ",
       "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "threadlocal"
+                },
+                {
+                  "type": "STRING",
+                  "value": "comptime"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
         {
           "type": "CHOICE",
           "members": [
@@ -203,6 +232,10 @@
         {
           "type": "SYMBOL",
           "name": "primitive_type"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "optional_type"
         },
         {
           "type": "SYMBOL",
@@ -340,6 +373,64 @@
         {
           "type": "STRING",
           "value": "anyerror"
+        }
+      ]
+    },
+    "optional_type": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "?"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_type"
+        }
+      ]
+    },
+    "comptime_block": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "comptime"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "block"
+        }
+      ]
+    },
+    "block": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "{"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_statement"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_expression"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "}"
         }
       ]
     },

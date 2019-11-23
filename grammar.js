@@ -88,6 +88,8 @@ module.exports = grammar({
       $.unary_expression,
       $.binary_expression,
       $.identifier,
+      $.comptime_block,
+      $.block,
       $._literals,
     ),
 
@@ -96,6 +98,7 @@ module.exports = grammar({
 
     // Incomplete
     assignment_statement: $ => seq(
+      optional(choice('threadlocal', 'comptime')),
       choice('const', 'var'),
       field('name', $.identifier),
       optional(seq(
@@ -109,12 +112,29 @@ module.exports = grammar({
 
     _type: $ => choice(
       $.primitive_type,
-      $.identifier
+      $.optional_type,
+      $.identifier,
     ),
 
     primitive_type: $ => choice(...primitive_types),
 
+    optional_type: $ => seq(
+      '?',
+      $._type,
+    ),
+
     // Expressions
+    comptime_block: $ => seq(
+      'comptime',
+      $.block,
+    ),
+
+    block: $ => seq(
+      '{',
+      repeat($._statement),
+      optional($._expression),
+      '}'
+    ),
 
     assignment_expression: $ => prec.left(PREC.assign, seq(
       field('left', $._expression),
