@@ -57,7 +57,9 @@ module.exports = grammar({
   // it better be token, or things get messy.
   extras: $ => [/\s/, $.line_comment, $.doc_comment],
 
-  conflicts: $ => [],
+  conflicts: $ => [
+    [$.optional_type, $.unary_operator],
+  ],
 
   rules: {
     source_file: $ => repeat($._statement),
@@ -84,6 +86,8 @@ module.exports = grammar({
     // Everything is a expression, except functions
     _expression: $ => choice(
       $.assignment_expression,
+      $.array_expression,
+      $.anonymous_array_expr,
       $.compound_assignment_expr,
       $.unary_expression,
       $.binary_expression,
@@ -134,6 +138,28 @@ module.exports = grammar({
       repeat($._statement),
       optional($._expression),
       '}'
+    ),
+
+    array_expression: $ => seq(
+      repeat(seq(
+        '[',
+        field('size', choice($.integer_literal, $.identifier)),
+        ']',
+      )),
+      field('type', $._type),
+      field('values', $.array_values),
+    ),
+
+    anonymous_array_expr: $ => seq(
+      '.{',
+      field('values', alias(sepBy(',', $._expression), $.array_values)),
+      '}',
+    ),
+
+    array_values: $ => seq(
+      '{',
+      sepBy(',', $._expression),
+      '}',
     ),
 
     assignment_expression: $ => prec.left(PREC.assign, seq(
@@ -256,7 +282,7 @@ module.exports = grammar({
 });
 
 function sepBy1(sep, rule) {
-  return seq(rule, repeat(seq(sep, rule)))
+  return seq(rule, repeat(seq(sep, rule)), optional(sep))
 }
 
 function sepBy(sep, rule) {
