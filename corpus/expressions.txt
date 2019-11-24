@@ -388,6 +388,48 @@ f64;
       (identifier))))
 
 ============================================
+Call expressions (both build in and normal)
+============================================
+
+@buildin();
+@ptrToInt(ptr);
+
+call();
+double(x);
+
+assert(@typeOf(ptr) == [*]i32);
+
+---
+
+(source_file
+  (build_in_call_expr
+    function: (identifier)
+    arguments: (arguments))
+  (build_in_call_expr
+    function: (identifier)
+    arguments: (arguments
+      (identifier)))
+  (call_expression
+    function: (identifier)
+    arguments: (arguments))
+  (call_expression
+    function: (identifier)
+    arguments: (arguments
+      (identifier)))
+  (call_expression
+    function: (identifier)
+    arguments: (arguments
+      (binary_expression
+        left: (build_in_call_expr
+          function: (identifier)
+          arguments: (arguments
+            (identifier)))
+        operator: (binary_operator)
+        right: (array_type
+          size: (pointer)
+          (primitive_type))))))
+
+============================================
 Reference and deference expression
 ============================================
 
@@ -556,3 +598,62 @@ Anonymous Array expression
           (integer_literal)
           (integer_literal))))
     values: (array_values)))
+
+============================================
+Index expression
+============================================
+
+a[10];
+b[a];
+
+[_]u8{1, 2, 3}[1];
+
+.{1, 2, 3}[x];
+
+---
+
+(source_file
+  (index_expression
+    (identifier)
+    (integer_literal))
+  (index_expression
+    (identifier)
+    (identifier))
+  (index_expression
+    (array_expression
+      size: (identifier)
+      type: (primitive_type)
+      values: (array_values
+        (integer_literal)
+        (integer_literal)
+        (integer_literal)))
+    (integer_literal))
+  (index_expression
+    (anonymous_array_expr
+      values: (array_values
+        (integer_literal))
+      values: (array_values
+        (integer_literal)
+        (integer_literal)))
+    (identifier)))
+
+
+============================================
+Field expression
+============================================
+
+a.b;
+
+find_pair().myfield;
+
+---
+
+(source_file
+  (field_expression
+    value: (identifier)
+    field: (field_identifier))
+  (field_expression
+    value: (call_expression
+      function: (identifier)
+      arguments: (arguments))
+    field: (field_identifier)))

@@ -89,6 +89,10 @@ module.exports = grammar({
 
     // Everything is a expression, except functions
     _expression: $ => choice(
+      $.build_in_call_expr,
+      $.call_expression,
+      $.index_expression,
+      $.field_expression,
       $.assignment_expression,
       $.array_expression,
       $.anonymous_array_expr,
@@ -107,7 +111,6 @@ module.exports = grammar({
     // Statements
     empty_statement: $ => ';',
 
-    // Incomplete
     assignment_statement: $ => seq(
       optional(choice('threadlocal', 'comptime')),
       choice('const', 'var'),
@@ -122,6 +125,31 @@ module.exports = grammar({
     ),
 
     // Expressions
+    build_in_call_expr: $ => prec(PREC.call, seq(
+      '@',
+      field('function', $.identifier),
+      field('arguments', $.arguments),
+    )),
+
+    call_expression: $ => prec(PREC.call, seq(
+      field('function', $._expression),
+      field('arguments', $.arguments),
+    )),
+
+    arguments: $ => seq(
+      '(',
+      sepBy(',', $._expression),
+      ')',
+    ),
+
+    field_expression: $ => prec(PREC.call, seq(
+      field('value', $._expression),
+      '.',
+      field('field', alias($.identifier, $.field_identifier)),
+    )),
+
+    index_expression: $ => prec(PREC.call, seq($._expression, '[', $._expression, ']')),
+
     _type: $ => prec(-1, choice(
       $.primitive_type,
       $.optional_type,
