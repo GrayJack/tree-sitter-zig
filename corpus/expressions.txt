@@ -399,6 +399,8 @@ double(x);
 
 assert(@typeOf(ptr) == [*]i32);
 
+std.debug.warn("Hello");
+
 ---
 
 (source_file
@@ -427,7 +429,15 @@ assert(@typeOf(ptr) == [*]i32);
         operator: (binary_operator)
         right: (array_type
           size: (pointer)
-          (primitive_type))))))
+          (primitive_type)))))
+  (field_expression
+      value: (field_expression
+        value: (identifier)
+        field: (field_identifier))
+      field: (call_expression
+        function: (identifier)
+        arguments: (arguments
+          (string_literal)))))
 
 ============================================
 Reference and deference expression

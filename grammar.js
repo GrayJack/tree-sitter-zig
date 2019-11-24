@@ -63,6 +63,7 @@ module.exports = grammar({
   conflicts: $ => [
     [$.optional_type, $.unary_operator],
     [$.array_type, $.array_expression],
+    [$.call_expression],
   ],
 
   rules: {
@@ -132,7 +133,7 @@ module.exports = grammar({
     )),
 
     call_expression: $ => prec(PREC.call, seq(
-      field('function', $._expression),
+      field('function', $.identifier),
       field('arguments', $.arguments),
     )),
 
@@ -142,10 +143,10 @@ module.exports = grammar({
       ')',
     ),
 
-    field_expression: $ => prec(PREC.call, seq(
+    field_expression: $ => prec.left(PREC.call, seq(
       field('value', $._expression),
       '.',
-      field('field', alias($.identifier, $.field_identifier)),
+      field('field', choice(alias($.identifier, $.field_identifier), $._expression)),
     )),
 
     index_expression: $ => prec(PREC.call, seq($._expression, '[', $._expression, ']')),
