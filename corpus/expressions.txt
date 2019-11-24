@@ -647,6 +647,34 @@ b[a];
         (integer_literal)))
     (identifier)))
 
+============================================
+Slice pattern expression
+============================================
+
+a[s..end];
+b[..];
+c[s..];
+d[..end];
+
+---
+
+(source_file
+  (index_expression
+    (identifier)
+    (slice_pattern
+      start: (identifier)
+      end: (identifier)))
+  (index_expression
+    (identifier)
+    (slice_pattern))
+  (index_expression
+    (identifier)
+    (slice_pattern
+      start: (identifier)))
+  (index_expression
+    (identifier)
+    (slice_pattern
+      end: (identifier))))
 
 ============================================
 Field expression

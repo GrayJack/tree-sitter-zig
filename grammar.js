@@ -156,7 +156,21 @@ module.exports = grammar({
       field('field', choice(alias($.identifier, $.field_identifier), $._expression)),
     )),
 
-    index_expression: $ => prec(PREC.call, seq($._expression, '[', $._expression, ']')),
+    index_expression: $ => prec(PREC.call, seq(
+      $._expression,
+      '[',
+      choice(
+        $._expression,
+        $.slice_pattern,
+      ),
+      ']'
+    )),
+
+    slice_pattern: $ => prec(PREC.call, seq(
+      optional(field('start', $._expression)),
+      '..',
+      optional(field('end', $._expression)),
+    )),
 
     _type: $ => prec(-1, choice(
       $.primitive_type,
