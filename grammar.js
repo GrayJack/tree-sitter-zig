@@ -101,6 +101,7 @@ module.exports = grammar({
       $.call_expression,
       $.index_expression,
       $.field_expression,
+      $.if_expression,
       $.assignment_expression,
       $.array_expression,
       $.anonymous_array_expr,
@@ -108,7 +109,6 @@ module.exports = grammar({
       $.unary_expression,
       $.binary_expression,
       $.comptime_block,
-      $.block,
       $.reference_expression,
       $.dereference_expression,
       $._type,
@@ -172,6 +172,34 @@ module.exports = grammar({
       optional(field('end', $._expression)),
     )),
 
+    if_expression: $ => seq(
+      'if',
+      $._condition,
+      field('consequence', $.block),
+      optional(seq(
+        'else',
+        optional($.payload),
+        field('alternative', choice(
+          $.block,
+          $.if_expression,
+        ))
+      )),
+    ),
+
+    _condition: $ => seq(
+      '(',
+      field('condition', $._expression),
+      ')',
+      optional($.payload),
+    ),
+
+    payload: $ => seq(
+      '|',
+      optional('*'),
+      field('values', sepBy1(',', alias($.identifier, $.payload_identifier))),
+      '|',
+    ),
+
     _type: $ => prec(-1, choice(
       $.primitive_type,
       $.optional_type,
@@ -224,7 +252,7 @@ module.exports = grammar({
 
     block: $ => seq(
       '{',
-      repeat($._statement),
+      optional(repeat($._statement)),
       optional($._expression),
       '}'
     ),

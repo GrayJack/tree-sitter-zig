@@ -456,33 +456,101 @@ a.*;
     value: (identifier)))
 
 ============================================
-Block expression
+If expression
 ============================================
 
-{};
+if (true) {};
 
-{
-  var x = 10;
-};
+if (true) {} else {};
 
-{
-  var x = 10;
-  x
-};
+if (a > b) {} else if (a == b) {} else {};
+
+if (a) |value| {};
+if (a) |*value| {};
+
+if (a) |value, i| {};
+if (a) |*value, i| {};
+
+if (a) |value| {} else {};
+if (a) |*value| {} else {};
+
+if (a) |value| {} else |err| {};
+if (a) |*value| {} else |err| {};
+
 
 ---
 
 (source_file
-  (block)
-  (block
-    (assignment_statement
-      name: (identifier)
-      expression: (integer_literal)))
-  (block
-    (assignment_statement
-      name: (identifier)
-      expression: (integer_literal))
-    (identifier)))
+  (if_expression
+    condition: (boolean_literal)
+    consequence: (block))
+  (if_expression
+    condition: (boolean_literal)
+    consequence: (block)
+    alternative: (block))
+  (if_expression
+    condition: (binary_expression
+      left: (identifier)
+      operator: (binary_operator)
+      right: (identifier))
+    consequence: (block)
+    alternative: (if_expression
+      condition: (binary_expression
+        left: (identifier)
+        operator: (binary_operator)
+        right: (identifier))
+      consequence: (block)
+      alternative: (block)))
+  (if_expression
+    condition: (identifier)
+    (payload
+      values: (payload_identifier))
+    consequence: (block))
+  (if_expression
+    condition: (identifier)
+    (payload
+      values: (payload_identifier))
+    consequence: (block))
+  (if_expression
+    condition: (identifier)
+    (payload
+      values: (payload_identifier)
+      values: (payload_identifier))
+    consequence: (block))
+  (if_expression
+    condition: (identifier)
+    (payload
+      values: (payload_identifier)
+      values: (payload_identifier))
+    consequence: (block))
+  (if_expression
+    condition: (identifier)
+    (payload
+      values: (payload_identifier))
+    consequence: (block)
+    alternative: (block))
+  (if_expression
+    condition: (identifier)
+    (payload
+      values: (payload_identifier))
+    consequence: (block)
+    alternative: (block))
+  (if_expression
+    condition: (identifier)
+    (payload
+      values: (payload_identifier))
+    consequence: (block)
+    (payload
+      values: (payload_identifier))
+    alternative: (block))
+  (if_expression
+    condition: (identifier)
+    (payload
+      values: (payload_identifier))
+    consequence: (block)
+    (payload
+      values: (payload_identifier))
+    alternative: (block)))
 
 ============================================
 Comptime Block expression
