@@ -1115,6 +1115,10 @@
           "named": true
         },
         {
+          "type": "test_statement",
+          "named": true
+        },
+        {
           "type": "unary_expression",
           "named": true
         },
@@ -2261,6 +2265,10 @@
           "named": true
         },
         {
+          "type": "test_statement",
+          "named": true
+        },
+        {
           "type": "unary_expression",
           "named": true
         },
@@ -2284,6 +2292,32 @@
           "named": true
         }
       ]
+    }
+  },
+  {
+    "type": "test_statement",
+    "named": true,
+    "fields": {
+      "body": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "block",
+            "named": true
+          }
+        ]
+      },
+      "test_name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "string_literal",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -2830,6 +2864,10 @@
   },
   {
     "type": "promise",
+    "named": false
+  },
+  {
+    "type": "test",
     "named": false
   },
   {

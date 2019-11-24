@@ -63,6 +63,10 @@
         {
           "type": "SYMBOL",
           "name": "_declaration_statement"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "test_statement"
         }
       ]
     },
@@ -94,6 +98,31 @@
         {
           "type": "SYMBOL",
           "name": "assignment_statement"
+        }
+      ]
+    },
+    "test_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "test"
+        },
+        {
+          "type": "FIELD",
+          "name": "test_name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "string_literal"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "body",
+          "content": {
+            "type": "SYMBOL",
+            "name": "block"
+          }
         }
       ]
     },

@@ -77,6 +77,7 @@ module.exports = grammar({
     _statement: $ => choice(
       $._expression_statement,
       $._declaration_statement,
+      $.test_statement,
     ),
 
     _expression_statement: $ => choice(
@@ -86,6 +87,12 @@ module.exports = grammar({
     _declaration_statement: $ => choice(
       $.empty_statement,
       $.assignment_statement,
+    ),
+
+    test_statement: $ => seq(
+      'test',
+      field('test_name', $.string_literal),
+      field('body', $.block),
     ),
 
     // Everything is a expression, except functions
