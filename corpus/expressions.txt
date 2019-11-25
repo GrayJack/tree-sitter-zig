@@ -459,23 +459,30 @@ a.*;
 If expression
 ============================================
 
-if (true) {};
+if (true) {}
 
-if (true) {} else {};
+if (true) {} else {}
 
-if (a > b) {} else if (a == b) {} else {};
+if (a > b) {} else if (a == b) {} else {}
 
-if (a) |value| {};
-if (a) |*value| {};
+if (a) |value| {}
+if (a) |*value| {}
 
-if (a) |value, i| {};
-if (a) |*value, i| {};
+if (a) |value, i| {}
+if (a) |*value, i| {}
 
-if (a) |value| {} else {};
-if (a) |*value| {} else {};
+if (a) |value| {} else {}
+if (a) |*value| {} else {}
 
-if (a) |value| {} else |err| {};
-if (a) |*value| {} else |err| {};
+if (a) |value| {} else |err| {}
+if (a) |*value| {} else |err| {}
+
+if (a != b) 47 else 3089
+
+if (true)
+    a
+else
+    b
 
 
 ---
@@ -550,22 +557,191 @@ if (a) |*value| {} else |err| {};
     consequence: (block)
     (payload
       values: (payload_identifier))
+    alternative: (block))
+  (if_expression
+    condition: (binary_expression
+      left: (identifier)
+      operator: (binary_operator)
+      right: (identifier))
+    consequence: (integer_literal)
+    alternative: (integer_literal))
+  (if_expression
+    condition: (boolean_literal)
+    consequence: (identifier)
+    alternative: (identifier)))
+
+============================================
+While expression
+============================================
+
+while (a) {}
+
+outer: while (a) {}
+
+inline while (a) {}
+
+while (a) |value| {}
+
+while (a < b) : (a += 1) {}
+
+while (a) {} else {}
+
+while (a) {} else |err| {}
+
+---
+
+(source_file
+  (while_expression
+    condition: (identifier)
+    body: (block))
+  (while_expression
+    (loop_label
+      name: (label_identifier))
+    condition: (identifier)
+    body: (block))
+  (while_expression
+    condition: (identifier)
+    body: (block))
+  (while_expression
+    condition: (identifier)
+    (payload
+      values: (payload_identifier))
+    body: (block))
+  (while_expression
+    condition: (binary_expression
+      left: (identifier)
+      operator: (binary_operator)
+      right: (identifier))
+    continue: (compound_assignment_expr
+      left: (identifier)
+      operator: (assignment_operator)
+      right: (integer_literal))
+    body: (block))
+  (while_expression
+    condition: (identifier)
+    body: (block)
+    alternative: (block))
+  (while_expression
+    condition: (identifier)
+    body: (block)
+    (payload
+      values: (payload_identifier))
     alternative: (block)))
+
+============================================
+For expression
+============================================
+
+for (xs) |value| {}
+inline for (xs) |value| {}
+label: for (xs) |value| {}
+label: inline for (xs) |value| {}
+
+for (xs) |value| {} else blk: {}
+
+---
+
+(source_file
+  (for_expression
+    condition: (identifier)
+    (payload
+      values: (payload_identifier))
+    body: (block))
+  (for_expression
+    condition: (identifier)
+    (payload
+      values: (payload_identifier))
+    body: (block))
+  (for_expression
+    (loop_label
+      name: (label_identifier))
+    condition: (identifier)
+    (payload
+      values: (payload_identifier))
+    body: (block))
+  (for_expression
+    (loop_label
+      name: (label_identifier))
+    condition: (identifier)
+    (payload
+      values: (payload_identifier))
+    body: (block))
+  (for_expression
+    condition: (identifier)
+    (payload
+      values: (payload_identifier))
+    body: (block)
+    (loop_label
+      name: (label_identifier))
+    alternative: (block)))
+
+============================================
+Continue and Break expression
+============================================
+
+continue;
+continue :blk;
+
+break;
+break 10;
+break val;
+break :blk;
+break :blk 1.1;
+break :blk "wut";
+
+---
+
+(source_file
+  (continue_expression)
+  (continue_expression
+    label: (loop_label_inverse
+      name: (label_identifier)))
+  (break_expression)
+  (break_expression
+    value: (integer_literal))
+  (break_expression
+    value: (identifier))
+  (break_expression
+    label: (loop_label_inverse
+      name: (label_identifier)))
+  (break_expression
+    label: (loop_label_inverse
+      name: (label_identifier))
+    value: (float_literal))
+  (break_expression
+    label: (loop_label_inverse
+      name: (label_identifier))
+    value: (string_literal)))
+
+============================================
+Return expression
+============================================
+
+return;
+
+return 125;
+
+---
+
+(source_file
+  (return_expression)
+  (return_expression
+    (integer_literal)))
 
 ============================================
 Comptime Block expression
 ============================================
 
-comptime {};
+comptime {}
 
 comptime {
   var x = 10;
-};
+}
 
 comptime {
   var x = 10;
   x
-};
+}
 
 ---
 
@@ -763,3 +939,26 @@ find_pair().myfield;
       function: (identifier)
       arguments: (arguments))
     field: (field_identifier)))
+
+============================================
+Test expression
+============================================
+
+test "mytest" {}
+
+test "assignment" {
+    foo();
+}
+
+---
+
+(source_file
+  (test_expression
+    test_name: (string_literal)
+    body: (block))
+  (test_expression
+    test_name: (string_literal)
+    body: (block
+      (call_expression
+        function: (identifier)
+        arguments: (arguments)))))

@@ -109,26 +109,3 @@ const c: *[*]u64 = undefined;
           size: (pointer)
           (primitive_type)))
       expression: (undefined_literal)))
-
-============================================
-Test statements
-============================================
-
-test "mytest" {}
-
-test "assignment" {
-    foo();
-}
-
----
-
-(source_file
-  (test_statement
-    test_name: (string_literal)
-    body: (block))
-  (test_statement
-    test_name: (string_literal)
-    body: (block
-      (call_expression
-        function: (identifier)
-        arguments: (arguments)))))

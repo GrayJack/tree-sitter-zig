@@ -14,7 +14,7 @@ const PREC = {
   or: 2,
   special: 1,
   assign: 0,
-
+  if: -1,
   optional: -2,
   array: -3,
 }
@@ -64,6 +64,9 @@ module.exports = grammar({
     [$.optional_type, $.unary_operator],
     [$.array_type, $.array_expression],
     [$.call_expression],
+    // [$.if_expression],
+    // [$.while_expression],
+    // [$.for_expression],
   ],
 
   rules: {
@@ -77,44 +80,49 @@ module.exports = grammar({
     _statement: $ => choice(
       $._expression_statement,
       $._declaration_statement,
-      $.test_statement,
     ),
 
-    _expression_statement: $ => choice(
+    _expression_statement: $ => prec.left(choice(
       seq($._expression, ';'),
-    ),
+      prec(1, $._expression_ending_with_block),
+    )),
+
+    _expression_ending_with_block: $ => prec(1, choice(
+      $.block,
+      $.comptime_block,
+      $.if_expression,
+      $.while_expression,
+      $.for_expression,
+      $.test_expression,
+    )),
 
     _declaration_statement: $ => choice(
       $.empty_statement,
       $.assignment_statement,
     ),
 
-    test_statement: $ => seq(
-      'test',
-      field('test_name', $.string_literal),
-      field('body', $.block),
-    ),
-
     // Everything is a expression, except functions
-    _expression: $ => choice(
+    _expression: $ => prec.left(choice(
       $.build_in_call_expr,
       $.call_expression,
       $.index_expression,
       $.field_expression,
-      $.if_expression,
+      $._expression_ending_with_block,
+      $.continue_expression,
+      $.break_expression,
+      $.return_expression,
       $.assignment_expression,
       $.array_expression,
       $.anonymous_array_expr,
       $.compound_assignment_expr,
       $.unary_expression,
       $.binary_expression,
-      $.comptime_block,
       $.reference_expression,
       $.dereference_expression,
       $._type,
       $._literals,
       $.identifier,
-    ),
+    )),
 
     // Statements
     empty_statement: $ => ';',
@@ -172,19 +180,30 @@ module.exports = grammar({
       optional(field('end', $._expression)),
     )),
 
-    if_expression: $ => seq(
+    if_expression: $ => prec.left(seq(
       'if',
       $._condition,
-      field('consequence', $.block),
-      optional(seq(
-        'else',
-        optional($.payload),
-        field('alternative', choice(
-          $.block,
-          $.if_expression,
-        ))
-      )),
-    ),
+      field('consequence', choice($._expression, $.block)),
+      optional($._else_tail),
+    )),
+
+    while_expression: $ => prec.left(seq(
+      optional($.loop_label),
+      optional('inline'),
+      'while',
+      choice($._condition, $._condition_with_continue),
+      field('body', $.block),
+      optional($._else_loop_tail),
+    )),
+
+    for_expression: $ => prec.left(seq(
+      optional($.loop_label),
+      optional('inline'),
+      'for',
+      $._condition,
+      field('body', $.block),
+      optional($._else_loop_tail),
+    )),
 
     _condition: $ => seq(
       '(',
@@ -193,11 +212,89 @@ module.exports = grammar({
       optional($.payload),
     ),
 
+    _condition_with_continue: $ => seq(
+      '(',
+      field('condition', $._expression),
+      ')',
+      ':',
+      '(',
+      field('continue', choice(
+        $._expression,
+        seq('{', sepBy1(';', $._expression),'}')
+      )),
+      ')',
+    ),
+
+    _else_tail: $ => prec(PREC.if, seq(
+      'else',
+      choice(
+        $._else_case_payload,
+        $._else_case_default,
+      ),
+    )),
+
+    _else_loop_tail: $ => prec(PREC.if, seq(
+      'else',
+      choice(
+        $._else_case_label,
+        $._else_case_payload,
+        $._else_case_default,
+      ),
+    )),
+
+    _else_case_default: $ => prec.left(field('alternative', choice(
+      $._expression,
+      $.block,
+      $.if_expression,
+    ))),
+
+    _else_case_payload: $ => seq(
+      optional($.payload),
+      field('alternative', $.block),
+    ),
+
+    _else_case_label: $ => seq(
+      optional($.loop_label),
+      field('alternative', $.block)
+    ),
+
+    loop_label: $ => seq(
+      field('name', alias($.identifier, $.label_identifier)),
+      ':',
+    ),
+
     payload: $ => seq(
       '|',
       optional('*'),
       field('values', sepBy1(',', alias($.identifier, $.payload_identifier))),
       '|',
+    ),
+
+    break_expression: $ => prec.left(seq(
+      'break',
+      optional(field('label', $.loop_label_inverse)),
+      optional(field('value', $._expression)),
+    )),
+
+    continue_expression: $ => seq(
+      'continue',
+      optional(field('label', $.loop_label_inverse)),
+    ),
+
+    loop_label_inverse: $ => seq(
+      ':',
+      field('name', alias($.identifier, $.label_identifier)),
+    ),
+
+    return_expression: $ => choice(
+      prec.left(seq('return', $._expression)),
+      prec(-1, 'return'),
+    ),
+
+    test_expression: $ => seq(
+      'test',
+      field('test_name', $.string_literal),
+      field('body', $.block),
     ),
 
     _type: $ => prec(-1, choice(
@@ -250,12 +347,12 @@ module.exports = grammar({
       $.block,
     ),
 
-    block: $ => seq(
+    block: $ => prec.left(seq(
       '{',
       optional(repeat($._statement)),
       optional($._expression),
       '}'
-    ),
+    )),
 
     reference_expression: $ => prec(PREC.unary, seq(
       '&',
