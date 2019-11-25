@@ -63,6 +63,7 @@ module.exports = grammar({
   conflicts: $ => [
     [$.optional_type, $.unary_operator],
     [$.array_type, $.array_expression],
+    [$.anonymous_struct, $.anonymous_array_expr],
     [$.call_expression],
   ],
 
@@ -109,6 +110,7 @@ module.exports = grammar({
       $._expression_ending_with_block,
       $.struct_expression,
       $.struct_construction,
+      $.anonymous_struct,
       $.enum_expression,
       $.continue_expression,
       $.break_expression,
@@ -441,6 +443,12 @@ module.exports = grammar({
       '}',
     ),
 
+    anonymous_struct: $ => seq(
+      '.{',
+      field('field', sepBy1(',', $.field_init)),
+      '}'
+    ),
+
     field_init: $ => seq(
       '.',
       field('name', alias($.identifier, $.field_identifier)),
@@ -563,10 +571,10 @@ module.exports = grammar({
       $.enum_literal,
     ),
 
-    enum_literal: $ => seq(
+    enum_literal: $ => prec.right(seq(
       '.',
       field('variant', alias($.identifier, $.enum_identifier)),
-    ),
+    )),
 
     integer_literal: $ => token(seq(
       choice(

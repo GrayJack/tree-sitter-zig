@@ -16,6 +16,26 @@
     }
   },
   {
+    "type": "anonymous_struct",
+    "named": true,
+    "fields": {
+      "field": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "field_init",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "arguments",
     "named": true,
     "fields": {},
@@ -25,6 +45,10 @@
       "types": [
         {
           "type": "anonymous_array_expr",
+          "named": true
+        },
+        {
+          "type": "anonymous_struct",
           "named": true
         },
         {
@@ -325,6 +349,10 @@
           "named": true
         },
         {
+          "type": "anonymous_struct",
+          "named": true
+        },
+        {
           "type": "array_expression",
           "named": true
         },
@@ -500,6 +528,10 @@
             "named": true
           },
           {
+            "type": "anonymous_struct",
+            "named": true
+          },
+          {
             "type": "array_expression",
             "named": true
           },
@@ -667,6 +699,10 @@
         "types": [
           {
             "type": "anonymous_array_expr",
+            "named": true
+          },
+          {
+            "type": "anonymous_struct",
             "named": true
           },
           {
@@ -848,6 +884,10 @@
         "types": [
           {
             "type": "anonymous_array_expr",
+            "named": true
+          },
+          {
+            "type": "anonymous_struct",
             "named": true
           },
           {
@@ -1085,6 +1125,10 @@
             "named": true
           },
           {
+            "type": "anonymous_struct",
+            "named": true
+          },
+          {
             "type": "array_expression",
             "named": true
           },
@@ -1265,6 +1309,10 @@
             "named": true
           },
           {
+            "type": "anonymous_struct",
+            "named": true
+          },
+          {
             "type": "array_expression",
             "named": true
           },
@@ -1438,6 +1486,10 @@
       "types": [
         {
           "type": "anonymous_array_expr",
+          "named": true
+        },
+        {
+          "type": "anonymous_struct",
           "named": true
         },
         {
@@ -1644,6 +1696,10 @@
         "types": [
           {
             "type": "anonymous_array_expr",
+            "named": true
+          },
+          {
+            "type": "anonymous_struct",
             "named": true
           },
           {
@@ -1890,6 +1946,10 @@
             "named": true
           },
           {
+            "type": "anonymous_struct",
+            "named": true
+          },
+          {
             "type": "array_expression",
             "named": true
           },
@@ -2067,6 +2127,10 @@
         "types": [
           {
             "type": "anonymous_array_expr",
+            "named": true
+          },
+          {
+            "type": "anonymous_struct",
             "named": true
           },
           {
@@ -2274,6 +2338,10 @@
         "types": [
           {
             "type": "anonymous_array_expr",
+            "named": true
+          },
+          {
+            "type": "anonymous_struct",
             "named": true
           },
           {
@@ -2504,6 +2572,10 @@
       "types": [
         {
           "type": "anonymous_array_expr",
+          "named": true
+        },
+        {
+          "type": "anonymous_struct",
           "named": true
         },
         {
@@ -2807,6 +2879,10 @@
             "named": true
           },
           {
+            "type": "anonymous_struct",
+            "named": true
+          },
+          {
             "type": "array_expression",
             "named": true
           },
@@ -3037,6 +3113,10 @@
             "named": true
           },
           {
+            "type": "anonymous_struct",
+            "named": true
+          },
+          {
             "type": "array_expression",
             "named": true
           },
@@ -3208,6 +3288,10 @@
         "types": [
           {
             "type": "anonymous_array_expr",
+            "named": true
+          },
+          {
+            "type": "anonymous_struct",
             "named": true
           },
           {
@@ -3397,6 +3481,10 @@
             "named": true
           },
           {
+            "type": "anonymous_struct",
+            "named": true
+          },
+          {
             "type": "array_expression",
             "named": true
           },
@@ -3570,6 +3658,10 @@
         "types": [
           {
             "type": "anonymous_array_expr",
+            "named": true
+          },
+          {
+            "type": "anonymous_struct",
             "named": true
           },
           {
@@ -3750,6 +3842,10 @@
         "types": [
           {
             "type": "anonymous_array_expr",
+            "named": true
+          },
+          {
+            "type": "anonymous_struct",
             "named": true
           },
           {
@@ -3974,6 +4070,10 @@
         "types": [
           {
             "type": "anonymous_array_expr",
+            "named": true
+          },
+          {
+            "type": "anonymous_struct",
             "named": true
           },
           {
@@ -4202,6 +4302,10 @@
             "named": true
           },
           {
+            "type": "anonymous_struct",
+            "named": true
+          },
+          {
             "type": "array_expression",
             "named": true
           },
@@ -4392,6 +4496,10 @@
             "named": true
           },
           {
+            "type": "anonymous_struct",
+            "named": true
+          },
+          {
             "type": "array_expression",
             "named": true
           },
@@ -4562,6 +4670,10 @@
             "named": true
           },
           {
+            "type": "anonymous_struct",
+            "named": true
+          },
+          {
             "type": "array_expression",
             "named": true
           },
@@ -4729,6 +4841,10 @@
         "types": [
           {
             "type": "anonymous_array_expr",
+            "named": true
+          },
+          {
+            "type": "anonymous_struct",
             "named": true
           },
           {
@@ -4915,6 +5031,10 @@
       "types": [
         {
           "type": "anonymous_array_expr",
+          "named": true
+        },
+        {
+          "type": "anonymous_struct",
           "named": true
         },
         {
@@ -5329,6 +5449,10 @@
             "named": true
           },
           {
+            "type": "anonymous_struct",
+            "named": true
+          },
+          {
             "type": "array_expression",
             "named": true
           },
@@ -5502,6 +5626,10 @@
       "types": [
         {
           "type": "anonymous_array_expr",
+          "named": true
+        },
+        {
+          "type": "anonymous_struct",
           "named": true
         },
         {
@@ -5680,6 +5808,10 @@
             "named": true
           },
           {
+            "type": "anonymous_struct",
+            "named": true
+          },
+          {
             "type": "array_expression",
             "named": true
           },
@@ -5847,6 +5979,10 @@
         "types": [
           {
             "type": "anonymous_array_expr",
+            "named": true
+          },
+          {
+            "type": "anonymous_struct",
             "named": true
           },
           {
@@ -6023,6 +6159,10 @@
       "types": [
         {
           "type": "anonymous_array_expr",
+          "named": true
+        },
+        {
+          "type": "anonymous_struct",
           "named": true
         },
         {
@@ -6277,6 +6417,10 @@
           "named": true
         },
         {
+          "type": "anonymous_struct",
+          "named": true
+        },
+        {
           "type": "array_expression",
           "named": true
         },
@@ -6498,6 +6642,10 @@
           "named": true
         },
         {
+          "type": "anonymous_struct",
+          "named": true
+        },
+        {
           "type": "array_expression",
           "named": true
         },
@@ -6670,6 +6818,10 @@
         "types": [
           {
             "type": "anonymous_array_expr",
+            "named": true
+          },
+          {
+            "type": "anonymous_struct",
             "named": true
           },
           {
@@ -6864,6 +7016,10 @@
             "named": true
           },
           {
+            "type": "anonymous_struct",
+            "named": true
+          },
+          {
             "type": "array_expression",
             "named": true
           },
@@ -7055,6 +7211,10 @@
             "named": true
           },
           {
+            "type": "anonymous_struct",
+            "named": true
+          },
+          {
             "type": "array_expression",
             "named": true
           },
@@ -7235,6 +7395,10 @@
             "named": true
           },
           {
+            "type": "anonymous_struct",
+            "named": true
+          },
+          {
             "type": "array_expression",
             "named": true
           },
@@ -7406,6 +7570,10 @@
           },
           {
             "type": "anonymous_array_expr",
+            "named": true
+          },
+          {
+            "type": "anonymous_struct",
             "named": true
           },
           {

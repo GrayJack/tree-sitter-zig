@@ -186,6 +186,10 @@
           },
           {
             "type": "SYMBOL",
+            "name": "anonymous_struct"
+          },
+          {
+            "type": "SYMBOL",
             "name": "enum_expression"
           },
           {
@@ -2186,6 +2190,60 @@
         }
       ]
     },
+    "anonymous_struct": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": ".{"
+        },
+        {
+          "type": "FIELD",
+          "name": "field",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "field_init"
+              },
+              {
+                "type": "REPEAT",
+                "content": {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": ","
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "field_init"
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": ","
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "}"
+        }
+      ]
+    },
     "field_init": {
       "type": "SEQ",
       "members": [
@@ -3363,26 +3421,30 @@
       ]
     },
     "enum_literal": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "."
-        },
-        {
-          "type": "FIELD",
-          "name": "variant",
-          "content": {
-            "type": "ALIAS",
+      "type": "PREC_RIGHT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "."
+          },
+          {
+            "type": "FIELD",
+            "name": "variant",
             "content": {
-              "type": "SYMBOL",
-              "name": "identifier"
-            },
-            "named": true,
-            "value": "enum_identifier"
+              "type": "ALIAS",
+              "content": {
+                "type": "SYMBOL",
+                "name": "identifier"
+              },
+              "named": true,
+              "value": "enum_identifier"
+            }
           }
-        }
-      ]
+        ]
+      }
     },
     "integer_literal": {
       "type": "TOKEN",
@@ -3776,6 +3838,10 @@
     [
       "array_type",
       "array_expression"
+    ],
+    [
+      "anonymous_struct",
+      "anonymous_array_expr"
     ],
     [
       "call_expression"

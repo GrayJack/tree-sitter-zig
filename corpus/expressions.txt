@@ -1027,6 +1027,32 @@ MyType {
       value: (integer_literal))))
 
 ============================================
+Anonymous Struct expression
+============================================
+
+.{ .x = 10 };
+.{
+  .x = 10,
+  .y = .Var,
+};
+
+---
+
+(source_file
+  (anonymous_struct
+    field: (field_init
+      name: (field_identifier)
+      value: (integer_literal)))
+  (anonymous_struct
+    field: (field_init
+      name: (field_identifier)
+      value: (integer_literal))
+    field: (field_init
+      name: (field_identifier)
+      value: (enum_literal
+        variant: (enum_identifier)))))
+
+============================================
 Enum expression
 ============================================
 
