@@ -3890,6 +3890,11 @@
     }
   },
   {
+    "type": "null_literal",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "optional_type",
     "named": true,
     "fields": {},
@@ -6002,8 +6007,8 @@
     "named": false
   },
   {
-    "type": "null_literal",
-    "named": true
+    "type": "null",
+    "named": false
   },
   {
     "type": "payload_identifier",

@@ -1908,6 +1908,10 @@
         "members": [
           {
             "type": "STRING",
+            "value": "null"
+          },
+          {
+            "type": "STRING",
             "value": "const"
           },
           {

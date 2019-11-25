@@ -398,6 +398,7 @@ module.exports = grammar({
     )),
 
     type_prefix: $ => prec(-1, choice(
+      'null',
       'const',
       'volatile',
       'allowzero',
