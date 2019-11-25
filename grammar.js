@@ -185,6 +185,7 @@ module.exports = grammar({
     ),
 
     parameter: $ => seq(
+      optional('comptime'),
       field('name', $.identifier),
       ':',
       field('type', choice($._type, alias('var', $.inference_type), $.variadic_parameter)),
