@@ -54,7 +54,7 @@ const c: *[*]u64 = undefined;
     expression: (identifier))
   (assignment_statement
     name: (identifier)
-    type: (identifier)
+    type: (type_identifier)
     expression: (identifier))
   (assignment_statement
     name: (identifier)
@@ -62,14 +62,17 @@ const c: *[*]u64 = undefined;
       (primitive_type))
     expression: (null_literal))
   (assignment_statement
+    (assignment_modifier)
     name: (identifier)
     expression: (integer_literal))
   (assignment_statement
+    (assignment_modifier)
     name: (identifier)
     type: (optional_type
       (primitive_type))
     expression: (integer_literal))
   (assignment_statement
+    (assignment_modifier)
     name: (identifier)
     expression: (integer_literal))
   (assignment_statement
@@ -81,34 +84,34 @@ const c: *[*]u64 = undefined;
           (primitive_type))))
     expression: (undefined_literal))
   (assignment_statement
-      name: (identifier)
-      type: (array_type
-        (primitive_type))
-      expression: (undefined_literal))
-    (assignment_statement
-      name: (identifier)
-      type: (array_type
+    name: (identifier)
+    type: (array_type
+      (primitive_type))
+    expression: (undefined_literal))
+  (assignment_statement
+    name: (identifier)
+    type: (array_type
+      size: (pointer)
+      (primitive_type))
+    expression: (undefined_literal))
+  (assignment_statement
+    name: (identifier)
+    type: (pointer_type
+      (primitive_type))
+    expression: (undefined_literal))
+  (assignment_statement
+    name: (identifier)
+    type: (pointer_type
+      (optional_type
+        (primitive_type)))
+    expression: (undefined_literal))
+  (assignment_statement
+    name: (identifier)
+    type: (pointer_type
+      (array_type
         size: (pointer)
-        (primitive_type))
-      expression: (undefined_literal))
-    (assignment_statement
-      name: (identifier)
-      type: (pointer_type
-        (primitive_type))
-      expression: (undefined_literal))
-    (assignment_statement
-      name: (identifier)
-      type: (pointer_type
-        (optional_type
-          (primitive_type)))
-      expression: (undefined_literal))
-    (assignment_statement
-      name: (identifier)
-      type: (pointer_type
-        (array_type
-          size: (pointer)
-          (primitive_type)))
-      expression: (undefined_literal)))
+        (primitive_type)))
+    expression: (undefined_literal)))
 
 ============================================
 Function declaration statements

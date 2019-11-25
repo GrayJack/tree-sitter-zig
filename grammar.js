@@ -109,6 +109,8 @@ module.exports = grammar({
       $.index_expression,
       $.field_expression,
       $._expression_ending_with_block,
+      $.struct_expression,
+      $.struct_construction,
       $.continue_expression,
       $.break_expression,
       $.return_expression,
@@ -129,7 +131,8 @@ module.exports = grammar({
     empty_statement: $ => ';',
 
     assignment_statement: $ => seq(
-      optional(choice('threadlocal', 'comptime')),
+      optional($.visibility_modifier),
+      optional(alias(choice('threadlocal', 'comptime'), $.assignment_modifier)),
       choice('const', 'var'),
       field('name', $.identifier),
       optional(seq(
@@ -242,7 +245,7 @@ module.exports = grammar({
 
     while_expression: $ => prec.left(seq(
       optional($.loop_label),
-      optional('inline'),
+      optional(alias('inline', $.loop_modifier)),
       'while',
       choice($._condition, $._condition_with_continue),
       field('body', $.block),
@@ -251,7 +254,7 @@ module.exports = grammar({
 
     for_expression: $ => prec.left(seq(
       optional($.loop_label),
-      optional('inline'),
+      optional(alias('inline', $.loop_modifier)),
       'for',
       $._condition,
       field('body', $.block),
@@ -356,7 +359,7 @@ module.exports = grammar({
       $.pointer_type,
       $.error_type,
       $.array_type,
-      $.identifier,
+      alias($.identifier, $.type_identifier),
     )),
 
     primitive_type: $ => choice(...primitive_types),
@@ -427,6 +430,41 @@ module.exports = grammar({
       field('value', $._expression),
       '.*'
     ),
+
+    struct_construction: $ => seq(
+      alias($.identifier, $.type_identifier),
+      '{',
+      field('field', sepBy(',', $.field_init)),
+      '}',
+    ),
+
+    field_init: $ => seq(
+      '.',
+      field('name', alias($.identifier, $.field_identifier)),
+      '=',
+      field('value', $._expression),
+    ),
+
+
+    struct_expression: $ => seq(
+      optional(alias(choice('packed', 'extern'), $.struct_modifier)),
+      'struct',
+      '{',
+      field('field', sepBy(',', $.field_declaration)),
+      optional(repeat($._statement)),
+      '}'
+    ),
+
+    field_declaration: $ => prec.left(seq(
+      optional($.visibility_modifier),
+      field('name', alias($.identifier, $.field_identifier)),
+      ':',
+      field('type', $._type),
+      optional(seq(
+        '=',
+        field('default', $._expression),
+      )),
+    )),
 
     array_expression: $ => seq(
       repeat(seq(
@@ -563,7 +601,7 @@ module.exports = grammar({
     undefined_literal: $ => 'undefined',
 
     assignment_operator: $ => choice('+=', '-=', '*=', '+%=', '-%=', '*%=', '/=', '%=', '&=', '|=', '^=', '<<=', '>>='),
-    unary_operator: $ => choice('~', '!', '-', '-%', '?'),
+    unary_operator: $ => choice('~', '!', '-', '-%'),
 
     identifier: $ => /[a-zA-Zα-ωΑ-Ωµ_][a-zA-Zα-ωΑ-Ωµ\d_]*/,
   }

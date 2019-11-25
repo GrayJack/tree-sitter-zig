@@ -334,12 +334,10 @@ anyerror!?u8;
 (source_file
   (primitive_type)
   (primitive_type)
-  (unary_expression
-    operator: (unary_operator)
-    expression: (primitive_type))
-  (unary_expression
-    operator: (unary_operator)
-    expression: (identifier))
+  (optional_type
+    (primitive_type))
+  (optional_type
+    (type_identifier))
   (array_type
     (primitive_type))
   (array_type
@@ -365,7 +363,7 @@ anyerror!?u8;
     (primitive_type))
   (pointer_type
     (type_prefix)
-    (identifier))
+    (type_identifier))
   (pointer_type
     (type_prefix
       (integer_literal))
@@ -373,9 +371,8 @@ anyerror!?u8;
   (array_type
     (optional_type
       (primitive_type)))
-  (unary_expression
-    operator: (unary_operator)
-    expression: (array_type
+  (optional_type
+    (array_type
       (primitive_type)))
   (pointer_type
     (array_type
@@ -383,13 +380,12 @@ anyerror!?u8;
   (array_type
     (pointer_type
       (primitive_type)))
-  (unary_expression
-    operator: (unary_operator)
-    expression: (pointer_type
-      (identifier)))
+  (optional_type
+    (pointer_type
+      (type_identifier)))
   (pointer_type
     (optional_type
-      (identifier)))
+      (type_identifier)))
   (error_type
     err: (primitive_type)
     ok: (pointer_type
@@ -615,6 +611,7 @@ while (a) {} else |err| {}
     condition: (identifier)
     body: (block))
   (while_expression
+    (loop_modifier)
     condition: (identifier)
     body: (block))
   (while_expression
@@ -663,6 +660,7 @@ for (xs) |value| {} else blk: {}
       values: (payload_identifier))
     body: (block))
   (for_expression
+    (loop_modifier)
     condition: (identifier)
     (payload
       values: (payload_identifier))
@@ -677,6 +675,7 @@ for (xs) |value| {} else blk: {}
   (for_expression
     (loop_label
       name: (label_identifier))
+    (loop_modifier)
     condition: (identifier)
     (payload
       values: (payload_identifier))
@@ -954,6 +953,73 @@ find_pair().myfield;
       function: (identifier)
       arguments: (arguments))
     field: (field_identifier)))
+
+============================================
+Struct expression
+============================================
+
+struct { x: u8, y: u8 = 10, pub z: u8 };
+
+struct {
+    fn name() {}
+};
+
+struct {
+    x: u8,
+
+    pub fn init() {}
+};
+
+---
+
+(source_file
+  (struct_expression
+    field: (field_declaration
+      name: (field_identifier)
+      type: (primitive_type))
+    field: (field_declaration
+      name: (field_identifier)
+      type: (primitive_type)
+      default: (integer_literal))
+    field: (field_declaration
+      (visibility_modifier)
+      name: (field_identifier)
+      type: (primitive_type)))
+  (struct_expression
+    (function_declaration
+      name: (identifier)
+      parameters: (parameters)
+      body: (block)))
+  (struct_expression
+    field: (field_declaration
+      name: (field_identifier)
+      type: (primitive_type))
+    (function_declaration
+      (visibility_modifier)
+      name: (identifier)
+      parameters: (parameters)
+      body: (block))))
+
+============================================
+Struct construction expression
+============================================
+
+MyType {
+    .x = 10,
+    .y = 20,
+};
+
+---
+
+(source_file
+  (struct_construction
+    (type_identifier)
+    field: (field_init
+      name: (field_identifier)
+      value: (integer_literal))
+    field: (field_init
+      name: (field_identifier)
+      value: (integer_literal))))
 
 ============================================
 Test expression
