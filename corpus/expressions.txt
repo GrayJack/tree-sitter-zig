@@ -329,6 +329,9 @@ anyerror!*u8;
 anyerror!u8;
 anyerror!?u8;
 
+i7;
+u33;
+
 ---
 
 (source_file
@@ -396,7 +399,9 @@ anyerror!?u8;
   (error_type
     err: (primitive_type)
     ok: (optional_type
-      (primitive_type))))
+      (primitive_type)))
+  (custom_number_type)
+  (custom_number_type))
 
 ============================================
 Call expressions (both build in and normal)

@@ -80,6 +80,10 @@
           "named": true
         },
         {
+          "type": "custom_number_type",
+          "named": true
+        },
+        {
           "type": "dereference_expression",
           "named": true
         },
@@ -205,6 +209,10 @@
             "named": true
           },
           {
+            "type": "custom_number_type",
+            "named": true
+          },
+          {
             "type": "error_type",
             "named": true
           },
@@ -266,11 +274,11 @@
       "required": true,
       "types": [
         {
-          "type": "error_type",
+          "type": "custom_number_type",
           "named": true
         },
         {
-          "type": "identifier",
+          "type": "error_type",
           "named": true
         },
         {
@@ -283,6 +291,10 @@
         },
         {
           "type": "primitive_type",
+          "named": true
+        },
+        {
+          "type": "type_identifier",
           "named": true
         },
         {
@@ -354,6 +366,10 @@
         },
         {
           "type": "continue_expression",
+          "named": true
+        },
+        {
+          "type": "custom_number_type",
           "named": true
         },
         {
@@ -520,6 +536,10 @@
             "named": true
           },
           {
+            "type": "custom_number_type",
+            "named": true
+          },
+          {
             "type": "dereference_expression",
             "named": true
           },
@@ -675,6 +695,10 @@
           },
           {
             "type": "continue_expression",
+            "named": true
+          },
+          {
+            "type": "custom_number_type",
             "named": true
           },
           {
@@ -847,6 +871,10 @@
             "named": true
           },
           {
+            "type": "custom_number_type",
+            "named": true
+          },
+          {
             "type": "dereference_expression",
             "named": true
           },
@@ -963,6 +991,10 @@
             "named": true
           },
           {
+            "type": "custom_number_type",
+            "named": true
+          },
+          {
             "type": "error_type",
             "named": true
           },
@@ -1062,6 +1094,10 @@
           },
           {
             "type": "continue_expression",
+            "named": true
+          },
+          {
+            "type": "custom_number_type",
             "named": true
           },
           {
@@ -1233,6 +1269,10 @@
             "named": true
           },
           {
+            "type": "custom_number_type",
+            "named": true
+          },
+          {
             "type": "dereference_expression",
             "named": true
           },
@@ -1398,6 +1438,10 @@
         },
         {
           "type": "continue_expression",
+          "named": true
+        },
+        {
+          "type": "custom_number_type",
           "named": true
         },
         {
@@ -1588,6 +1632,10 @@
           },
           {
             "type": "continue_expression",
+            "named": true
+          },
+          {
+            "type": "custom_number_type",
             "named": true
           },
           {
@@ -1822,6 +1870,10 @@
             "named": true
           },
           {
+            "type": "custom_number_type",
+            "named": true
+          },
+          {
             "type": "dereference_expression",
             "named": true
           },
@@ -1987,6 +2039,10 @@
           },
           {
             "type": "continue_expression",
+            "named": true
+          },
+          {
+            "type": "custom_number_type",
             "named": true
           },
           {
@@ -2185,6 +2241,10 @@
             "named": true
           },
           {
+            "type": "custom_number_type",
+            "named": true
+          },
+          {
             "type": "dereference_expression",
             "named": true
           },
@@ -2302,6 +2362,10 @@
             "named": true
           },
           {
+            "type": "custom_number_type",
+            "named": true
+          },
+          {
             "type": "error_type",
             "named": true
           },
@@ -2329,6 +2393,10 @@
         "types": [
           {
             "type": "array_type",
+            "named": true
+          },
+          {
+            "type": "custom_number_type",
             "named": true
           },
           {
@@ -2432,6 +2500,10 @@
           },
           {
             "type": "continue_expression",
+            "named": true
+          },
+          {
+            "type": "custom_number_type",
             "named": true
           },
           {
@@ -2551,6 +2623,10 @@
             "named": true
           },
           {
+            "type": "custom_number_type",
+            "named": true
+          },
+          {
             "type": "error_type",
             "named": true
           },
@@ -2646,6 +2722,10 @@
           },
           {
             "type": "continue_expression",
+            "named": true
+          },
+          {
+            "type": "custom_number_type",
             "named": true
           },
           {
@@ -2808,6 +2888,10 @@
           },
           {
             "type": "continue_expression",
+            "named": true
+          },
+          {
+            "type": "custom_number_type",
             "named": true
           },
           {
@@ -2985,6 +3069,10 @@
             "named": true
           },
           {
+            "type": "custom_number_type",
+            "named": true
+          },
+          {
             "type": "dereference_expression",
             "named": true
           },
@@ -3146,6 +3234,10 @@
           },
           {
             "type": "continue_expression",
+            "named": true
+          },
+          {
+            "type": "custom_number_type",
             "named": true
           },
           {
@@ -3314,6 +3406,10 @@
           },
           {
             "type": "continue_expression",
+            "named": true
+          },
+          {
+            "type": "custom_number_type",
             "named": true
           },
           {
@@ -3526,6 +3622,10 @@
           },
           {
             "type": "continue_expression",
+            "named": true
+          },
+          {
+            "type": "custom_number_type",
             "named": true
           },
           {
@@ -3742,6 +3842,10 @@
             "named": true
           },
           {
+            "type": "custom_number_type",
+            "named": true
+          },
+          {
             "type": "dereference_expression",
             "named": true
           },
@@ -3920,6 +4024,10 @@
             "named": true
           },
           {
+            "type": "custom_number_type",
+            "named": true
+          },
+          {
             "type": "dereference_expression",
             "named": true
           },
@@ -4078,6 +4186,10 @@
             "named": true
           },
           {
+            "type": "custom_number_type",
+            "named": true
+          },
+          {
             "type": "dereference_expression",
             "named": true
           },
@@ -4233,6 +4345,10 @@
           },
           {
             "type": "continue_expression",
+            "named": true
+          },
+          {
+            "type": "custom_number_type",
             "named": true
           },
           {
@@ -4410,6 +4526,10 @@
           "named": true
         },
         {
+          "type": "custom_number_type",
+          "named": true
+        },
+        {
           "type": "dereference_expression",
           "named": true
         },
@@ -4577,6 +4697,10 @@
           "named": true
         },
         {
+          "type": "custom_number_type",
+          "named": true
+        },
+        {
           "type": "error_type",
           "named": true
         },
@@ -4619,6 +4743,10 @@
         "types": [
           {
             "type": "array_type",
+            "named": true
+          },
+          {
+            "type": "custom_number_type",
             "named": true
           },
           {
@@ -4698,6 +4826,10 @@
       "types": [
         {
           "type": "array_type",
+          "named": true
+        },
+        {
+          "type": "custom_number_type",
           "named": true
         },
         {
@@ -4794,6 +4926,10 @@
           },
           {
             "type": "continue_expression",
+            "named": true
+          },
+          {
+            "type": "custom_number_type",
             "named": true
           },
           {
@@ -4961,6 +5097,10 @@
           "named": true
         },
         {
+          "type": "custom_number_type",
+          "named": true
+        },
+        {
           "type": "dereference_expression",
           "named": true
         },
@@ -5124,6 +5264,10 @@
             "named": true
           },
           {
+            "type": "custom_number_type",
+            "named": true
+          },
+          {
             "type": "dereference_expression",
             "named": true
           },
@@ -5279,6 +5423,10 @@
           },
           {
             "type": "continue_expression",
+            "named": true
+          },
+          {
+            "type": "custom_number_type",
             "named": true
           },
           {
@@ -5447,6 +5595,10 @@
         },
         {
           "type": "continue_expression",
+          "named": true
+        },
+        {
+          "type": "custom_number_type",
           "named": true
         },
         {
@@ -5689,6 +5841,10 @@
           "named": true
         },
         {
+          "type": "custom_number_type",
+          "named": true
+        },
+        {
           "type": "dereference_expression",
           "named": true
         },
@@ -5894,6 +6050,10 @@
           "named": true
         },
         {
+          "type": "custom_number_type",
+          "named": true
+        },
+        {
           "type": "dereference_expression",
           "named": true
         },
@@ -6054,6 +6214,10 @@
           },
           {
             "type": "continue_expression",
+            "named": true
+          },
+          {
+            "type": "custom_number_type",
             "named": true
           },
           {
@@ -6241,6 +6405,10 @@
             "named": true
           },
           {
+            "type": "custom_number_type",
+            "named": true
+          },
+          {
             "type": "dereference_expression",
             "named": true
           },
@@ -6409,6 +6577,10 @@
             "named": true
           },
           {
+            "type": "custom_number_type",
+            "named": true
+          },
+          {
             "type": "dereference_expression",
             "named": true
           },
@@ -6568,6 +6740,10 @@
           },
           {
             "type": "continue_expression",
+            "named": true
+          },
+          {
+            "type": "custom_number_type",
             "named": true
           },
           {
@@ -6923,6 +7099,10 @@
   {
     "type": "continue",
     "named": false
+  },
+  {
+    "type": "custom_number_type",
+    "named": true
   },
   {
     "type": "else",

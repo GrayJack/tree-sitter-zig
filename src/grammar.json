@@ -1619,6 +1619,10 @@
             "name": "array_type"
           },
           {
+            "type": "SYMBOL",
+            "name": "custom_number_type"
+          },
+          {
             "type": "ALIAS",
             "content": {
               "type": "SYMBOL",
@@ -1763,6 +1767,10 @@
         }
       ]
     },
+    "custom_number_type": {
+      "type": "PATTERN",
+      "value": "(i|u)[0-9]+"
+    },
     "error_type": {
       "type": "PREC_LEFT",
       "value": 0,
@@ -1901,7 +1909,16 @@
               },
               {
                 "type": "SYMBOL",
-                "name": "identifier"
+                "name": "custom_number_type"
+              },
+              {
+                "type": "ALIAS",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "identifier"
+                },
+                "named": true,
+                "value": "type_identifier"
               }
             ]
           }

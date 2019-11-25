@@ -359,10 +359,13 @@ module.exports = grammar({
       $.pointer_type,
       $.error_type,
       $.array_type,
+      $.custom_number_type,
       alias($.identifier, $.type_identifier),
     )),
 
     primitive_type: $ => choice(...primitive_types),
+
+    custom_number_type: $ => /(i|u)[0-9]+/,
 
     // Having the err field optional cause a bunch of conflicts
     // so when `!<type>` happens, it will show as unary expression
@@ -390,7 +393,8 @@ module.exports = grammar({
         $.optional_type,
         $.pointer_type,
         $.error_type,
-        $.identifier,
+        $.custom_number_type,
+        alias($.identifier, $.type_identifier),
       ),
     )),
 

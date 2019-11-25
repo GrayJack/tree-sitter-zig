@@ -69,3 +69,4 @@ test.carp
 tested.carp
 .mypy_cache
 test.zig
+test.txt
