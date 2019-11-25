@@ -109,3 +109,135 @@ const c: *[*]u64 = undefined;
           size: (pointer)
           (primitive_type)))
       expression: (undefined_literal)))
+
+============================================
+Function declaration statements
+============================================
+
+fn name() {}
+fn name(a: u8) {}
+fn name(a: u8, b: u8) {}
+fn name() u8 {}
+fn name() @some(a) {}
+
+pub fn name() {}
+export fn name() {}
+stdcallcc fn name() {}
+nakedcc fn name() {}
+inline fn name() {}
+
+---
+
+(source_file
+  (function_declaration
+    name: (identifier)
+    parameters: (parameters)
+    body: (block))
+  (function_declaration
+    name: (identifier)
+    parameters: (parameters
+      (parameter
+        name: (identifier)
+        type: (primitive_type)))
+    body: (block))
+  (function_declaration
+    name: (identifier)
+    parameters: (parameters
+      (parameter
+        name: (identifier)
+        type: (primitive_type))
+      (parameter
+        name: (identifier)
+        type: (primitive_type)))
+    body: (block))
+  (function_declaration
+    name: (identifier)
+    parameters: (parameters)
+    return: (primitive_type)
+    body: (block))
+  (function_declaration
+    name: (identifier)
+    parameters: (parameters)
+    return: (build_in_call_expr
+      function: (identifier)
+      arguments: (arguments
+        (identifier)))
+    body: (block))
+  (function_declaration
+    (visibility_modifier)
+    name: (identifier)
+    parameters: (parameters)
+    body: (block))
+  (function_declaration
+    (function_modifiers)
+    name: (identifier)
+    parameters: (parameters)
+    body: (block))
+  (function_declaration
+    (function_modifiers)
+    name: (identifier)
+    parameters: (parameters)
+    body: (block))
+  (function_declaration
+    (function_modifiers)
+    name: (identifier)
+    parameters: (parameters)
+    body: (block))
+  (function_declaration
+    (function_modifiers)
+    name: (identifier)
+    parameters: (parameters)
+    body: (block)))
+
+============================================
+Function signature statements
+============================================
+
+fn name();
+fn name(a: u8);
+fn name(a: u8) u8;
+fn name(a: u8) @some(a);
+
+extern fn name();
+extern "C" fn name();
+
+---
+
+(source_file
+  (function_signature
+    name: (identifier)
+    parameters: (parameters))
+  (function_signature
+    name: (identifier)
+    parameters: (parameters
+      (parameter
+        name: (identifier)
+        type: (primitive_type))))
+  (function_signature
+    name: (identifier)
+    parameters: (parameters
+      (parameter
+        name: (identifier)
+        type: (primitive_type)))
+    return: (primitive_type))
+  (function_signature
+    name: (identifier)
+    parameters: (parameters
+      (parameter
+        name: (identifier)
+        type: (primitive_type)))
+    return: (build_in_call_expr
+      function: (identifier)
+      arguments: (arguments
+        (identifier))))
+  (function_signature
+    (function_modifiers
+      (extern_modifier))
+    name: (identifier)
+    parameters: (parameters))
+  (function_signature
+    (function_modifiers
+      (extern_modifier
+        (string_literal)))
+    name: (identifier)
+    parameters: (parameters)))

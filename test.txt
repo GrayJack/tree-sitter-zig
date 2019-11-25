@@ -1,0 +1,60 @@
+(source_file
+  (function_declaration
+    name: (identifier)
+    parameters: (parameters)
+    body: (block))
+  (function_declaration
+    name: (identifier)
+    parameters: (parameters
+      (parameter
+        name: (identifier)
+        type: (primitive_type)))
+    body: (block))
+  (function_declaration
+    name: (identifier)
+    parameters: (parameters
+      (parameter
+        name: (identifier)
+        type: (primitive_type))
+      (parameter
+        name: (identifier)
+        type: (primitive_type)))
+    body: (block))
+  (function_declaration
+    name: (identifier)
+    parameters: (parameters)
+    return: (primitive_type)
+    body: (block))
+  (function_declaration
+    name: (identifier)
+    parameters: (parameters)
+    return: (build_in_call_expr
+      function: (identifier)
+      arguments: (arguments
+        (identifier)))
+    body: (block))
+  (function_declaration
+    (visibility_modifier)
+    name: (identifier)
+    parameters: (parameters)
+    body: (block))
+  (function_declaration
+    (function_modifiers)
+    name: (identifier)
+    parameters: (parameters)
+    body: (block))
+  (function_declaration
+    (function_modifiers)
+    name: (identifier)
+    parameters: (parameters)
+    body: (block))
+  (function_declaration
+    (function_modifiers)
+    name: (identifier)
+    parameters: (parameters)
+    body: (block))
+  (function_declaration
+    (function_modifiers)
+    name: (identifier)
+    parameters: (parameters)
+    body: (block)))

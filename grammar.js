@@ -64,9 +64,6 @@ module.exports = grammar({
     [$.optional_type, $.unary_operator],
     [$.array_type, $.array_expression],
     [$.call_expression],
-    // [$.if_expression],
-    // [$.while_expression],
-    // [$.for_expression],
   ],
 
   rules: {
@@ -99,6 +96,8 @@ module.exports = grammar({
     _declaration_statement: $ => choice(
       $.empty_statement,
       $.assignment_statement,
+      $.function_signature,
+      $.function_declaration,
     ),
 
     // Everything is a expression, except functions
@@ -139,6 +138,57 @@ module.exports = grammar({
       field('expression', $._expression),
       ';'
     ),
+
+    function_signature: $ => seq(
+      optional($.visibility_modifier),
+      optional($.function_modifiers),
+      'fn',
+      field('name', $.identifier),
+      field('parameters', $.parameters),
+      optional(field('return', $._expression)),
+      ';',
+    ),
+
+    function_declaration: $ => seq(
+      optional($.visibility_modifier),
+      optional($.function_modifiers),
+      'fn',
+      field('name', $.identifier),
+      field('parameters', $.parameters),
+      optional(field('return', $._expression)),
+      field('body', $.block),
+    ),
+
+    visibility_modifier: $ => choice(
+      'pub'
+    ),
+
+    function_modifiers: $ => choice(
+      'export',
+      'stdcallcc',
+      'nakedcc',
+      'inline',
+      $.extern_modifier,
+    ),
+
+    extern_modifier: $ => seq(
+      'extern',
+      optional($.string_literal)
+    ),
+
+    parameters: $ => seq(
+      '(',
+      sepBy(',', $.parameter),
+      ')',
+    ),
+
+    parameter: $ => seq(
+      field('name', $.identifier),
+      ':',
+      field('type', choice($._type, alias('var', $.inference_type), $.variadic_parameter)),
+    ),
+
+    variadic_parameter: $ => '...',
 
     // Expressions
     build_in_call_expr: $ => prec(PREC.call, seq(
