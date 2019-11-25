@@ -325,6 +325,10 @@ f64;
 ?*Point;
 *?Point;
 
+anyerror!*u8;
+anyerror!u8;
+anyerror!?u8;
+
 ---
 
 (source_file
@@ -385,7 +389,18 @@ f64;
       (identifier)))
   (pointer_type
     (optional_type
-      (identifier))))
+      (identifier)))
+  (error_type
+    err: (primitive_type)
+    ok: (pointer_type
+      (primitive_type)))
+  (error_type
+    err: (primitive_type)
+    ok: (primitive_type))
+  (error_type
+    err: (primitive_type)
+    ok: (optional_type
+      (primitive_type))))
 
 ============================================
 Call expressions (both build in and normal)

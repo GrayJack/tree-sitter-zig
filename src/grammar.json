@@ -1565,6 +1565,10 @@
           },
           {
             "type": "SYMBOL",
+            "name": "error_type"
+          },
+          {
+            "type": "SYMBOL",
             "name": "array_type"
           },
           {
@@ -1707,6 +1711,35 @@
         }
       ]
     },
+    "error_type": {
+      "type": "PREC_LEFT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "FIELD",
+            "name": "err",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_type"
+            }
+          },
+          {
+            "type": "STRING",
+            "value": "!"
+          },
+          {
+            "type": "FIELD",
+            "name": "ok",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_type"
+            }
+          }
+        ]
+      }
+    },
     "optional_type": {
       "type": "PREC",
       "value": -2,
@@ -1812,6 +1845,10 @@
               },
               {
                 "type": "SYMBOL",
+                "name": "error_type"
+              },
+              {
+                "type": "SYMBOL",
                 "name": "identifier"
               }
             ]
@@ -1820,32 +1857,36 @@
       }
     },
     "pointer_type": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "*"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "REPEAT",
-              "content": {
-                "type": "SYMBOL",
-                "name": "type_prefix"
+      "type": "PREC_LEFT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "*"
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "REPEAT",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "type_prefix"
+                }
+              },
+              {
+                "type": "BLANK"
               }
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_type"
-        }
-      ]
+            ]
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_type"
+          }
+        ]
+      }
     },
     "type_prefix": {
       "type": "PREC",

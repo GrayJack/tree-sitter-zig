@@ -63,7 +63,9 @@ module.exports = grammar({
   conflicts: $ => [
     [$.optional_type, $.unary_operator],
     [$.array_type, $.array_expression],
+    // [$.error_type, $.unary_operator],
     [$.call_expression],
+    // [$.error_type],
   ],
 
   rules: {
@@ -351,11 +353,20 @@ module.exports = grammar({
       $.primitive_type,
       $.optional_type,
       $.pointer_type,
+      $.error_type,
       $.array_type,
       $.identifier,
     )),
 
     primitive_type: $ => choice(...primitive_types),
+
+    // Having the err field optional cause a bunch of conflicts
+    // so when `!<type>` happens, it will show as unary expression
+    error_type: $ => prec.left(seq(
+      field('err', $._type),
+      '!',
+      field('ok', $._type),
+    )),
 
     optional_type: $ => prec(PREC.optional, seq(
       '?',
@@ -374,15 +385,16 @@ module.exports = grammar({
         $.primitive_type,
         $.optional_type,
         $.pointer_type,
+        $.error_type,
         $.identifier,
       ),
     )),
 
-    pointer_type: $ => seq(
+    pointer_type: $ => prec.left(seq(
       '*',
       optional(repeat($.type_prefix)),
       $._type,
-    ),
+    )),
 
     type_prefix: $ => prec(-1, choice(
       'const',
