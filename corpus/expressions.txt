@@ -1027,6 +1027,43 @@ MyType {
       value: (integer_literal))))
 
 ============================================
+Enum expression
+============================================
+
+enum {};
+
+enum { Ok, Err };
+
+enum (u2) { Zero, One, Two };
+
+enum { Zero = 0, One = 1};
+
+---
+
+(source_file
+  (enum_expression)
+  (enum_expression
+    variant: (variant_declaration
+      name: (enum_identifier))
+    variant: (variant_declaration
+      name: (enum_identifier)))
+  (enum_expression
+    type: (custom_number_type)
+    variant: (variant_declaration
+      name: (enum_identifier))
+    variant: (variant_declaration
+      name: (enum_identifier))
+    variant: (variant_declaration
+      name: (enum_identifier)))
+  (enum_expression
+    variant: (variant_declaration
+      name: (enum_identifier)
+      default: (integer_literal))
+    variant: (variant_declaration
+      name: (enum_identifier)
+      default: (integer_literal))))
+
+============================================
 Test expression
 ============================================
 

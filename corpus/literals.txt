@@ -147,3 +147,21 @@ Multiline string literals
   (multiline_string_literal)
   (multiline_string_literal)
   (multiline_string_literal))
+
+============================================
+Enum literals
+============================================
+
+.Variant;
+.Variant2;
+.Other;
+
+---
+
+(source_file
+  (enum_literal
+    variant: (enum_identifier))
+  (enum_literal
+    variant: (enum_identifier))
+  (enum_literal
+    variant: (enum_identifier)))

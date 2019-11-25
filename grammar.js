@@ -63,9 +63,7 @@ module.exports = grammar({
   conflicts: $ => [
     [$.optional_type, $.unary_operator],
     [$.array_type, $.array_expression],
-    // [$.error_type, $.unary_operator],
     [$.call_expression],
-    // [$.error_type],
   ],
 
   rules: {
@@ -111,6 +109,7 @@ module.exports = grammar({
       $._expression_ending_with_block,
       $.struct_expression,
       $.struct_construction,
+      $.enum_expression,
       $.continue_expression,
       $.break_expression,
       $.return_expression,
@@ -449,6 +448,28 @@ module.exports = grammar({
       field('value', $._expression),
     ),
 
+    enum_expression: $ => seq(
+      optional(alias(choice('packed', 'extern'), $.enum_modifier)),
+      'enum',
+      optional(seq(
+        '(',
+        field('type', $._type),
+        ')',
+      )),
+      '{',
+      field('variant', sepBy(',', $.variant_declaration)),
+      optional(repeat($._statement)),
+      '}',
+    ),
+
+    variant_declaration: $ => prec(2, seq(
+      field('name', alias($.identifier, $.enum_identifier)),
+      optional(seq(
+        '=',
+        field('default', $._expression),
+      )),
+    )),
+
 
     struct_expression: $ => seq(
       optional(alias(choice('packed', 'extern'), $.struct_modifier)),
@@ -538,7 +559,13 @@ module.exports = grammar({
       $.undefined_literal,
       $.char_literal,
       $.string_literal,
-      $.multiline_string_literal
+      $.multiline_string_literal,
+      $.enum_literal,
+    ),
+
+    enum_literal: $ => seq(
+      '.',
+      field('variant', alias($.identifier, $.enum_identifier)),
     ),
 
     integer_literal: $ => token(seq(
