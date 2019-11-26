@@ -172,6 +172,10 @@
           "named": true
         },
         {
+          "type": "range_pattern",
+          "named": true
+        },
+        {
           "type": "reference_expression",
           "named": true
         },
@@ -189,6 +193,10 @@
         },
         {
           "type": "struct_expression",
+          "named": true
+        },
+        {
+          "type": "switch_expression",
           "named": true
         },
         {
@@ -477,6 +485,10 @@
           "named": true
         },
         {
+          "type": "range_pattern",
+          "named": true
+        },
+        {
           "type": "reference_expression",
           "named": true
         },
@@ -494,6 +506,10 @@
         },
         {
           "type": "struct_expression",
+          "named": true
+        },
+        {
+          "type": "switch_expression",
           "named": true
         },
         {
@@ -660,6 +676,10 @@
             "named": true
           },
           {
+            "type": "range_pattern",
+            "named": true
+          },
+          {
             "type": "reference_expression",
             "named": true
           },
@@ -677,6 +697,10 @@
           },
           {
             "type": "struct_expression",
+            "named": true
+          },
+          {
+            "type": "switch_expression",
             "named": true
           },
           {
@@ -838,6 +862,10 @@
             "named": true
           },
           {
+            "type": "range_pattern",
+            "named": true
+          },
+          {
             "type": "reference_expression",
             "named": true
           },
@@ -855,6 +883,10 @@
           },
           {
             "type": "struct_expression",
+            "named": true
+          },
+          {
+            "type": "switch_expression",
             "named": true
           },
           {
@@ -1027,6 +1059,10 @@
             "named": true
           },
           {
+            "type": "range_pattern",
+            "named": true
+          },
+          {
             "type": "reference_expression",
             "named": true
           },
@@ -1044,6 +1080,10 @@
           },
           {
             "type": "struct_expression",
+            "named": true
+          },
+          {
+            "type": "switch_expression",
             "named": true
           },
           {
@@ -1269,6 +1309,10 @@
             "named": true
           },
           {
+            "type": "range_pattern",
+            "named": true
+          },
+          {
             "type": "reference_expression",
             "named": true
           },
@@ -1286,6 +1330,10 @@
           },
           {
             "type": "struct_expression",
+            "named": true
+          },
+          {
+            "type": "switch_expression",
             "named": true
           },
           {
@@ -1457,6 +1505,10 @@
             "named": true
           },
           {
+            "type": "range_pattern",
+            "named": true
+          },
+          {
             "type": "reference_expression",
             "named": true
           },
@@ -1474,6 +1526,10 @@
           },
           {
             "type": "struct_expression",
+            "named": true
+          },
+          {
+            "type": "switch_expression",
             "named": true
           },
           {
@@ -1668,6 +1724,10 @@
           "named": true
         },
         {
+          "type": "range_pattern",
+          "named": true
+        },
+        {
           "type": "reference_expression",
           "named": true
         },
@@ -1685,6 +1745,10 @@
         },
         {
           "type": "struct_expression",
+          "named": true
+        },
+        {
+          "type": "switch_expression",
           "named": true
         },
         {
@@ -1866,6 +1930,10 @@
             "named": true
           },
           {
+            "type": "range_pattern",
+            "named": true
+          },
+          {
             "type": "reference_expression",
             "named": true
           },
@@ -1883,6 +1951,10 @@
           },
           {
             "type": "struct_expression",
+            "named": true
+          },
+          {
+            "type": "switch_expression",
             "named": true
           },
           {
@@ -2117,6 +2189,10 @@
             "named": true
           },
           {
+            "type": "range_pattern",
+            "named": true
+          },
+          {
             "type": "reference_expression",
             "named": true
           },
@@ -2134,6 +2210,10 @@
           },
           {
             "type": "struct_expression",
+            "named": true
+          },
+          {
+            "type": "switch_expression",
             "named": true
           },
           {
@@ -2305,6 +2385,10 @@
             "named": true
           },
           {
+            "type": "range_pattern",
+            "named": true
+          },
+          {
             "type": "reference_expression",
             "named": true
           },
@@ -2322,6 +2406,10 @@
           },
           {
             "type": "struct_expression",
+            "named": true
+          },
+          {
+            "type": "switch_expression",
             "named": true
           },
           {
@@ -2520,6 +2608,10 @@
             "named": true
           },
           {
+            "type": "range_pattern",
+            "named": true
+          },
+          {
             "type": "reference_expression",
             "named": true
           },
@@ -2537,6 +2629,10 @@
           },
           {
             "type": "struct_expression",
+            "named": true
+          },
+          {
+            "type": "switch_expression",
             "named": true
           },
           {
@@ -2778,6 +2874,10 @@
           "named": true
         },
         {
+          "type": "range_pattern",
+          "named": true
+        },
+        {
           "type": "reference_expression",
           "named": true
         },
@@ -2795,6 +2895,10 @@
         },
         {
           "type": "struct_expression",
+          "named": true
+        },
+        {
+          "type": "switch_expression",
           "named": true
         },
         {
@@ -3066,6 +3170,10 @@
             "named": true
           },
           {
+            "type": "range_pattern",
+            "named": true
+          },
+          {
             "type": "reference_expression",
             "named": true
           },
@@ -3083,6 +3191,10 @@
           },
           {
             "type": "struct_expression",
+            "named": true
+          },
+          {
+            "type": "switch_expression",
             "named": true
           },
           {
@@ -3308,6 +3420,10 @@
             "named": true
           },
           {
+            "type": "range_pattern",
+            "named": true
+          },
+          {
             "type": "reference_expression",
             "named": true
           },
@@ -3325,6 +3441,10 @@
           },
           {
             "type": "struct_expression",
+            "named": true
+          },
+          {
+            "type": "switch_expression",
             "named": true
           },
           {
@@ -3486,6 +3606,10 @@
             "named": true
           },
           {
+            "type": "range_pattern",
+            "named": true
+          },
+          {
             "type": "reference_expression",
             "named": true
           },
@@ -3503,6 +3627,10 @@
           },
           {
             "type": "struct_expression",
+            "named": true
+          },
+          {
+            "type": "switch_expression",
             "named": true
           },
           {
@@ -3680,6 +3808,10 @@
             "named": true
           },
           {
+            "type": "range_pattern",
+            "named": true
+          },
+          {
             "type": "reference_expression",
             "named": true
           },
@@ -3697,6 +3829,392 @@
           },
           {
             "type": "struct_expression",
+            "named": true
+          },
+          {
+            "type": "switch_expression",
+            "named": true
+          },
+          {
+            "type": "test_expression",
+            "named": true
+          },
+          {
+            "type": "type_identifier",
+            "named": true
+          },
+          {
+            "type": "unary_expression",
+            "named": true
+          },
+          {
+            "type": "undefined_literal",
+            "named": true
+          },
+          {
+            "type": "union_expression",
+            "named": true
+          },
+          {
+            "type": "while_expression",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "field_pattern",
+    "named": true,
+    "fields": {
+      "field": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "anonymous_array_expr",
+            "named": true
+          },
+          {
+            "type": "anonymous_struct_enum",
+            "named": true
+          },
+          {
+            "type": "array_expression",
+            "named": true
+          },
+          {
+            "type": "array_type",
+            "named": true
+          },
+          {
+            "type": "assignment_expression",
+            "named": true
+          },
+          {
+            "type": "binary_expression",
+            "named": true
+          },
+          {
+            "type": "block",
+            "named": true
+          },
+          {
+            "type": "boolean_literal",
+            "named": true
+          },
+          {
+            "type": "break_expression",
+            "named": true
+          },
+          {
+            "type": "build_in_call_expr",
+            "named": true
+          },
+          {
+            "type": "call_expression",
+            "named": true
+          },
+          {
+            "type": "char_literal",
+            "named": true
+          },
+          {
+            "type": "compound_assignment_expr",
+            "named": true
+          },
+          {
+            "type": "comptime_block",
+            "named": true
+          },
+          {
+            "type": "continue_expression",
+            "named": true
+          },
+          {
+            "type": "custom_number_type",
+            "named": true
+          },
+          {
+            "type": "dereference_expression",
+            "named": true
+          },
+          {
+            "type": "enum_expression",
+            "named": true
+          },
+          {
+            "type": "enum_literal",
+            "named": true
+          },
+          {
+            "type": "error_type",
+            "named": true
+          },
+          {
+            "type": "field_expression",
+            "named": true
+          },
+          {
+            "type": "field_identifier",
+            "named": true
+          },
+          {
+            "type": "float_literal",
+            "named": true
+          },
+          {
+            "type": "for_expression",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "if_expression",
+            "named": true
+          },
+          {
+            "type": "index_expression",
+            "named": true
+          },
+          {
+            "type": "integer_literal",
+            "named": true
+          },
+          {
+            "type": "multiline_string_literal",
+            "named": true
+          },
+          {
+            "type": "null_literal",
+            "named": true
+          },
+          {
+            "type": "optional_type",
+            "named": true
+          },
+          {
+            "type": "pointer_type",
+            "named": true
+          },
+          {
+            "type": "primitive_type",
+            "named": true
+          },
+          {
+            "type": "range_pattern",
+            "named": true
+          },
+          {
+            "type": "reference_expression",
+            "named": true
+          },
+          {
+            "type": "return_expression",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          },
+          {
+            "type": "struct_construction",
+            "named": true
+          },
+          {
+            "type": "struct_expression",
+            "named": true
+          },
+          {
+            "type": "switch_expression",
+            "named": true
+          },
+          {
+            "type": "test_expression",
+            "named": true
+          },
+          {
+            "type": "type_identifier",
+            "named": true
+          },
+          {
+            "type": "unary_expression",
+            "named": true
+          },
+          {
+            "type": "undefined_literal",
+            "named": true
+          },
+          {
+            "type": "union_expression",
+            "named": true
+          },
+          {
+            "type": "while_expression",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "anonymous_array_expr",
+            "named": true
+          },
+          {
+            "type": "anonymous_struct_enum",
+            "named": true
+          },
+          {
+            "type": "array_expression",
+            "named": true
+          },
+          {
+            "type": "array_type",
+            "named": true
+          },
+          {
+            "type": "assignment_expression",
+            "named": true
+          },
+          {
+            "type": "binary_expression",
+            "named": true
+          },
+          {
+            "type": "block",
+            "named": true
+          },
+          {
+            "type": "boolean_literal",
+            "named": true
+          },
+          {
+            "type": "break_expression",
+            "named": true
+          },
+          {
+            "type": "build_in_call_expr",
+            "named": true
+          },
+          {
+            "type": "call_expression",
+            "named": true
+          },
+          {
+            "type": "char_literal",
+            "named": true
+          },
+          {
+            "type": "compound_assignment_expr",
+            "named": true
+          },
+          {
+            "type": "comptime_block",
+            "named": true
+          },
+          {
+            "type": "continue_expression",
+            "named": true
+          },
+          {
+            "type": "custom_number_type",
+            "named": true
+          },
+          {
+            "type": "dereference_expression",
+            "named": true
+          },
+          {
+            "type": "enum_expression",
+            "named": true
+          },
+          {
+            "type": "enum_literal",
+            "named": true
+          },
+          {
+            "type": "error_type",
+            "named": true
+          },
+          {
+            "type": "field_expression",
+            "named": true
+          },
+          {
+            "type": "float_literal",
+            "named": true
+          },
+          {
+            "type": "for_expression",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "if_expression",
+            "named": true
+          },
+          {
+            "type": "index_expression",
+            "named": true
+          },
+          {
+            "type": "integer_literal",
+            "named": true
+          },
+          {
+            "type": "multiline_string_literal",
+            "named": true
+          },
+          {
+            "type": "null_literal",
+            "named": true
+          },
+          {
+            "type": "optional_type",
+            "named": true
+          },
+          {
+            "type": "pointer_type",
+            "named": true
+          },
+          {
+            "type": "primitive_type",
+            "named": true
+          },
+          {
+            "type": "range_pattern",
+            "named": true
+          },
+          {
+            "type": "reference_expression",
+            "named": true
+          },
+          {
+            "type": "return_expression",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          },
+          {
+            "type": "struct_construction",
+            "named": true
+          },
+          {
+            "type": "struct_expression",
+            "named": true
+          },
+          {
+            "type": "switch_expression",
             "named": true
           },
           {
@@ -3864,6 +4382,10 @@
             "named": true
           },
           {
+            "type": "range_pattern",
+            "named": true
+          },
+          {
             "type": "reference_expression",
             "named": true
           },
@@ -3881,6 +4403,10 @@
           },
           {
             "type": "struct_expression",
+            "named": true
+          },
+          {
+            "type": "switch_expression",
             "named": true
           },
           {
@@ -4052,6 +4578,10 @@
             "named": true
           },
           {
+            "type": "range_pattern",
+            "named": true
+          },
+          {
             "type": "reference_expression",
             "named": true
           },
@@ -4069,6 +4599,10 @@
           },
           {
             "type": "struct_expression",
+            "named": true
+          },
+          {
+            "type": "switch_expression",
             "named": true
           },
           {
@@ -4284,6 +4818,10 @@
             "named": true
           },
           {
+            "type": "range_pattern",
+            "named": true
+          },
+          {
             "type": "reference_expression",
             "named": true
           },
@@ -4301,6 +4839,10 @@
           },
           {
             "type": "struct_expression",
+            "named": true
+          },
+          {
+            "type": "switch_expression",
             "named": true
           },
           {
@@ -4517,6 +5059,10 @@
             "named": true
           },
           {
+            "type": "range_pattern",
+            "named": true
+          },
+          {
             "type": "reference_expression",
             "named": true
           },
@@ -4534,6 +5080,10 @@
           },
           {
             "type": "struct_expression",
+            "named": true
+          },
+          {
+            "type": "switch_expression",
             "named": true
           },
           {
@@ -4715,6 +5265,10 @@
             "named": true
           },
           {
+            "type": "range_pattern",
+            "named": true
+          },
+          {
             "type": "reference_expression",
             "named": true
           },
@@ -4732,6 +5286,10 @@
           },
           {
             "type": "struct_expression",
+            "named": true
+          },
+          {
+            "type": "switch_expression",
             "named": true
           },
           {
@@ -4893,6 +5451,10 @@
             "named": true
           },
           {
+            "type": "range_pattern",
+            "named": true
+          },
+          {
             "type": "reference_expression",
             "named": true
           },
@@ -4910,6 +5472,10 @@
           },
           {
             "type": "struct_expression",
+            "named": true
+          },
+          {
+            "type": "switch_expression",
             "named": true
           },
           {
@@ -5071,6 +5637,10 @@
             "named": true
           },
           {
+            "type": "range_pattern",
+            "named": true
+          },
+          {
             "type": "reference_expression",
             "named": true
           },
@@ -5088,6 +5658,10 @@
           },
           {
             "type": "struct_expression",
+            "named": true
+          },
+          {
+            "type": "switch_expression",
             "named": true
           },
           {
@@ -5265,6 +5839,10 @@
           "named": true
         },
         {
+          "type": "range_pattern",
+          "named": true
+        },
+        {
           "type": "reference_expression",
           "named": true
         },
@@ -5286,6 +5864,10 @@
         },
         {
           "type": "struct_expression",
+          "named": true
+        },
+        {
+          "type": "switch_expression",
           "named": true
         },
         {
@@ -5548,6 +6130,384 @@
     "fields": {}
   },
   {
+    "type": "range_pattern",
+    "named": true,
+    "fields": {
+      "end": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "anonymous_array_expr",
+            "named": true
+          },
+          {
+            "type": "anonymous_struct_enum",
+            "named": true
+          },
+          {
+            "type": "array_expression",
+            "named": true
+          },
+          {
+            "type": "array_type",
+            "named": true
+          },
+          {
+            "type": "assignment_expression",
+            "named": true
+          },
+          {
+            "type": "binary_expression",
+            "named": true
+          },
+          {
+            "type": "block",
+            "named": true
+          },
+          {
+            "type": "boolean_literal",
+            "named": true
+          },
+          {
+            "type": "break_expression",
+            "named": true
+          },
+          {
+            "type": "build_in_call_expr",
+            "named": true
+          },
+          {
+            "type": "call_expression",
+            "named": true
+          },
+          {
+            "type": "char_literal",
+            "named": true
+          },
+          {
+            "type": "compound_assignment_expr",
+            "named": true
+          },
+          {
+            "type": "comptime_block",
+            "named": true
+          },
+          {
+            "type": "continue_expression",
+            "named": true
+          },
+          {
+            "type": "custom_number_type",
+            "named": true
+          },
+          {
+            "type": "dereference_expression",
+            "named": true
+          },
+          {
+            "type": "enum_expression",
+            "named": true
+          },
+          {
+            "type": "enum_literal",
+            "named": true
+          },
+          {
+            "type": "error_type",
+            "named": true
+          },
+          {
+            "type": "field_expression",
+            "named": true
+          },
+          {
+            "type": "float_literal",
+            "named": true
+          },
+          {
+            "type": "for_expression",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "if_expression",
+            "named": true
+          },
+          {
+            "type": "index_expression",
+            "named": true
+          },
+          {
+            "type": "integer_literal",
+            "named": true
+          },
+          {
+            "type": "multiline_string_literal",
+            "named": true
+          },
+          {
+            "type": "null_literal",
+            "named": true
+          },
+          {
+            "type": "optional_type",
+            "named": true
+          },
+          {
+            "type": "pointer_type",
+            "named": true
+          },
+          {
+            "type": "primitive_type",
+            "named": true
+          },
+          {
+            "type": "range_pattern",
+            "named": true
+          },
+          {
+            "type": "reference_expression",
+            "named": true
+          },
+          {
+            "type": "return_expression",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          },
+          {
+            "type": "struct_construction",
+            "named": true
+          },
+          {
+            "type": "struct_expression",
+            "named": true
+          },
+          {
+            "type": "switch_expression",
+            "named": true
+          },
+          {
+            "type": "test_expression",
+            "named": true
+          },
+          {
+            "type": "type_identifier",
+            "named": true
+          },
+          {
+            "type": "unary_expression",
+            "named": true
+          },
+          {
+            "type": "undefined_literal",
+            "named": true
+          },
+          {
+            "type": "union_expression",
+            "named": true
+          },
+          {
+            "type": "while_expression",
+            "named": true
+          }
+        ]
+      },
+      "start": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "anonymous_array_expr",
+            "named": true
+          },
+          {
+            "type": "anonymous_struct_enum",
+            "named": true
+          },
+          {
+            "type": "array_expression",
+            "named": true
+          },
+          {
+            "type": "array_type",
+            "named": true
+          },
+          {
+            "type": "assignment_expression",
+            "named": true
+          },
+          {
+            "type": "binary_expression",
+            "named": true
+          },
+          {
+            "type": "block",
+            "named": true
+          },
+          {
+            "type": "boolean_literal",
+            "named": true
+          },
+          {
+            "type": "break_expression",
+            "named": true
+          },
+          {
+            "type": "build_in_call_expr",
+            "named": true
+          },
+          {
+            "type": "call_expression",
+            "named": true
+          },
+          {
+            "type": "char_literal",
+            "named": true
+          },
+          {
+            "type": "compound_assignment_expr",
+            "named": true
+          },
+          {
+            "type": "comptime_block",
+            "named": true
+          },
+          {
+            "type": "continue_expression",
+            "named": true
+          },
+          {
+            "type": "custom_number_type",
+            "named": true
+          },
+          {
+            "type": "dereference_expression",
+            "named": true
+          },
+          {
+            "type": "enum_expression",
+            "named": true
+          },
+          {
+            "type": "enum_literal",
+            "named": true
+          },
+          {
+            "type": "error_type",
+            "named": true
+          },
+          {
+            "type": "field_expression",
+            "named": true
+          },
+          {
+            "type": "float_literal",
+            "named": true
+          },
+          {
+            "type": "for_expression",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "if_expression",
+            "named": true
+          },
+          {
+            "type": "index_expression",
+            "named": true
+          },
+          {
+            "type": "integer_literal",
+            "named": true
+          },
+          {
+            "type": "multiline_string_literal",
+            "named": true
+          },
+          {
+            "type": "null_literal",
+            "named": true
+          },
+          {
+            "type": "optional_type",
+            "named": true
+          },
+          {
+            "type": "pointer_type",
+            "named": true
+          },
+          {
+            "type": "primitive_type",
+            "named": true
+          },
+          {
+            "type": "range_pattern",
+            "named": true
+          },
+          {
+            "type": "reference_expression",
+            "named": true
+          },
+          {
+            "type": "return_expression",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          },
+          {
+            "type": "struct_construction",
+            "named": true
+          },
+          {
+            "type": "struct_expression",
+            "named": true
+          },
+          {
+            "type": "switch_expression",
+            "named": true
+          },
+          {
+            "type": "test_expression",
+            "named": true
+          },
+          {
+            "type": "type_identifier",
+            "named": true
+          },
+          {
+            "type": "unary_expression",
+            "named": true
+          },
+          {
+            "type": "undefined_literal",
+            "named": true
+          },
+          {
+            "type": "union_expression",
+            "named": true
+          },
+          {
+            "type": "while_expression",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "reference_expression",
     "named": true,
     "fields": {
@@ -5684,6 +6644,10 @@
             "named": true
           },
           {
+            "type": "range_pattern",
+            "named": true
+          },
+          {
             "type": "reference_expression",
             "named": true
           },
@@ -5701,6 +6665,10 @@
           },
           {
             "type": "struct_expression",
+            "named": true
+          },
+          {
+            "type": "switch_expression",
             "named": true
           },
           {
@@ -5868,6 +6836,10 @@
           "named": true
         },
         {
+          "type": "range_pattern",
+          "named": true
+        },
+        {
           "type": "reference_expression",
           "named": true
         },
@@ -5885,6 +6857,10 @@
         },
         {
           "type": "struct_expression",
+          "named": true
+        },
+        {
+          "type": "switch_expression",
           "named": true
         },
         {
@@ -6051,6 +7027,10 @@
             "named": true
           },
           {
+            "type": "range_pattern",
+            "named": true
+          },
+          {
             "type": "reference_expression",
             "named": true
           },
@@ -6068,6 +7048,10 @@
           },
           {
             "type": "struct_expression",
+            "named": true
+          },
+          {
+            "type": "switch_expression",
             "named": true
           },
           {
@@ -6229,6 +7213,10 @@
             "named": true
           },
           {
+            "type": "range_pattern",
+            "named": true
+          },
+          {
             "type": "reference_expression",
             "named": true
           },
@@ -6246,6 +7234,10 @@
           },
           {
             "type": "struct_expression",
+            "named": true
+          },
+          {
+            "type": "switch_expression",
             "named": true
           },
           {
@@ -6429,6 +7421,10 @@
           "named": true
         },
         {
+          "type": "range_pattern",
+          "named": true
+        },
+        {
           "type": "reference_expression",
           "named": true
         },
@@ -6446,6 +7442,10 @@
         },
         {
           "type": "struct_expression",
+          "named": true
+        },
+        {
+          "type": "switch_expression",
           "named": true
         },
         {
@@ -6688,6 +7688,10 @@
           "named": true
         },
         {
+          "type": "range_pattern",
+          "named": true
+        },
+        {
           "type": "reference_expression",
           "named": true
         },
@@ -6712,6 +7716,10 @@
           "named": true
         },
         {
+          "type": "switch_expression",
+          "named": true
+        },
+        {
           "type": "test_expression",
           "named": true
         },
@@ -6733,6 +7741,662 @@
         },
         {
           "type": "while_expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "switch_arm",
+    "named": true,
+    "fields": {
+      "pattern": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "switch_pattern",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "anonymous_array_expr",
+            "named": true
+          },
+          {
+            "type": "anonymous_struct_enum",
+            "named": true
+          },
+          {
+            "type": "array_expression",
+            "named": true
+          },
+          {
+            "type": "array_type",
+            "named": true
+          },
+          {
+            "type": "assignment_expression",
+            "named": true
+          },
+          {
+            "type": "binary_expression",
+            "named": true
+          },
+          {
+            "type": "block",
+            "named": true
+          },
+          {
+            "type": "boolean_literal",
+            "named": true
+          },
+          {
+            "type": "break_expression",
+            "named": true
+          },
+          {
+            "type": "build_in_call_expr",
+            "named": true
+          },
+          {
+            "type": "call_expression",
+            "named": true
+          },
+          {
+            "type": "char_literal",
+            "named": true
+          },
+          {
+            "type": "compound_assignment_expr",
+            "named": true
+          },
+          {
+            "type": "comptime_block",
+            "named": true
+          },
+          {
+            "type": "continue_expression",
+            "named": true
+          },
+          {
+            "type": "custom_number_type",
+            "named": true
+          },
+          {
+            "type": "dereference_expression",
+            "named": true
+          },
+          {
+            "type": "enum_expression",
+            "named": true
+          },
+          {
+            "type": "enum_literal",
+            "named": true
+          },
+          {
+            "type": "error_type",
+            "named": true
+          },
+          {
+            "type": "field_expression",
+            "named": true
+          },
+          {
+            "type": "float_literal",
+            "named": true
+          },
+          {
+            "type": "for_expression",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "if_expression",
+            "named": true
+          },
+          {
+            "type": "index_expression",
+            "named": true
+          },
+          {
+            "type": "integer_literal",
+            "named": true
+          },
+          {
+            "type": "multiline_string_literal",
+            "named": true
+          },
+          {
+            "type": "null_literal",
+            "named": true
+          },
+          {
+            "type": "optional_type",
+            "named": true
+          },
+          {
+            "type": "pointer_type",
+            "named": true
+          },
+          {
+            "type": "primitive_type",
+            "named": true
+          },
+          {
+            "type": "range_pattern",
+            "named": true
+          },
+          {
+            "type": "reference_expression",
+            "named": true
+          },
+          {
+            "type": "return_expression",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          },
+          {
+            "type": "struct_construction",
+            "named": true
+          },
+          {
+            "type": "struct_expression",
+            "named": true
+          },
+          {
+            "type": "switch_expression",
+            "named": true
+          },
+          {
+            "type": "test_expression",
+            "named": true
+          },
+          {
+            "type": "type_identifier",
+            "named": true
+          },
+          {
+            "type": "unary_expression",
+            "named": true
+          },
+          {
+            "type": "undefined_literal",
+            "named": true
+          },
+          {
+            "type": "union_expression",
+            "named": true
+          },
+          {
+            "type": "while_expression",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "switch_block",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "switch_arm",
+          "named": true
+        },
+        {
+          "type": "switch_last_arm",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "switch_expression",
+    "named": true,
+    "fields": {
+      "body": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "switch_block",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "anonymous_array_expr",
+            "named": true
+          },
+          {
+            "type": "anonymous_struct_enum",
+            "named": true
+          },
+          {
+            "type": "array_expression",
+            "named": true
+          },
+          {
+            "type": "array_type",
+            "named": true
+          },
+          {
+            "type": "assignment_expression",
+            "named": true
+          },
+          {
+            "type": "binary_expression",
+            "named": true
+          },
+          {
+            "type": "block",
+            "named": true
+          },
+          {
+            "type": "boolean_literal",
+            "named": true
+          },
+          {
+            "type": "break_expression",
+            "named": true
+          },
+          {
+            "type": "build_in_call_expr",
+            "named": true
+          },
+          {
+            "type": "call_expression",
+            "named": true
+          },
+          {
+            "type": "char_literal",
+            "named": true
+          },
+          {
+            "type": "compound_assignment_expr",
+            "named": true
+          },
+          {
+            "type": "comptime_block",
+            "named": true
+          },
+          {
+            "type": "continue_expression",
+            "named": true
+          },
+          {
+            "type": "custom_number_type",
+            "named": true
+          },
+          {
+            "type": "dereference_expression",
+            "named": true
+          },
+          {
+            "type": "enum_expression",
+            "named": true
+          },
+          {
+            "type": "enum_literal",
+            "named": true
+          },
+          {
+            "type": "error_type",
+            "named": true
+          },
+          {
+            "type": "field_expression",
+            "named": true
+          },
+          {
+            "type": "float_literal",
+            "named": true
+          },
+          {
+            "type": "for_expression",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "if_expression",
+            "named": true
+          },
+          {
+            "type": "index_expression",
+            "named": true
+          },
+          {
+            "type": "integer_literal",
+            "named": true
+          },
+          {
+            "type": "multiline_string_literal",
+            "named": true
+          },
+          {
+            "type": "null_literal",
+            "named": true
+          },
+          {
+            "type": "optional_type",
+            "named": true
+          },
+          {
+            "type": "pointer_type",
+            "named": true
+          },
+          {
+            "type": "primitive_type",
+            "named": true
+          },
+          {
+            "type": "range_pattern",
+            "named": true
+          },
+          {
+            "type": "reference_expression",
+            "named": true
+          },
+          {
+            "type": "return_expression",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          },
+          {
+            "type": "struct_construction",
+            "named": true
+          },
+          {
+            "type": "struct_expression",
+            "named": true
+          },
+          {
+            "type": "switch_expression",
+            "named": true
+          },
+          {
+            "type": "test_expression",
+            "named": true
+          },
+          {
+            "type": "type_identifier",
+            "named": true
+          },
+          {
+            "type": "unary_expression",
+            "named": true
+          },
+          {
+            "type": "undefined_literal",
+            "named": true
+          },
+          {
+            "type": "union_expression",
+            "named": true
+          },
+          {
+            "type": "while_expression",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "switch_last_arm",
+    "named": true,
+    "fields": {
+      "pattern": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "else_switch",
+            "named": true
+          },
+          {
+            "type": "switch_pattern",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "anonymous_array_expr",
+            "named": true
+          },
+          {
+            "type": "anonymous_struct_enum",
+            "named": true
+          },
+          {
+            "type": "array_expression",
+            "named": true
+          },
+          {
+            "type": "array_type",
+            "named": true
+          },
+          {
+            "type": "assignment_expression",
+            "named": true
+          },
+          {
+            "type": "binary_expression",
+            "named": true
+          },
+          {
+            "type": "block",
+            "named": true
+          },
+          {
+            "type": "boolean_literal",
+            "named": true
+          },
+          {
+            "type": "break_expression",
+            "named": true
+          },
+          {
+            "type": "build_in_call_expr",
+            "named": true
+          },
+          {
+            "type": "call_expression",
+            "named": true
+          },
+          {
+            "type": "char_literal",
+            "named": true
+          },
+          {
+            "type": "compound_assignment_expr",
+            "named": true
+          },
+          {
+            "type": "comptime_block",
+            "named": true
+          },
+          {
+            "type": "continue_expression",
+            "named": true
+          },
+          {
+            "type": "custom_number_type",
+            "named": true
+          },
+          {
+            "type": "dereference_expression",
+            "named": true
+          },
+          {
+            "type": "enum_expression",
+            "named": true
+          },
+          {
+            "type": "enum_literal",
+            "named": true
+          },
+          {
+            "type": "error_type",
+            "named": true
+          },
+          {
+            "type": "field_expression",
+            "named": true
+          },
+          {
+            "type": "float_literal",
+            "named": true
+          },
+          {
+            "type": "for_expression",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "if_expression",
+            "named": true
+          },
+          {
+            "type": "index_expression",
+            "named": true
+          },
+          {
+            "type": "integer_literal",
+            "named": true
+          },
+          {
+            "type": "multiline_string_literal",
+            "named": true
+          },
+          {
+            "type": "null_literal",
+            "named": true
+          },
+          {
+            "type": "optional_type",
+            "named": true
+          },
+          {
+            "type": "pointer_type",
+            "named": true
+          },
+          {
+            "type": "primitive_type",
+            "named": true
+          },
+          {
+            "type": "range_pattern",
+            "named": true
+          },
+          {
+            "type": "reference_expression",
+            "named": true
+          },
+          {
+            "type": "return_expression",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          },
+          {
+            "type": "struct_construction",
+            "named": true
+          },
+          {
+            "type": "struct_expression",
+            "named": true
+          },
+          {
+            "type": "switch_expression",
+            "named": true
+          },
+          {
+            "type": "test_expression",
+            "named": true
+          },
+          {
+            "type": "type_identifier",
+            "named": true
+          },
+          {
+            "type": "unary_expression",
+            "named": true
+          },
+          {
+            "type": "undefined_literal",
+            "named": true
+          },
+          {
+            "type": "union_expression",
+            "named": true
+          },
+          {
+            "type": "while_expression",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "switch_pattern",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "field_pattern",
+          "named": true
+        },
+        {
+          "type": "literal_pattern",
+          "named": true
+        },
+        {
+          "type": "range_pattern",
+          "named": true
+        },
+        {
+          "type": "slice_pattern",
           "named": true
         }
       ]
@@ -6901,6 +8565,10 @@
           "named": true
         },
         {
+          "type": "range_pattern",
+          "named": true
+        },
+        {
           "type": "reference_expression",
           "named": true
         },
@@ -6918,6 +8586,10 @@
         },
         {
           "type": "struct_expression",
+          "named": true
+        },
+        {
+          "type": "switch_expression",
           "named": true
         },
         {
@@ -7084,6 +8756,10 @@
             "named": true
           },
           {
+            "type": "range_pattern",
+            "named": true
+          },
+          {
             "type": "reference_expression",
             "named": true
           },
@@ -7101,6 +8777,10 @@
           },
           {
             "type": "struct_expression",
+            "named": true
+          },
+          {
+            "type": "switch_expression",
             "named": true
           },
           {
@@ -7352,6 +9032,10 @@
           "named": true
         },
         {
+          "type": "range_pattern",
+          "named": true
+        },
+        {
           "type": "reference_expression",
           "named": true
         },
@@ -7369,6 +9053,10 @@
         },
         {
           "type": "struct_expression",
+          "named": true
+        },
+        {
+          "type": "switch_expression",
           "named": true
         },
         {
@@ -7451,6 +9139,11 @@
         ]
       }
     }
+  },
+  {
+    "type": "variadic_parameter",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "variant_declaration",
@@ -7589,6 +9282,10 @@
             "named": true
           },
           {
+            "type": "range_pattern",
+            "named": true
+          },
+          {
             "type": "reference_expression",
             "named": true
           },
@@ -7606,6 +9303,10 @@
           },
           {
             "type": "struct_expression",
+            "named": true
+          },
+          {
+            "type": "switch_expression",
             "named": true
           },
           {
@@ -7788,6 +9489,10 @@
             "named": true
           },
           {
+            "type": "range_pattern",
+            "named": true
+          },
+          {
             "type": "reference_expression",
             "named": true
           },
@@ -7805,6 +9510,10 @@
           },
           {
             "type": "struct_expression",
+            "named": true
+          },
+          {
+            "type": "switch_expression",
             "named": true
           },
           {
@@ -7976,6 +9685,10 @@
             "named": true
           },
           {
+            "type": "range_pattern",
+            "named": true
+          },
+          {
             "type": "reference_expression",
             "named": true
           },
@@ -7993,6 +9706,10 @@
           },
           {
             "type": "struct_expression",
+            "named": true
+          },
+          {
+            "type": "switch_expression",
             "named": true
           },
           {
@@ -8158,6 +9875,10 @@
             "named": true
           },
           {
+            "type": "range_pattern",
+            "named": true
+          },
+          {
             "type": "reference_expression",
             "named": true
           },
@@ -8175,6 +9896,10 @@
           },
           {
             "type": "struct_expression",
+            "named": true
+          },
+          {
+            "type": "switch_expression",
             "named": true
           },
           {
@@ -8316,6 +10041,10 @@
     "named": false
   },
   {
+    "type": "...",
+    "named": false
+  },
+  {
     "type": ".{",
     "named": false
   },
@@ -8337,6 +10066,10 @@
   },
   {
     "type": "=",
+    "named": false
+  },
+  {
+    "type": "=>",
     "named": false
   },
   {
@@ -8466,6 +10199,10 @@
   {
     "type": "else",
     "named": false
+  },
+  {
+    "type": "else_switch",
+    "named": true
   },
   {
     "type": "enum",
@@ -8624,6 +10361,10 @@
     "named": true
   },
   {
+    "type": "switch",
+    "named": false
+  },
+  {
     "type": "test",
     "named": false
   },
@@ -8682,10 +10423,6 @@
   {
     "type": "var",
     "named": false
-  },
-  {
-    "type": "variadic_parameter",
-    "named": true
   },
   {
     "type": "void",

@@ -113,6 +113,7 @@ module.exports = grammar({
       $.anonymous_struct_enum,
       $.enum_expression,
       $.union_expression,
+      $.switch_expression,
       $.continue_expression,
       $.break_expression,
       $.return_expression,
@@ -124,6 +125,7 @@ module.exports = grammar({
       $.binary_expression,
       $.reference_expression,
       $.dereference_expression,
+      $.range_pattern,
       $._type,
       $._literals,
       $.identifier,
@@ -232,11 +234,62 @@ module.exports = grammar({
       ']'
     )),
 
+    _pattern: $ => choice(
+      $.slice_pattern,
+      $.range_pattern,
+      alias($.field_expression, $.field_pattern),
+      alias($._literals, $.literal_pattern),
+    ),
+
     slice_pattern: $ => prec(PREC.call, seq(
       optional(field('start', $._expression)),
       '..',
       optional(field('end', $._expression)),
     )),
+
+    range_pattern: $ => prec.left(seq(
+      field('start', $._expression),
+      '...',
+      field('end', $._expression),
+    )),
+
+    switch_expression: $ => seq(
+      'switch',
+      '(',
+      field('value', $._expression),
+      ')',
+      field('body', $.switch_block),
+    ),
+
+    switch_block: $ => seq(
+      '{',
+      optional(seq(
+        repeat($.switch_arm),
+        $.switch_last_arm,
+      )),
+      '}'
+    ),
+
+    switch_arm: $ => seq(
+      field('pattern', $.switch_pattern),
+      '=>',
+      choice(
+        seq(field('value', $._expression), ','),
+        field('value', prec(1, $._expression_ending_with_block)),
+      ),
+    ),
+
+    switch_last_arm: $ => seq(
+      field('pattern', choice(alias('else', $.else_switch), $.switch_pattern)),
+      '=>',
+      field('value', $._expression),
+      optional(',')
+    ),
+
+    switch_pattern: $ => choice(
+      $._pattern,
+      sepBy1(',', $._pattern)
+    ),
 
     if_expression: $ => prec.left(seq(
       'if',

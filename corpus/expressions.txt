@@ -1149,6 +1149,65 @@ union {
       body: (block))))
 
 ============================================
+Switch expression
+============================================
+
+switch (a) {
+    1 => 1,
+    2, 3 => 3,
+    4...7 => 4,
+    else => 5,
+};
+
+switch (a) {
+    Var.A => 1,
+    Var.B => 2,
+};
+
+---
+
+(source_file
+  (switch_expression
+    value: (identifier)
+    body: (switch_block
+      (switch_arm
+        pattern: (switch_pattern
+          (literal_pattern
+            (integer_literal)))
+        value: (integer_literal))
+      (switch_arm
+        pattern: (switch_pattern
+          (literal_pattern
+            (integer_literal))
+          (literal_pattern
+            (integer_literal)))
+        value: (integer_literal))
+      (switch_arm
+        pattern: (switch_pattern
+          (slice_pattern
+            start: (float_literal)
+            end: (integer_literal)))
+        value: (integer_literal))
+      (switch_last_arm
+        pattern: (else_switch)
+        value: (integer_literal))))
+  (switch_expression
+    value: (identifier)
+    body: (switch_block
+      (switch_arm
+        pattern: (switch_pattern
+          (field_pattern
+            value: (identifier)
+            field: (field_identifier)))
+        value: (integer_literal))
+      (switch_last_arm
+        pattern: (switch_pattern
+          (field_pattern
+            value: (identifier)
+            field: (field_identifier)))
+        value: (integer_literal)))))
+
+============================================
 Test expression
 ============================================
 
