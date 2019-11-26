@@ -424,7 +424,10 @@ module.exports = grammar({
     array_type: $ => prec(PREC.array, seq(
       repeat(seq(
         '[',
-        field('size', optional(choice($.integer_literal, $.identifier, alias('*', $.pointer)))),
+        field('size', optional(choice(
+          $.integer_literal,
+          $.identifier,
+          alias(seq('*', optional('c')), $.pointer)))),
         ']',
       )),
       optional(repeat($.type_prefix)),

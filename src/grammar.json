@@ -2095,8 +2095,25 @@
                           {
                             "type": "ALIAS",
                             "content": {
-                              "type": "STRING",
-                              "value": "*"
+                              "type": "SEQ",
+                              "members": [
+                                {
+                                  "type": "STRING",
+                                  "value": "*"
+                                },
+                                {
+                                  "type": "CHOICE",
+                                  "members": [
+                                    {
+                                      "type": "STRING",
+                                      "value": "c"
+                                    },
+                                    {
+                                      "type": "BLANK"
+                                    }
+                                  ]
+                                }
+                              ]
                             },
                             "named": true,
                             "value": "pointer"
