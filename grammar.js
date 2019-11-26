@@ -63,7 +63,7 @@ module.exports = grammar({
   conflicts: $ => [
     [$.optional_type, $.unary_operator],
     [$.array_type, $.array_expression],
-    [$.anonymous_struct, $.anonymous_array_expr],
+    [$.anonymous_struct_enum, $.anonymous_array_expr],
     [$.call_expression],
   ],
 
@@ -110,8 +110,9 @@ module.exports = grammar({
       $._expression_ending_with_block,
       $.struct_expression,
       $.struct_construction,
-      $.anonymous_struct,
+      $.anonymous_struct_enum,
       $.enum_expression,
+      $.union_expression,
       $.continue_expression,
       $.break_expression,
       $.return_expression,
@@ -250,7 +251,7 @@ module.exports = grammar({
       'while',
       choice($._condition, $._condition_with_continue),
       field('body', $.block),
-      optional($._else_loop_tail),
+      optional($._else_tail),
     )),
 
     for_expression: $ => prec.left(seq(
@@ -259,7 +260,7 @@ module.exports = grammar({
       'for',
       $._condition,
       field('body', $.block),
-      optional($._else_loop_tail),
+      optional($._else_tail),
     )),
 
     _condition: $ => seq(
@@ -290,15 +291,6 @@ module.exports = grammar({
       ),
     )),
 
-    _else_loop_tail: $ => prec(PREC.if, seq(
-      'else',
-      choice(
-        $._else_case_label,
-        $._else_case_payload,
-        $._else_case_default,
-      ),
-    )),
-
     _else_case_default: $ => prec.left(field('alternative', choice(
       $._expression,
       $.block,
@@ -308,11 +300,6 @@ module.exports = grammar({
     _else_case_payload: $ => seq(
       optional($.payload),
       field('alternative', $.block),
-    ),
-
-    _else_case_label: $ => seq(
-      optional($.loop_label),
-      field('alternative', $.block)
     ),
 
     loop_label: $ => seq(
@@ -420,6 +407,7 @@ module.exports = grammar({
     ),
 
     block: $ => prec.left(seq(
+      optional(field('label', $.loop_label)),
       '{',
       optional(repeat($._statement)),
       optional($._expression),
@@ -443,7 +431,7 @@ module.exports = grammar({
       '}',
     ),
 
-    anonymous_struct: $ => seq(
+    anonymous_struct_enum: $ => seq(
       '.{',
       field('field', sepBy1(',', $.field_init)),
       '}'
@@ -455,6 +443,28 @@ module.exports = grammar({
       '=',
       field('value', $._expression),
     ),
+
+    union_expression: $ => seq(
+      optional(alias(choice('packed', 'extern'), $.union_modifier)),
+      'union',
+      optional(seq(
+        '(',
+        field('type', choice($._type, alias('enum', $.inference_type))),
+        ')',
+      )),
+      '{',
+      field('field_variant', sepBy(',', $.union_field_variant)),
+      optional(repeat($._statement)),
+      '}',
+    ),
+
+    union_field_variant: $ => prec(2, seq(
+      field('name', alias($.identifier, $.union_identifier)),
+      optional(seq(
+        ':',
+        field('type', $._type),
+      )),
+    )),
 
     enum_expression: $ => seq(
       optional(alias(choice('packed', 'extern'), $.enum_modifier)),
@@ -477,7 +487,6 @@ module.exports = grammar({
         field('default', $._expression),
       )),
     )),
-
 
     struct_expression: $ => seq(
       optional(alias(choice('packed', 'extern'), $.struct_modifier)),

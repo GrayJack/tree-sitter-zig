@@ -690,9 +690,9 @@ for (xs) |value| {} else blk: {}
     (payload
       values: (payload_identifier))
     body: (block)
-    (loop_label
-      name: (label_identifier))
-    alternative: (block)))
+    alternative: (block
+      label: (loop_label
+        name: (label_identifier)))))
 
 ============================================
 Continue and Break expression
@@ -1027,7 +1027,7 @@ MyType {
       value: (integer_literal))))
 
 ============================================
-Anonymous Struct expression
+Anonymous Struct/Enum expression
 ============================================
 
 .{ .x = 10 };
@@ -1039,11 +1039,11 @@ Anonymous Struct expression
 ---
 
 (source_file
-  (anonymous_struct
+  (anonymous_struct_enum
     field: (field_init
       name: (field_identifier)
       value: (integer_literal)))
-  (anonymous_struct
+  (anonymous_struct_enum
     field: (field_init
       name: (field_identifier)
       value: (integer_literal))
@@ -1088,6 +1088,65 @@ enum { Zero = 0, One = 1};
     variant: (variant_declaration
       name: (enum_identifier)
       default: (integer_literal))))
+
+============================================
+Union expression
+============================================
+
+union {};
+union { Abc: u8 };
+union { Abc: u8, Def: Point, None};
+
+union (enum) {};
+union (MyEnum) {
+    Var1: u8,
+    Var2: u16,
+    Error,
+};
+
+union {
+    Var: u8,
+
+    fn myfunc() {}
+};
+
+---
+
+(source_file
+  (union_expression)
+  (union_expression
+    field_variant: (union_field_variant
+      name: (union_identifier)
+      type: (primitive_type)))
+  (union_expression
+    field_variant: (union_field_variant
+      name: (union_identifier)
+      type: (primitive_type))
+    field_variant: (union_field_variant
+      name: (union_identifier)
+      type: (type_identifier))
+    field_variant: (union_field_variant
+      name: (union_identifier)))
+  (union_expression
+    type: (inference_type))
+  (union_expression
+    type: (type_identifier)
+    field_variant: (union_field_variant
+      name: (union_identifier)
+      type: (primitive_type))
+    field_variant: (union_field_variant
+      name: (union_identifier)
+      type: (primitive_type))
+    field_variant: (union_field_variant
+      name: (union_identifier)))
+  (union_expression
+    field_variant: (union_field_variant
+      name: (union_identifier)
+      type: (primitive_type))
+    (function_declaration
+      name: (identifier)
+      parameters: (parameters)
+      body: (block))))
 
 ============================================
 Test expression
