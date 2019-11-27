@@ -258,11 +258,19 @@
           },
           {
             "type": "SYMBOL",
+            "name": "orelse_postfix_expression"
+          },
+          {
+            "type": "SYMBOL",
             "name": "range_pattern"
           },
           {
             "type": "SYMBOL",
             "name": "unreachable_expression"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "usingnamespace_expression"
           },
           {
             "type": "SYMBOL",
@@ -1851,6 +1859,39 @@
         }
       ]
     },
+    "usingnamespace_expression": {
+      "type": "PREC_LEFT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "visibility_modifier"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          },
+          {
+            "type": "STRING",
+            "value": "usingnamespace"
+          },
+          {
+            "type": "FIELD",
+            "name": "import",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_expression"
+            }
+          }
+        ]
+      }
+    },
     "_type": {
       "type": "PREC",
       "value": -1,
@@ -2422,6 +2463,23 @@
         {
           "type": "STRING",
           "value": ".*"
+        }
+      ]
+    },
+    "orelse_postfix_expression": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "value",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_expression"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ".?"
         }
       ]
     },

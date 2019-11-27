@@ -1260,3 +1260,51 @@ test "assignment" {
       (call_expression
         function: (identifier)
         arguments: (arguments)))))
+
+============================================
+Usingnamespace expression
+============================================
+
+usingnamespace std;
+
+pub usingnamespace @cImport({
+    @cInclude("epoxy/gl.h");
+    @cInclude("GLFW/glfw3.h");
+    @cDefine("STBI_ONLY_PNG", "");
+    @cDefine("STBI_NO_STDIO", "");
+    @cInclude("stb_image.h");
+});
+
+---
+
+(source_file
+  (usingnamespace_expression
+    import: (identifier))
+  (usingnamespace_expression
+    (visibility_modifier)
+    import: (build_in_call_expr
+      function: (identifier)
+      arguments: (arguments
+        (block
+          (build_in_call_expr
+            function: (identifier)
+            arguments: (arguments
+              (string_literal)))
+          (build_in_call_expr
+            function: (identifier)
+            arguments: (arguments
+              (string_literal)))
+          (build_in_call_expr
+            function: (identifier)
+            arguments: (arguments
+              (string_literal)
+              (string_literal)))
+          (build_in_call_expr
+            function: (identifier)
+            arguments: (arguments
+              (string_literal)
+              (string_literal)))
+          (build_in_call_expr
+            function: (identifier)
+            arguments: (arguments
+              (string_literal))))))))

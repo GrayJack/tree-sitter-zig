@@ -129,8 +129,10 @@ module.exports = grammar({
       $.binary_expression,
       $.reference_expression,
       $.dereference_expression,
+      $.orelse_postfix_expression,
       $.range_pattern,
       $.unreachable_expression,
+      $.usingnamespace_expression,
       $._type,
       $._literals,
       $.identifier,
@@ -398,6 +400,12 @@ module.exports = grammar({
       field('body', $.block),
     ),
 
+    usingnamespace_expression: $ => prec.left(seq(
+      optional($.visibility_modifier),
+      'usingnamespace',
+      field('import', $._expression),
+    )),
+
     _type: $ => prec(-1, choice(
       $.primitive_type,
       $.optional_type,
@@ -487,6 +495,11 @@ module.exports = grammar({
     dereference_expression: $ => seq(
       field('value', $._expression),
       '.*'
+    ),
+
+    orelse_postfix_expression: $ => seq(
+      field('value', $._expression),
+      '.?'
     ),
 
     struct_construction: $ => seq(
