@@ -2825,8 +2825,22 @@
                     "type": "FIELD",
                     "name": "type",
                     "content": {
-                      "type": "SYMBOL",
-                      "name": "_type"
+                      "type": "CHOICE",
+                      "members": [
+                        {
+                          "type": "SYMBOL",
+                          "name": "_type"
+                        },
+                        {
+                          "type": "ALIAS",
+                          "content": {
+                            "type": "STRING",
+                            "value": "var"
+                          },
+                          "named": true,
+                          "value": "inference_type"
+                        }
+                      ]
                     }
                   }
                 ]
@@ -3168,8 +3182,22 @@
             "type": "FIELD",
             "name": "type",
             "content": {
-              "type": "SYMBOL",
-              "name": "_type"
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_type"
+                },
+                {
+                  "type": "ALIAS",
+                  "content": {
+                    "type": "STRING",
+                    "value": "var"
+                  },
+                  "named": true,
+                  "value": "inference_type"
+                }
+              ]
             }
           },
           {

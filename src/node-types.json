@@ -3621,6 +3621,10 @@
             "named": true
           },
           {
+            "type": "inference_type",
+            "named": true
+          },
+          {
             "type": "optional_type",
             "named": true
           },
@@ -10572,6 +10576,10 @@
           },
           {
             "type": "error_type",
+            "named": true
+          },
+          {
+            "type": "inference_type",
             "named": true
           },
           {

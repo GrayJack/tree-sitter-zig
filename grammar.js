@@ -540,7 +540,7 @@ module.exports = grammar({
       field('name', alias($.identifier, $.union_identifier)),
       optional(seq(
         ':',
-        field('type', $._type),
+        field('type', choice($._type, alias('var', $.inference_type))),
       )),
     )),
 
@@ -579,7 +579,7 @@ module.exports = grammar({
       optional($.visibility_modifier),
       field('name', alias($.identifier, $.field_identifier)),
       ':',
-      field('type', $._type),
+      field('type', choice($._type, alias('var', $.inference_type))),
       optional(seq(
         '=',
         field('default', $._expression),
