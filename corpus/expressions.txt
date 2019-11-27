@@ -1219,6 +1219,26 @@ switch (a) {
         value: (integer_literal)))))
 
 ============================================
+Error expression
+============================================
+
+error {
+    Error1,
+    Error2,
+};
+
+error.Error;
+
+---
+
+(source_file
+  (error_expression
+    error_variant: (error_identifier)
+    error_variant: (error_identifier))
+  (error_expression
+    error_variant: (error_identifier)))
+
+============================================
 Test expression
 ============================================
 

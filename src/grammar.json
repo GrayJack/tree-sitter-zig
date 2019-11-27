@@ -202,6 +202,10 @@
           },
           {
             "type": "SYMBOL",
+            "name": "error_expression"
+          },
+          {
+            "type": "SYMBOL",
             "name": "switch_expression"
           },
           {
@@ -255,6 +259,10 @@
           {
             "type": "SYMBOL",
             "name": "range_pattern"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "unreachable_expression"
           },
           {
             "type": "SYMBOL",
@@ -3134,6 +3142,122 @@
         ]
       }
     },
+    "error_expression": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "error"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_error_one_shorthand"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_default_error"
+            }
+          ]
+        }
+      ]
+    },
+    "_error_one_shorthand": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "."
+        },
+        {
+          "type": "FIELD",
+          "name": "error_variant",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "SYMBOL",
+              "name": "identifier"
+            },
+            "named": true,
+            "value": "error_identifier"
+          }
+        }
+      ]
+    },
+    "_default_error": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "{"
+        },
+        {
+          "type": "FIELD",
+          "name": "error_variant",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "ALIAS",
+                    "content": {
+                      "type": "SYMBOL",
+                      "name": "identifier"
+                    },
+                    "named": true,
+                    "value": "error_identifier"
+                  },
+                  {
+                    "type": "REPEAT",
+                    "content": {
+                      "type": "SEQ",
+                      "members": [
+                        {
+                          "type": "STRING",
+                          "value": ","
+                        },
+                        {
+                          "type": "ALIAS",
+                          "content": {
+                            "type": "SYMBOL",
+                            "name": "identifier"
+                          },
+                          "named": true,
+                          "value": "error_identifier"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "type": "CHOICE",
+                    "members": [
+                      {
+                        "type": "STRING",
+                        "value": ","
+                      },
+                      {
+                        "type": "BLANK"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "}"
+        }
+      ]
+    },
     "array_expression": {
       "type": "SEQ",
       "members": [
@@ -3320,6 +3444,27 @@
         "type": "SEQ",
         "members": [
           {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": "defer"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "errdefer"
+                  }
+                ]
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          },
+          {
             "type": "FIELD",
             "name": "left",
             "content": {
@@ -3399,6 +3544,10 @@
           }
         ]
       }
+    },
+    "unreachable_expression": {
+      "type": "STRING",
+      "value": "unreachable"
     },
     "binary_expression": {
       "type": "CHOICE",
@@ -4337,6 +4486,9 @@
     [
       "anonymous_struct_enum",
       "anonymous_array_expr"
+    ],
+    [
+      "assignment_expression"
     ],
     [
       "call_expression"

@@ -64,6 +64,7 @@ module.exports = grammar({
     [$.optional_type, $.unary_operator],
     [$.array_type, $.array_expression],
     [$.anonymous_struct_enum, $.anonymous_array_expr],
+    [$.assignment_expression],
     [$.call_expression],
   ],
 
@@ -114,6 +115,7 @@ module.exports = grammar({
       $.anonymous_struct_enum,
       $.enum_expression,
       $.union_expression,
+      $.error_expression,
       $.switch_expression,
       $.continue_expression,
       $.break_expression,
@@ -128,6 +130,7 @@ module.exports = grammar({
       $.reference_expression,
       $.dereference_expression,
       $.range_pattern,
+      $.unreachable_expression,
       $._type,
       $._literals,
       $.identifier,
@@ -570,6 +573,22 @@ module.exports = grammar({
       )),
     )),
 
+    error_expression: $ => seq(
+      'error',
+      choice($._error_one_shorthand, $._default_error),
+    ),
+
+    _error_one_shorthand: $ => seq(
+      '.',
+      field('error_variant', alias($.identifier, $.error_identifier)),
+    ),
+
+    _default_error: $ => seq(
+      '{',
+      field('error_variant', sepBy(',', alias($.identifier, $.error_identifier))),
+      '}',
+    ),
+
     array_expression: $ => seq(
       repeat(seq(
         '[',
@@ -593,7 +612,7 @@ module.exports = grammar({
     ),
 
     assignment_expression: $ => prec.left(PREC.assign, seq(
-      // optional(choice('defer', 'errdefer')),
+      optional(choice('defer', 'errdefer')),
       field('left', $._expression),
       '=',
       field('right', $._expression),
@@ -609,6 +628,8 @@ module.exports = grammar({
       field('operator', $.unary_operator),
       field('expression', $._expression),
     )),
+
+    unreachable_expression: $ => 'unreachable',
 
     binary_expression: $ => {
       const table = [

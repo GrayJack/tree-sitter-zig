@@ -3,8 +3,6 @@
 Zig grammar for [tree-sitter](https://github.com/tree-sitter/tree-sitter)
 
 # TODOs
- * Error
- * Defer
  * Async/await machinery
 
 # Testing the parser

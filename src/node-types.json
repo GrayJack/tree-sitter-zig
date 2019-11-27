@@ -124,6 +124,10 @@
           "named": true
         },
         {
+          "type": "error_expression",
+          "named": true
+        },
+        {
           "type": "error_type",
           "named": true
         },
@@ -225,6 +229,10 @@
         },
         {
           "type": "union_expression",
+          "named": true
+        },
+        {
+          "type": "unreachable_expression",
           "named": true
         },
         {
@@ -445,6 +453,10 @@
           "named": true
         },
         {
+          "type": "error_expression",
+          "named": true
+        },
+        {
           "type": "error_type",
           "named": true
         },
@@ -549,6 +561,10 @@
           "named": true
         },
         {
+          "type": "unreachable_expression",
+          "named": true
+        },
+        {
           "type": "while_expression",
           "named": true
         }
@@ -644,6 +660,10 @@
             "named": true
           },
           {
+            "type": "error_expression",
+            "named": true
+          },
+          {
             "type": "error_type",
             "named": true
           },
@@ -745,6 +765,10 @@
           },
           {
             "type": "union_expression",
+            "named": true
+          },
+          {
+            "type": "unreachable_expression",
             "named": true
           },
           {
@@ -838,6 +862,10 @@
             "named": true
           },
           {
+            "type": "error_expression",
+            "named": true
+          },
+          {
             "type": "error_type",
             "named": true
           },
@@ -939,6 +967,10 @@
           },
           {
             "type": "union_expression",
+            "named": true
+          },
+          {
+            "type": "unreachable_expression",
             "named": true
           },
           {
@@ -1043,6 +1075,10 @@
             "named": true
           },
           {
+            "type": "error_expression",
+            "named": true
+          },
+          {
             "type": "error_type",
             "named": true
           },
@@ -1144,6 +1180,10 @@
           },
           {
             "type": "union_expression",
+            "named": true
+          },
+          {
+            "type": "unreachable_expression",
             "named": true
           },
           {
@@ -1301,6 +1341,10 @@
             "named": true
           },
           {
+            "type": "error_expression",
+            "named": true
+          },
+          {
             "type": "error_type",
             "named": true
           },
@@ -1402,6 +1446,10 @@
           },
           {
             "type": "union_expression",
+            "named": true
+          },
+          {
+            "type": "unreachable_expression",
             "named": true
           },
           {
@@ -1505,6 +1553,10 @@
             "named": true
           },
           {
+            "type": "error_expression",
+            "named": true
+          },
+          {
             "type": "error_type",
             "named": true
           },
@@ -1606,6 +1658,10 @@
           },
           {
             "type": "union_expression",
+            "named": true
+          },
+          {
+            "type": "unreachable_expression",
             "named": true
           },
           {
@@ -1724,6 +1780,10 @@
           "named": true
         },
         {
+          "type": "error_expression",
+          "named": true
+        },
+        {
           "type": "error_type",
           "named": true
         },
@@ -1833,6 +1893,10 @@
         },
         {
           "type": "union_expression",
+          "named": true
+        },
+        {
+          "type": "unreachable_expression",
           "named": true
         },
         {
@@ -1946,6 +2010,10 @@
             "named": true
           },
           {
+            "type": "error_expression",
+            "named": true
+          },
+          {
             "type": "error_type",
             "named": true
           },
@@ -2047,6 +2115,10 @@
           },
           {
             "type": "union_expression",
+            "named": true
+          },
+          {
+            "type": "unreachable_expression",
             "named": true
           },
           {
@@ -2213,6 +2285,10 @@
             "named": true
           },
           {
+            "type": "error_expression",
+            "named": true
+          },
+          {
             "type": "error_type",
             "named": true
           },
@@ -2314,6 +2390,10 @@
           },
           {
             "type": "union_expression",
+            "named": true
+          },
+          {
+            "type": "unreachable_expression",
             "named": true
           },
           {
@@ -2417,6 +2497,10 @@
             "named": true
           },
           {
+            "type": "error_expression",
+            "named": true
+          },
+          {
             "type": "error_type",
             "named": true
           },
@@ -2518,6 +2602,10 @@
           },
           {
             "type": "union_expression",
+            "named": true
+          },
+          {
+            "type": "unreachable_expression",
             "named": true
           },
           {
@@ -2663,6 +2751,10 @@
             "named": true
           },
           {
+            "type": "error_expression",
+            "named": true
+          },
+          {
             "type": "error_type",
             "named": true
           },
@@ -2764,6 +2856,10 @@
           },
           {
             "type": "union_expression",
+            "named": true
+          },
+          {
+            "type": "unreachable_expression",
             "named": true
           },
           {
@@ -2929,6 +3025,10 @@
           "named": true
         },
         {
+          "type": "error_expression",
+          "named": true
+        },
+        {
           "type": "error_type",
           "named": true
         },
@@ -3041,6 +3141,10 @@
           "named": true
         },
         {
+          "type": "unreachable_expression",
+          "named": true
+        },
+        {
           "type": "while_expression",
           "named": true
         }
@@ -3057,6 +3161,26 @@
         "types": [
           {
             "type": "enum_identifier",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "error_expression",
+    "named": true,
+    "fields": {
+      "error_variant": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "error_identifier",
             "named": true
           }
         ]
@@ -3241,6 +3365,10 @@
             "named": true
           },
           {
+            "type": "error_expression",
+            "named": true
+          },
+          {
             "type": "error_type",
             "named": true
           },
@@ -3342,6 +3470,10 @@
           },
           {
             "type": "union_expression",
+            "named": true
+          },
+          {
+            "type": "unreachable_expression",
             "named": true
           },
           {
@@ -3495,6 +3627,10 @@
             "named": true
           },
           {
+            "type": "error_expression",
+            "named": true
+          },
+          {
             "type": "error_type",
             "named": true
           },
@@ -3603,6 +3739,10 @@
             "named": true
           },
           {
+            "type": "unreachable_expression",
+            "named": true
+          },
+          {
             "type": "while_expression",
             "named": true
           }
@@ -3690,6 +3830,10 @@
           },
           {
             "type": "enum_literal",
+            "named": true
+          },
+          {
+            "type": "error_expression",
             "named": true
           },
           {
@@ -3794,6 +3938,10 @@
           },
           {
             "type": "union_expression",
+            "named": true
+          },
+          {
+            "type": "unreachable_expression",
             "named": true
           },
           {
@@ -3903,6 +4051,10 @@
             "named": true
           },
           {
+            "type": "error_expression",
+            "named": true
+          },
+          {
             "type": "error_type",
             "named": true
           },
@@ -4007,6 +4159,10 @@
             "named": true
           },
           {
+            "type": "unreachable_expression",
+            "named": true
+          },
+          {
             "type": "while_expression",
             "named": true
           }
@@ -4100,6 +4256,10 @@
           },
           {
             "type": "enum_literal",
+            "named": true
+          },
+          {
+            "type": "error_expression",
             "named": true
           },
           {
@@ -4211,6 +4371,10 @@
             "named": true
           },
           {
+            "type": "unreachable_expression",
+            "named": true
+          },
+          {
             "type": "while_expression",
             "named": true
           }
@@ -4298,6 +4462,10 @@
           },
           {
             "type": "enum_literal",
+            "named": true
+          },
+          {
+            "type": "error_expression",
             "named": true
           },
           {
@@ -4402,6 +4570,10 @@
           },
           {
             "type": "union_expression",
+            "named": true
+          },
+          {
+            "type": "unreachable_expression",
             "named": true
           },
           {
@@ -4501,6 +4673,10 @@
             "named": true
           },
           {
+            "type": "error_expression",
+            "named": true
+          },
+          {
             "type": "error_type",
             "named": true
           },
@@ -4602,6 +4778,10 @@
           },
           {
             "type": "union_expression",
+            "named": true
+          },
+          {
+            "type": "unreachable_expression",
             "named": true
           },
           {
@@ -4705,6 +4885,10 @@
             "named": true
           },
           {
+            "type": "error_expression",
+            "named": true
+          },
+          {
             "type": "error_type",
             "named": true
           },
@@ -4806,6 +4990,10 @@
           },
           {
             "type": "union_expression",
+            "named": true
+          },
+          {
+            "type": "unreachable_expression",
             "named": true
           },
           {
@@ -4953,6 +5141,10 @@
             "named": true
           },
           {
+            "type": "error_expression",
+            "named": true
+          },
+          {
             "type": "error_type",
             "named": true
           },
@@ -5054,6 +5246,10 @@
           },
           {
             "type": "union_expression",
+            "named": true
+          },
+          {
+            "type": "unreachable_expression",
             "named": true
           },
           {
@@ -5202,6 +5398,10 @@
             "named": true
           },
           {
+            "type": "error_expression",
+            "named": true
+          },
+          {
             "type": "error_type",
             "named": true
           },
@@ -5303,6 +5503,10 @@
           },
           {
             "type": "union_expression",
+            "named": true
+          },
+          {
+            "type": "unreachable_expression",
             "named": true
           },
           {
@@ -5416,6 +5620,10 @@
             "named": true
           },
           {
+            "type": "error_expression",
+            "named": true
+          },
+          {
             "type": "error_type",
             "named": true
           },
@@ -5517,6 +5725,10 @@
           },
           {
             "type": "union_expression",
+            "named": true
+          },
+          {
+            "type": "unreachable_expression",
             "named": true
           },
           {
@@ -5610,6 +5822,10 @@
             "named": true
           },
           {
+            "type": "error_expression",
+            "named": true
+          },
+          {
             "type": "error_type",
             "named": true
           },
@@ -5711,6 +5927,10 @@
           },
           {
             "type": "union_expression",
+            "named": true
+          },
+          {
+            "type": "unreachable_expression",
             "named": true
           },
           {
@@ -5804,6 +6024,10 @@
             "named": true
           },
           {
+            "type": "error_expression",
+            "named": true
+          },
+          {
             "type": "error_type",
             "named": true
           },
@@ -5905,6 +6129,10 @@
           },
           {
             "type": "union_expression",
+            "named": true
+          },
+          {
+            "type": "unreachable_expression",
             "named": true
           },
           {
@@ -6014,6 +6242,10 @@
           "named": true
         },
         {
+          "type": "error_expression",
+          "named": true
+        },
+        {
           "type": "error_type",
           "named": true
         },
@@ -6119,6 +6351,10 @@
         },
         {
           "type": "union_expression",
+          "named": true
+        },
+        {
+          "type": "unreachable_expression",
           "named": true
         },
         {
@@ -6401,6 +6637,10 @@
           "named": true
         },
         {
+          "type": "error_expression",
+          "named": true
+        },
+        {
           "type": "error_type",
           "named": true
         },
@@ -6506,6 +6746,10 @@
         },
         {
           "type": "union_expression",
+          "named": true
+        },
+        {
+          "type": "unreachable_expression",
           "named": true
         },
         {
@@ -6652,6 +6896,10 @@
             "named": true
           },
           {
+            "type": "error_expression",
+            "named": true
+          },
+          {
             "type": "error_type",
             "named": true
           },
@@ -6753,6 +7001,10 @@
           },
           {
             "type": "union_expression",
+            "named": true
+          },
+          {
+            "type": "unreachable_expression",
             "named": true
           },
           {
@@ -6846,6 +7098,10 @@
             "named": true
           },
           {
+            "type": "error_expression",
+            "named": true
+          },
+          {
             "type": "error_type",
             "named": true
           },
@@ -6947,6 +7203,10 @@
           },
           {
             "type": "union_expression",
+            "named": true
+          },
+          {
+            "type": "unreachable_expression",
             "named": true
           },
           {
@@ -7046,6 +7306,10 @@
             "named": true
           },
           {
+            "type": "error_expression",
+            "named": true
+          },
+          {
             "type": "error_type",
             "named": true
           },
@@ -7150,6 +7414,10 @@
             "named": true
           },
           {
+            "type": "unreachable_expression",
+            "named": true
+          },
+          {
             "type": "while_expression",
             "named": true
           }
@@ -7243,6 +7511,10 @@
         },
         {
           "type": "enum_literal",
+          "named": true
+        },
+        {
+          "type": "error_expression",
           "named": true
         },
         {
@@ -7350,6 +7622,10 @@
           "named": true
         },
         {
+          "type": "unreachable_expression",
+          "named": true
+        },
+        {
           "type": "while_expression",
           "named": true
         }
@@ -7445,6 +7721,10 @@
             "named": true
           },
           {
+            "type": "error_expression",
+            "named": true
+          },
+          {
             "type": "error_type",
             "named": true
           },
@@ -7546,6 +7826,10 @@
           },
           {
             "type": "union_expression",
+            "named": true
+          },
+          {
+            "type": "unreachable_expression",
             "named": true
           },
           {
@@ -7639,6 +7923,10 @@
             "named": true
           },
           {
+            "type": "error_expression",
+            "named": true
+          },
+          {
             "type": "error_type",
             "named": true
           },
@@ -7740,6 +8028,10 @@
           },
           {
             "type": "union_expression",
+            "named": true
+          },
+          {
+            "type": "unreachable_expression",
             "named": true
           },
           {
@@ -7844,6 +8136,10 @@
         },
         {
           "type": "enum_literal",
+          "named": true
+        },
+        {
+          "type": "error_expression",
           "named": true
         },
         {
@@ -7956,6 +8252,10 @@
         },
         {
           "type": "union_expression",
+          "named": true
+        },
+        {
+          "type": "unreachable_expression",
           "named": true
         },
         {
@@ -8122,6 +8422,10 @@
           "named": true
         },
         {
+          "type": "error_expression",
+          "named": true
+        },
+        {
           "type": "error_type",
           "named": true
         },
@@ -8238,6 +8542,10 @@
           "named": true
         },
         {
+          "type": "unreachable_expression",
+          "named": true
+        },
+        {
           "type": "while_expression",
           "named": true
         }
@@ -8343,6 +8651,10 @@
             "named": true
           },
           {
+            "type": "error_expression",
+            "named": true
+          },
+          {
             "type": "error_type",
             "named": true
           },
@@ -8444,6 +8756,10 @@
           },
           {
             "type": "union_expression",
+            "named": true
+          },
+          {
+            "type": "unreachable_expression",
             "named": true
           },
           {
@@ -8572,6 +8888,10 @@
             "named": true
           },
           {
+            "type": "error_expression",
+            "named": true
+          },
+          {
             "type": "error_type",
             "named": true
           },
@@ -8673,6 +8993,10 @@
           },
           {
             "type": "union_expression",
+            "named": true
+          },
+          {
+            "type": "unreachable_expression",
             "named": true
           },
           {
@@ -8786,6 +9110,10 @@
             "named": true
           },
           {
+            "type": "error_expression",
+            "named": true
+          },
+          {
             "type": "error_type",
             "named": true
           },
@@ -8887,6 +9215,10 @@
           },
           {
             "type": "union_expression",
+            "named": true
+          },
+          {
+            "type": "unreachable_expression",
             "named": true
           },
           {
@@ -9039,6 +9371,10 @@
           "named": true
         },
         {
+          "type": "error_expression",
+          "named": true
+        },
+        {
           "type": "error_type",
           "named": true
         },
@@ -9143,6 +9479,10 @@
           "named": true
         },
         {
+          "type": "unreachable_expression",
+          "named": true
+        },
+        {
           "type": "while_expression",
           "named": true
         }
@@ -9235,6 +9575,10 @@
           },
           {
             "type": "enum_literal",
+            "named": true
+          },
+          {
+            "type": "error_expression",
             "named": true
           },
           {
@@ -9339,6 +9683,10 @@
           },
           {
             "type": "union_expression",
+            "named": true
+          },
+          {
+            "type": "unreachable_expression",
             "named": true
           },
           {
@@ -9514,6 +9862,10 @@
           "named": true
         },
         {
+          "type": "error_expression",
+          "named": true
+        },
+        {
           "type": "error_type",
           "named": true
         },
@@ -9627,6 +9979,10 @@
         },
         {
           "type": "union_modifier",
+          "named": true
+        },
+        {
+          "type": "unreachable_expression",
           "named": true
         },
         {
@@ -9780,6 +10136,10 @@
             "named": true
           },
           {
+            "type": "error_expression",
+            "named": true
+          },
+          {
             "type": "error_type",
             "named": true
           },
@@ -9881,6 +10241,10 @@
           },
           {
             "type": "union_expression",
+            "named": true
+          },
+          {
+            "type": "unreachable_expression",
             "named": true
           },
           {
@@ -9995,6 +10359,10 @@
             "named": true
           },
           {
+            "type": "error_expression",
+            "named": true
+          },
+          {
             "type": "error_type",
             "named": true
           },
@@ -10096,6 +10464,10 @@
           },
           {
             "type": "union_expression",
+            "named": true
+          },
+          {
+            "type": "unreachable_expression",
             "named": true
           },
           {
@@ -10199,6 +10571,10 @@
             "named": true
           },
           {
+            "type": "error_expression",
+            "named": true
+          },
+          {
             "type": "error_type",
             "named": true
           },
@@ -10300,6 +10676,10 @@
           },
           {
             "type": "union_expression",
+            "named": true
+          },
+          {
+            "type": "unreachable_expression",
             "named": true
           },
           {
@@ -10397,6 +10777,10 @@
             "named": true
           },
           {
+            "type": "error_expression",
+            "named": true
+          },
+          {
             "type": "error_type",
             "named": true
           },
@@ -10498,6 +10882,10 @@
           },
           {
             "type": "union_expression",
+            "named": true
+          },
+          {
+            "type": "unreachable_expression",
             "named": true
           },
           {
@@ -10803,6 +11191,14 @@
     "named": false
   },
   {
+    "type": "error",
+    "named": false
+  },
+  {
+    "type": "error_identifier",
+    "named": true
+  },
+  {
     "type": "escape_sequence",
     "named": true
   },
@@ -11000,6 +11396,10 @@
   },
   {
     "type": "union_modifier",
+    "named": true
+  },
+  {
+    "type": "unreachable_expression",
     "named": true
   },
   {
