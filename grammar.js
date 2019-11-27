@@ -88,6 +88,7 @@ module.exports = grammar({
     _expression_ending_with_block: $ => prec(1, choice(
       $.block,
       $.comptime_block,
+      $.defer_block,
       $.if_expression,
       $.while_expression,
       $.for_expression,
@@ -121,6 +122,7 @@ module.exports = grammar({
       $.array_expression,
       $.anonymous_array_expr,
       $.compound_assignment_expr,
+      $.payload_expression,
       $.unary_expression,
       $.binary_expression,
       $.reference_expression,
@@ -316,12 +318,12 @@ module.exports = grammar({
       optional($._else_tail),
     )),
 
-    _condition: $ => seq(
+    _condition: $ => prec.left(seq(
       '(',
       field('condition', $._expression),
       ')',
       optional($.payload),
-    ),
+    )),
 
     _condition_with_continue: $ => seq(
       '(',
@@ -338,22 +340,16 @@ module.exports = grammar({
 
     _else_tail: $ => prec(PREC.if, seq(
       'else',
-      choice(
-        $._else_case_payload,
-        $._else_case_default,
-      ),
+      $._else_case,
     )),
 
-    _else_case_default: $ => prec.left(field('alternative', choice(
+    _else_case: $ => prec.left(2, field('alternative', choice(
       $._expression,
       $.block,
       $.if_expression,
+      $.payload_expression,
     ))),
 
-    _else_case_payload: $ => seq(
-      optional($.payload),
-      field('alternative', $.block),
-    ),
 
     loop_label: $ => seq(
       field('name', alias($.identifier, $.label_identifier)),
@@ -366,6 +362,11 @@ module.exports = grammar({
       field('values', sepBy1(',', alias($.identifier, $.payload_identifier))),
       '|',
     ),
+
+    payload_expression: $ => prec.left(seq(
+      $.payload,
+      choice($._expression, $.block),
+    )),
 
     break_expression: $ => prec.left(seq(
       'break',
@@ -459,6 +460,11 @@ module.exports = grammar({
 
     comptime_block: $ => seq(
       'comptime',
+      $.block,
+    ),
+
+    defer_block: $ => seq(
+      choice('defer', 'errdefer'),
       $.block,
     ),
 
@@ -587,6 +593,7 @@ module.exports = grammar({
     ),
 
     assignment_expression: $ => prec.left(PREC.assign, seq(
+      // optional(choice('defer', 'errdefer')),
       field('left', $._expression),
       '=',
       field('right', $._expression),

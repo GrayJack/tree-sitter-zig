@@ -526,54 +526,64 @@ else
       alternative: (block)))
   (if_expression
     condition: (identifier)
-    (payload
-      values: (payload_identifier))
-    consequence: (block))
+    consequence: (payload_expression
+      (payload
+        values: (payload_identifier))
+      (block)))
   (if_expression
     condition: (identifier)
-    (payload
-      values: (payload_identifier))
-    consequence: (block))
+    consequence: (payload_expression
+      (payload
+        values: (payload_identifier))
+      (block)))
   (if_expression
     condition: (identifier)
-    (payload
-      values: (payload_identifier)
-      values: (payload_identifier))
-    consequence: (block))
+    consequence: (payload_expression
+      (payload
+        values: (payload_identifier)
+        values: (payload_identifier))
+      (block)))
   (if_expression
     condition: (identifier)
-    (payload
-      values: (payload_identifier)
-      values: (payload_identifier))
-    consequence: (block))
+    consequence: (payload_expression
+      (payload
+        values: (payload_identifier)
+        values: (payload_identifier))
+      (block)))
   (if_expression
     condition: (identifier)
-    (payload
-      values: (payload_identifier))
-    consequence: (block)
+    consequence: (payload_expression
+      (payload
+        values: (payload_identifier))
+      (block))
     alternative: (block))
   (if_expression
     condition: (identifier)
-    (payload
-      values: (payload_identifier))
-    consequence: (block)
+    consequence: (payload_expression
+      (payload
+        values: (payload_identifier))
+      (block))
     alternative: (block))
   (if_expression
     condition: (identifier)
-    (payload
-      values: (payload_identifier))
-    consequence: (block)
-    (payload
-      values: (payload_identifier))
-    alternative: (block))
+    consequence: (payload_expression
+      (payload
+        values: (payload_identifier))
+      (block))
+    alternative: (payload_expression
+      (payload
+        values: (payload_identifier))
+      (block)))
   (if_expression
     condition: (identifier)
-    (payload
-      values: (payload_identifier))
-    consequence: (block)
-    (payload
-      values: (payload_identifier))
-    alternative: (block))
+    consequence: (payload_expression
+      (payload
+        values: (payload_identifier))
+      (block))
+    alternative: (payload_expression
+      (payload
+        values: (payload_identifier))
+      (block)))
   (if_expression
     condition: (binary_expression
       left: (identifier)
@@ -641,9 +651,10 @@ while (a) {} else |err| {}
   (while_expression
     condition: (identifier)
     body: (block)
-    (payload
-      values: (payload_identifier))
-    alternative: (block)))
+    alternative: (payload_expression
+      (payload
+        values: (payload_identifier))
+      (block))))
 
 ============================================
 For expression
