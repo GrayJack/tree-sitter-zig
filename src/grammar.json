@@ -262,6 +262,10 @@
           },
           {
             "type": "SYMBOL",
+            "name": "try_expression"
+          },
+          {
+            "type": "SYMBOL",
             "name": "range_pattern"
           },
           {
@@ -1859,6 +1863,27 @@
         }
       ]
     },
+    "try_expression": {
+      "type": "PREC_LEFT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "try"
+          },
+          {
+            "type": "FIELD",
+            "name": "expression",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_expression"
+            }
+          }
+        ]
+      }
+    },
     "usingnamespace_expression": {
       "type": "PREC_LEFT",
       "value": 0,
@@ -2020,6 +2045,10 @@
         {
           "type": "STRING",
           "value": "c_longdouble"
+        },
+        {
+          "type": "STRING",
+          "value": "c_void"
         },
         {
           "type": "STRING",

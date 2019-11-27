@@ -41,6 +41,7 @@ const numeric_types = [
   'c_longlong',
   'c_ulonglong',
   'c_longdouble',
+  'c_void',
   'f16',
   'f32',
   'f64',
@@ -130,6 +131,7 @@ module.exports = grammar({
       $.reference_expression,
       $.dereference_expression,
       $.orelse_postfix_expression,
+      $.try_expression,
       $.range_pattern,
       $.unreachable_expression,
       $.usingnamespace_expression,
@@ -399,6 +401,11 @@ module.exports = grammar({
       field('test_name', $.string_literal),
       field('body', $.block),
     ),
+
+    try_expression: $ => prec.left(seq(
+      'try',
+      field('expression', $._expression),
+    )),
 
     usingnamespace_expression: $ => prec.left(seq(
       optional($.visibility_modifier),
