@@ -278,6 +278,10 @@
           },
           {
             "type": "SYMBOL",
+            "name": "defer_expression"
+          },
+          {
+            "type": "SYMBOL",
             "name": "_type"
           },
           {
@@ -2358,6 +2362,32 @@
                 "value": "-"
               }
             ]
+          }
+        ]
+      }
+    },
+    "defer_expression": {
+      "type": "PREC_LEFT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "defer"
+              },
+              {
+                "type": "STRING",
+                "value": "errdefer"
+              }
+            ]
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_expression"
           }
         ]
       }

@@ -135,6 +135,7 @@ module.exports = grammar({
       $.range_pattern,
       $.unreachable_expression,
       $.usingnamespace_expression,
+      $.defer_expression,
       $._type,
       $._literals,
       $.identifier,
@@ -474,6 +475,11 @@ module.exports = grammar({
       'allowzero',
       seq('align', '(', $._expression, ')'),
       seq('promise', '-'),
+    )),
+
+    defer_expression: $ => prec.left(seq(
+      choice('defer', 'errdefer'),
+      $._expression
     )),
 
     comptime_block: $ => seq(
