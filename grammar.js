@@ -109,6 +109,8 @@ module.exports = grammar({
       $.build_in_call_expr,
       $.call_expression,
       $.await_expression,
+      $.suspend_expression,
+      $.resume_expression,
       $.index_expression,
       $.field_expression,
       $._expression_ending_with_block,
@@ -227,6 +229,16 @@ module.exports = grammar({
     await_expression: $ => prec.left(seq(
       'await',
       $._expression,
+    )),
+
+    suspend_expression: $ => prec.left(seq(
+      'suspend',
+      optional($._expression)
+    )),
+
+    resume_expression: $ => prec.left(seq(
+      'resume',
+      optional($._expression)
     )),
 
     arguments: $ => seq(

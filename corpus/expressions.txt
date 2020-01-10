@@ -487,6 +487,26 @@ await async call();
       arguments: (arguments))))
 
 ============================================
+Suspend/Resume expression
+============================================
+
+suspend;
+suspend p;
+
+resume;
+resume p;
+
+---
+
+(source_file
+  (suspend_expression)
+  (suspend_expression
+    (identifier))
+  (resume_expression)
+  (resume_expression
+    (identifier)))
+
+============================================
 Reference and deference expression
 ============================================
 
