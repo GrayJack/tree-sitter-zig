@@ -4,6 +4,10 @@ Zig grammar for [tree-sitter](https://github.com/tree-sitter/tree-sitter)
 
 # TODOs
  * Async/await machinery
+  - [X] Async call
+  - [X] Await expression
+  - [ ] Suspend/Resume expression
+  - [ ] Suspend/Resume block
 
 # Testing the parser
 ## Install dependency
