@@ -108,6 +108,7 @@ module.exports = grammar({
     _expression: $ => prec.left(choice(
       $.build_in_call_expr,
       $.call_expression,
+      $.await_expression,
       $.index_expression,
       $.field_expression,
       $._expression_ending_with_block,
@@ -221,6 +222,11 @@ module.exports = grammar({
       optional(alias('async', $.call_modifier)),
       field('function', $.identifier),
       field('arguments', $.arguments),
+    )),
+
+    await_expression: $ => prec.left(seq(
+      'await',
+      $._expression,
     )),
 
     arguments: $ => seq(

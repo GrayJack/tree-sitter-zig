@@ -170,6 +170,10 @@
           },
           {
             "type": "SYMBOL",
+            "name": "await_expression"
+          },
+          {
+            "type": "SYMBOL",
             "name": "index_expression"
           },
           {
@@ -785,6 +789,23 @@
               "type": "SYMBOL",
               "name": "arguments"
             }
+          }
+        ]
+      }
+    },
+    "await_expression": {
+      "type": "PREC_LEFT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "await"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_expression"
           }
         ]
       }

@@ -469,6 +469,24 @@ async afunc(a, b);
       (identifier))))
 
 ============================================
+Await expression
+============================================
+
+await ptr;
+await async call();
+
+---
+
+(source_file
+  (await_expression
+    (identifier))
+  (await_expression
+    (call_expression
+      (call_modifier)
+      function: (identifier)
+      arguments: (arguments))))
+
+============================================
 Reference and deference expression
 ============================================
 
