@@ -218,6 +218,7 @@ module.exports = grammar({
     )),
 
     call_expression: $ => prec(PREC.call, seq(
+      optional(alias('async', $.call_modifier)),
       field('function', $.identifier),
       field('arguments', $.arguments),
     )),

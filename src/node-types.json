@@ -2323,6 +2323,16 @@
           }
         ]
       }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "call_modifier",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -12794,6 +12804,10 @@
   {
     "type": "c_void",
     "named": false
+  },
+  {
+    "type": "call_modifier",
+    "named": true
   },
   {
     "type": "comptime",

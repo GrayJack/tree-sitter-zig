@@ -417,6 +417,9 @@ assert(@typeOf(ptr) == [*]i32);
 
 std.debug.warn("Hello");
 
+async afunc();
+async afunc(a, b);
+
 ---
 
 (source_file
@@ -447,13 +450,23 @@ std.debug.warn("Hello");
           size: (pointer)
           (primitive_type)))))
   (field_expression
-      value: (field_expression
-        value: (identifier)
-        field: (field_identifier))
-      field: (call_expression
-        function: (identifier)
-        arguments: (arguments
-          (string_literal)))))
+    value: (field_expression
+      value: (identifier)
+      field: (field_identifier))
+    field: (call_expression
+      function: (identifier)
+      arguments: (arguments
+        (string_literal))))
+  (call_expression
+    (call_modifier)
+    function: (identifier)
+    arguments: (arguments))
+  (call_expression
+    (call_modifier)
+    function: (identifier)
+    arguments: (arguments
+      (identifier)
+      (identifier))))
 
 ============================================
 Reference and deference expression
