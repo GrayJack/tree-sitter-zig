@@ -91,6 +91,8 @@ module.exports = grammar({
       $.block,
       $.comptime_block,
       $.defer_block,
+      $.suspend_block,
+      $.resume_block,
       $.if_expression,
       $.while_expression,
       $.for_expression,
@@ -508,6 +510,16 @@ module.exports = grammar({
 
     defer_block: $ => seq(
       choice('defer', 'errdefer'),
+      $.block,
+    ),
+
+    suspend_block: $ => seq(
+      'suspend',
+      $.block,
+    ),
+
+    resume_block: $ => seq(
+      'resume',
       $.block,
     ),
 

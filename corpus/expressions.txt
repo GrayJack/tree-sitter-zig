@@ -496,6 +496,16 @@ suspend p;
 resume;
 resume p;
 
+suspend {}
+suspend {
+    a
+}
+
+resume {}
+resume {
+    a
+}
+
 ---
 
 (source_file
@@ -504,7 +514,17 @@ resume p;
     (identifier))
   (resume_expression)
   (resume_expression
-    (identifier)))
+    (identifier))
+  (suspend_block
+    (block))
+  (suspend_block
+    (block
+      (identifier)))
+  (resume_block
+    (block))
+  (resume_block
+    (block
+      (identifier))))
 
 ============================================
 Reference and deference expression

@@ -116,6 +116,14 @@
           },
           {
             "type": "SYMBOL",
+            "name": "suspend_block"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "resume_block"
+          },
+          {
+            "type": "SYMBOL",
             "name": "if_expression"
           },
           {
@@ -2516,6 +2524,32 @@
               "value": "errdefer"
             }
           ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "block"
+        }
+      ]
+    },
+    "suspend_block": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "suspend"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "block"
+        }
+      ]
+    },
+    "resume_block": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "resume"
         },
         {
           "type": "SYMBOL",
