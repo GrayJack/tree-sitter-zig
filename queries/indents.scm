@@ -7,7 +7,7 @@
   (if_expression)
   (while_expression)
   (for_expression)
-  (test_expression,)
+  (test_expression)
   (struct_expression)
   (struct_construction)
   (anonymous_struct_enum)

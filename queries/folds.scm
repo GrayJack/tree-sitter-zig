@@ -7,7 +7,7 @@
   (if_expression)
   (switch_block)
   (for_expression)
-  (test_expressio)
+  (test_expression)
   (struct_expression)
   (anonymous_struct_enum)
   (union_expression)
