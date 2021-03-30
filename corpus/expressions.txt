@@ -6,6 +6,7 @@ x = 10;
 y = 11.0;
 z = "what";
 w = z;
+@"tree-sitter" = 10;
 
 ---
 
@@ -21,7 +22,11 @@ w = z;
     right: (string_literal))
   (assignment_expression
     left: (identifier)
-    right: (identifier)))
+    right: (identifier))
+  (assignment_expression
+    left: (identifier (string_literal))
+    right: (integer_literal)
+  ))
 
 ============================================
 Compound Assigment expression
@@ -337,10 +342,12 @@ u33;
 (source_file
   (primitive_type)
   (primitive_type)
+
   (optional_type
     (primitive_type))
   (optional_type
     (type_identifier))
+
   (array_type
     (primitive_type))
   (array_type
@@ -356,6 +363,7 @@ u33;
     (type_prefix
       (integer_literal))
     (primitive_type))
+
   (pointer_type
     (primitive_type))
   (pointer_type
@@ -430,6 +438,7 @@ async afunc(a, b);
     function: (identifier)
     arguments: (arguments
       (identifier)))
+
   (call_expression
     function: (identifier)
     arguments: (arguments))
@@ -437,6 +446,7 @@ async afunc(a, b);
     function: (identifier)
     arguments: (arguments
       (identifier)))
+
   (call_expression
     function: (identifier)
     arguments: (arguments
@@ -849,11 +859,13 @@ comptime {
 (source_file
   (comptime_block
     (block))
+
   (comptime_block
     (block
       (assignment_statement
         name: (identifier)
         expression: (integer_literal))))
+
   (comptime_block
     (block
       (assignment_statement

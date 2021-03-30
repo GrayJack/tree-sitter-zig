@@ -2,9 +2,10 @@
   "name": "tree-sitter-zig",
   "version": "0.2.0",
   "description": "Zig grammar for tree-sitter",
-  "main": "index.js",
+  "main": "bindings/node",
   "scripts": {
-    "test": "tree-sitter test"
+    "test": "tree-sitter test",
+    "gen": "tree-sitter generate"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,18 @@
     "nan": "^2.14.0"
   },
   "devDependencies": {
-    "tree-sitter-cli": "^0.16.5"
-  }
+    "tree-sitter-cli": "^0.19.4"
+  },
+  "nodemon": {
+    "exec": "pnpm gen && pnpm test",
+    "watch": ["grammar.js"]
+  },
+  "tree-sitter": [
+    {
+      "scope": "source.zig",
+      "file-types": [
+        "zig"
+      ]
+    }
+  ]
 }

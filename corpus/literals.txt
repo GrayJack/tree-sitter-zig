@@ -105,7 +105,7 @@ String literals
 
 "";
 "Hello world!";
-c"Null terminated";
+"Null terminated";
 "Escape \uEEEE";
 "Escape \u{aaaaaa}";
 "Escape \xFF";
@@ -129,24 +129,41 @@ c"Null terminated";
 ============================================
 Multiline string literals
 ============================================
+json(
+\\  Multiline string test
+\\ Multiline
+,
+hello
+)
+;
 
-\\ Multiline string test
 \\ line 2
+;
+
 \\ line 3
 ;
 
-\\ aaaaa
-;
+
 
 \\ \uAAAA
 ;
 
+
 ---
 
 (source_file
-  (multiline_string_literal)
-  (multiline_string_literal)
-  (multiline_string_literal))
+  (call_expression
+    (identifier)
+    (arguments
+      (multiline_string_literal
+        (string_literal) (string_literal))
+      (identifier)
+    )
+  )
+  (multiline_string_literal (string_literal))
+  (multiline_string_literal (string_literal))
+  (multiline_string_literal (string_literal))
+)
 
 ============================================
 Enum literals

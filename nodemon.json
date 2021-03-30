@@ -1,0 +1,4 @@
+{
+  "exec": "npm run gen && npm run test",
+  "watch": ["grammar.js"]
+}
