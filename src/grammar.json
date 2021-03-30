@@ -748,17 +748,13 @@
             "type": "FIELD",
             "name": "function",
             "content": {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "@"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "identifier"
-                }
-              ]
+              "type": "ALIAS",
+              "content": {
+                "type": "PATTERN",
+                "value": "@[a-zA-Zα-ωΑ-Ωµ_][a-zA-Zα-ωΑ-Ωµ\\d_]*"
+              },
+              "named": true,
+              "value": "identifier"
             }
           },
           {
@@ -2064,6 +2060,15 @@
             "type": "ALIAS",
             "content": {
               "type": "SYMBOL",
+              "name": "_struct_standalone"
+            },
+            "named": true,
+            "value": "struct_expression"
+          },
+          {
+            "type": "ALIAS",
+            "content": {
+              "type": "SYMBOL",
               "name": "identifier"
             },
             "named": true,
@@ -2288,8 +2293,13 @@
                             "name": "integer_literal"
                           },
                           {
-                            "type": "SYMBOL",
-                            "name": "identifier"
+                            "type": "ALIAS",
+                            "content": {
+                              "type": "SYMBOL",
+                              "name": "identifier"
+                            },
+                            "named": true,
+                            "value": "identifier"
                           },
                           {
                             "type": "ALIAS",
@@ -3259,6 +3269,15 @@
             }
           ]
         },
+        {
+          "type": "SYMBOL",
+          "name": "_struct_standalone"
+        }
+      ]
+    },
+    "_struct_standalone": {
+      "type": "SEQ",
+      "members": [
         {
           "type": "STRING",
           "value": "struct"
@@ -4532,17 +4551,8 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "\""
-            },
-            {
-              "type": "STRING",
-              "value": "c\""
-            }
-          ]
+          "type": "STRING",
+          "value": "\""
         },
         {
           "type": "REPEAT",
@@ -4570,38 +4580,41 @@
       ]
     },
     "multiline_string_literal": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "CHOICE",
+      "type": "PREC_LEFT",
+      "value": 0,
+      "content": {
+        "type": "REPEAT1",
+        "content": {
+          "type": "SEQ",
           "members": [
             {
               "type": "STRING",
               "value": "\\\\"
             },
             {
-              "type": "STRING",
-              "value": "c\\\\"
+              "type": "ALIAS",
+              "content": {
+                "type": "REPEAT",
+                "content": {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "PATTERN",
+                      "value": "[^\\r\\n]"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "escape_sequence"
+                    }
+                  ]
+                }
+              },
+              "named": true,
+              "value": "string_literal"
             }
           ]
-        },
-        {
-          "type": "REPEAT",
-          "content": {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "escape_sequence"
-              },
-              {
-                "type": "PATTERN",
-                "value": ".+"
-              }
-            ]
-          }
         }
-      ]
+      }
     },
     "escape_sequence": {
       "type": "IMMEDIATE_TOKEN",
@@ -4617,7 +4630,7 @@
             "members": [
               {
                 "type": "PATTERN",
-                "value": "[^xu]"
+                "value": "[^xu\\n]"
               },
               {
                 "type": "PATTERN",
@@ -4736,6 +4749,56 @@
       ]
     },
     "identifier": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_str_identifier"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_identifier_text"
+        }
+      ]
+    },
+    "_str_identifier": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "@\""
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "REPEAT",
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "escape_sequence"
+                },
+                {
+                  "type": "PATTERN",
+                  "value": "[^\"\\\\]+"
+                }
+              ]
+            }
+          },
+          "named": true,
+          "value": "string_literal"
+        },
+        {
+          "type": "IMMEDIATE_TOKEN",
+          "content": {
+            "type": "STRING",
+            "value": "\""
+          }
+        }
+      ]
+    },
+    "_identifier_text": {
       "type": "PATTERN",
       "value": "[a-zA-Zα-ωΑ-Ωµ_][a-zA-Zα-ωΑ-Ωµ\\d_]*"
     }

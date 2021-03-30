@@ -325,6 +325,10 @@
             "named": true
           },
           {
+            "type": "struct_expression",
+            "named": true
+          },
+          {
             "type": "type_identifier",
             "named": true
           }
@@ -1408,6 +1412,10 @@
           },
           {
             "type": "primitive_type",
+            "named": true
+          },
+          {
+            "type": "struct_expression",
             "named": true
           },
           {
@@ -2711,13 +2719,9 @@
         ]
       },
       "function": {
-        "multiple": true,
+        "multiple": false,
         "required": true,
         "types": [
-          {
-            "type": "@",
-            "named": false
-          },
           {
             "type": "identifier",
             "named": true
@@ -3840,6 +3844,10 @@
             "named": true
           },
           {
+            "type": "struct_expression",
+            "named": true
+          },
+          {
             "type": "type_identifier",
             "named": true
           }
@@ -4120,6 +4128,21 @@
     }
   },
   {
+    "type": "enum_identifier",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "string_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "enum_literal",
     "named": true,
     "fields": {
@@ -4156,6 +4179,21 @@
     }
   },
   {
+    "type": "error_identifier",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "string_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "error_type",
     "named": true,
     "fields": {
@@ -4185,6 +4223,10 @@
           },
           {
             "type": "primitive_type",
+            "named": true
+          },
+          {
+            "type": "struct_expression",
             "named": true
           },
           {
@@ -4219,6 +4261,10 @@
           },
           {
             "type": "primitive_type",
+            "named": true
+          },
+          {
+            "type": "struct_expression",
             "named": true
           },
           {
@@ -4526,6 +4572,10 @@
           },
           {
             "type": "primitive_type",
+            "named": true
+          },
+          {
+            "type": "struct_expression",
             "named": true
           },
           {
@@ -5030,6 +5080,21 @@
           }
         ]
       }
+    }
+  },
+  {
+    "type": "field_identifier",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "string_literal",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -6864,6 +6929,21 @@
     }
   },
   {
+    "type": "identifier",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "string_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "if_expression",
     "named": true,
     "fields": {
@@ -7841,6 +7921,21 @@
     }
   },
   {
+    "type": "label_identifier",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "string_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "literal_pattern",
     "named": true,
     "fields": {},
@@ -7928,7 +8023,7 @@
       "required": false,
       "types": [
         {
-          "type": "escape_sequence",
+          "type": "string_literal",
           "named": true
         }
       ]
@@ -7969,6 +8064,10 @@
         },
         {
           "type": "primitive_type",
+          "named": true
+        },
+        {
+          "type": "struct_expression",
           "named": true
         },
         {
@@ -8269,6 +8368,10 @@
             "named": true
           },
           {
+            "type": "struct_expression",
+            "named": true
+          },
+          {
             "type": "type_identifier",
             "named": true
           },
@@ -8563,6 +8666,21 @@
     }
   },
   {
+    "type": "payload_identifier",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "string_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "pointer_type",
     "named": true,
     "fields": {},
@@ -8592,6 +8710,10 @@
         },
         {
           "type": "primitive_type",
+          "named": true
+        },
+        {
+          "type": "struct_expression",
           "named": true
         },
         {
@@ -12242,6 +12364,21 @@
     }
   },
   {
+    "type": "type_identifier",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "string_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "type_prefix",
     "named": true,
     "fields": {},
@@ -12794,6 +12931,10 @@
             "named": true
           },
           {
+            "type": "struct_expression",
+            "named": true
+          },
+          {
             "type": "type_identifier",
             "named": true
           }
@@ -13106,11 +13247,30 @@
             "named": true
           },
           {
+            "type": "struct_expression",
+            "named": true
+          },
+          {
             "type": "type_identifier",
             "named": true
           }
         ]
       }
+    }
+  },
+  {
+    "type": "union_identifier",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "string_literal",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -14520,7 +14680,7 @@
     "named": false
   },
   {
-    "type": "@",
+    "type": "@\"",
     "named": false
   },
   {
@@ -14569,14 +14729,6 @@
   },
   {
     "type": "break",
-    "named": false
-  },
-  {
-    "type": "c\"",
-    "named": false
-  },
-  {
-    "type": "c\\\\",
     "named": false
   },
   {
@@ -14668,10 +14820,6 @@
     "named": false
   },
   {
-    "type": "enum_identifier",
-    "named": true
-  },
-  {
     "type": "enum_modifier",
     "named": true
   },
@@ -14682,10 +14830,6 @@
   {
     "type": "error",
     "named": false
-  },
-  {
-    "type": "error_identifier",
-    "named": true
   },
   {
     "type": "escape_sequence",
@@ -14720,10 +14864,6 @@
     "named": false
   },
   {
-    "type": "field_identifier",
-    "named": true
-  },
-  {
     "type": "float_literal",
     "named": true
   },
@@ -14756,10 +14896,6 @@
     "named": false
   },
   {
-    "type": "identifier",
-    "named": true
-  },
-  {
     "type": "if",
     "named": false
   },
@@ -14780,10 +14916,6 @@
     "named": false
   },
   {
-    "type": "label_identifier",
-    "named": true
-  },
-  {
     "type": "line_comment",
     "named": true
   },
@@ -14802,10 +14934,6 @@
   {
     "type": "null",
     "named": false
-  },
-  {
-    "type": "payload_identifier",
-    "named": true
   },
   {
     "type": "pointer",
@@ -14864,10 +14992,6 @@
     "named": false
   },
   {
-    "type": "type_identifier",
-    "named": true
-  },
-  {
     "type": "u128",
     "named": false
   },
@@ -14894,10 +15018,6 @@
   {
     "type": "union",
     "named": false
-  },
-  {
-    "type": "union_identifier",
-    "named": true
   },
   {
     "type": "union_modifier",

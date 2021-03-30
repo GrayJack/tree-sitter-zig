@@ -58,7 +58,9 @@ const primitive_types = numeric_types.concat([
   "anyerror",
 ]);
 
+// @ts-nocheck
 module.exports = grammar({
+  // eslint-disable
   name: "zig",
 
   externals: (_) => [],
@@ -227,7 +229,10 @@ module.exports = grammar({
       prec(
         PREC.call,
         seq(
-          field("function", seq("@", $.identifier)),
+          field(
+            "function",
+            alias(/@[a-zA-Zα-ωΑ-Ωµ_][a-zA-Zα-ωΑ-Ωµ\d_]*/, $.identifier)
+          ),
           field("arguments", $.arguments)
         )
       ),
@@ -449,6 +454,7 @@ module.exports = grammar({
           $.error_type,
           $.array_type,
           $.custom_number_type,
+          alias($._struct_standalone, $.struct_expression),
           alias($.identifier, $.type_identifier)
         )
       ),
@@ -476,7 +482,7 @@ module.exports = grammar({
                 optional(
                   choice(
                     $.integer_literal,
-                    $.identifier,
+                    alias($.identifier, $.identifier),
                     alias(seq("*", optional("c")), $.pointer)
                   )
                 )
@@ -616,6 +622,11 @@ module.exports = grammar({
     struct_expression: ($) =>
       seq(
         optional(alias(choice("packed", "extern"), $.struct_modifier)),
+        $._struct_standalone
+      ),
+
+    _struct_standalone: ($) =>
+      seq(
         "struct",
         "{",
         field("field", sepBy(",", $.field_declaration)),
@@ -768,20 +779,27 @@ module.exports = grammar({
 
     string_literal: ($) =>
       seq(
-        choice('"', 'c"'),
+        '"',
         repeat(choice($.escape_sequence, /[^"\\]+/)),
         token.immediate('"')
       ),
 
     multiline_string_literal: ($) =>
-      seq(choice("\\\\", "c\\\\"), repeat(choice($.escape_sequence, /.+/))),
+      prec.left(
+        repeat1(
+          seq(
+            "\\\\",
+            alias(repeat(choice(/[^\r\n]/, $.escape_sequence)), $.string_literal),
+          )
+        )
+      ),
 
     escape_sequence: (_) =>
       token.immediate(
         seq(
           "\\",
           choice(
-            /[^xu]/,
+            /[^xu\n]/,
             /u[0-9a-fA-F]{4}/,
             /u{[0-9a-fA-F]+}/,
             /x[0-9a-fA-F]{2}/
@@ -813,7 +831,16 @@ module.exports = grammar({
       ),
     unary_operator: (_) => choice("~", "!", "-", "-%"),
 
-    identifier: (_) => /[a-zA-Zα-ωΑ-Ωµ_][a-zA-Zα-ωΑ-Ωµ\d_]*/,
+    identifier: ($) => choice($._str_identifier, $._identifier_text),
+
+    _str_identifier: ($) =>
+      seq(
+        '@"',
+        alias(repeat(choice($.escape_sequence, /[^"\\]+/)), $.string_literal),
+        token.immediate('"')
+      ),
+
+    _identifier_text: (_) => /[a-zA-Zα-ωΑ-Ωµ_][a-zA-Zα-ωΑ-Ωµ\d_]*/,
   },
 });
 

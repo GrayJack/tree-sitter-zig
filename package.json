@@ -29,6 +29,10 @@
   "devDependencies": {
     "tree-sitter-cli": "^0.19.4"
   },
+  "nodemon": {
+    "exec": "pnpm gen && pnpm test",
+    "watch": ["grammar.js"]
+  },
   "tree-sitter": [
     {
       "scope": "source.zig",
