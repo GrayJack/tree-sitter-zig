@@ -3,9 +3,12 @@
   "version": "0.2.0",
   "description": "Zig grammar for tree-sitter",
   "main": "bindings/node",
+  "types": "bindings/node",
   "scripts": {
     "test": "tree-sitter test",
-    "gen": "tree-sitter generate"
+    "gen": "tree-sitter generate",
+    "install": "node-gyp-build",
+    "prebuildify": "prebuildify --napi --strip"
   },
   "repository": {
     "type": "git",
@@ -17,6 +20,14 @@
     "tree-sitter",
     "treesitter"
   ],
+  "files": [
+    "grammar.js",
+    "binding.gyp",
+    "prebuilds/**",
+    "bindings/node/*",
+    "queries/*",
+    "src/**"
+  ],
   "author": "Eric Shimizu Karbstein <gr41.j4ck@gmail.com>",
   "license": "BSD-3-Clause",
   "bugs": {
@@ -24,14 +35,26 @@
   },
   "homepage": "https://github.com/GrayJack/tree-sitter-zig#readme",
   "dependencies": {
-    "nan": "^2.14.0"
+    "node-addon-api": "^7.1.0",
+    "node-gyp-build": "^4.8.0"
+  },
+  "peerDependencies": {
+    "tree-sitter": "^0.21.0"
+  },
+  "peerDependenciesMeta": {
+    "tree_sitter": {
+      "optional": true
+    }
   },
   "devDependencies": {
-    "tree-sitter-cli": "^0.19.4"
+    "tree-sitter-cli": "^0.22.6",
+    "prebuildify": "^6.0.0"
   },
   "nodemon": {
     "exec": "pnpm gen && pnpm test",
-    "watch": ["grammar.js"]
+    "watch": [
+      "grammar.js"
+    ]
   },
   "tree-sitter": [
     {
