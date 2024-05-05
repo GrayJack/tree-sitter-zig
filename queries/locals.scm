@@ -1,10 +1,9 @@
-
 (function_declaration
   name: (identifier) @definition.function
 )
 
 ((type_identifier) @reference
-                   (set! reference.kind "type"))
+                   (#set! reference.kind "type"))
 
 (assignment_statement
   name: (identifier) @definition.var
