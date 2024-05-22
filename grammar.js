@@ -467,7 +467,7 @@ module.exports = grammar({
 
     primitive_type: (_) => choice(...primitive_types),
 
-    custom_number_type: (_) => /(i|u)[0-9]+/,
+    custom_number_type: (_) => /[iu]\d+/,
 
     // Having the err field optional cause a bunch of conflicts
     // so when `!<type>` happens, it will show as unary expression
@@ -488,7 +488,7 @@ module.exports = grammar({
                 optional(
                   choice(
                     $.integer_literal,
-                    alias($.identifier, $.identifier),
+                    $.identifier,
                     alias(seq("*", optional("c")), $.pointer)
                   )
                 )
