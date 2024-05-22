@@ -183,8 +183,6 @@ Enum literals
   (enum_literal
     variant: (enum_identifier)))
 
-
-
 ============================================
 Range literal
 ============================================
