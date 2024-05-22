@@ -515,7 +515,7 @@ module.exports = grammar({
       ),
 
     pointer_type: ($) =>
-      prec.left(seq("*", optional(repeat($.type_prefix)), $._type)),
+      prec.left(seq("*", optional(repeat($.type_prefix)), $._expression)),
 
     type_prefix: ($) =>
       prec(

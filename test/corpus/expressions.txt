@@ -321,6 +321,7 @@ f64;
 *volatile i32;
 *const Point;
 *align(16) i32;
+*std.ArrayList;
 
 []?u32;
 ?[]u32;
@@ -374,11 +375,15 @@ u33;
     (primitive_type))
   (pointer_type
     (type_prefix)
-    (type_identifier))
+    (identifier))
   (pointer_type
     (type_prefix
       (integer_literal))
     (primitive_type))
+  (pointer_type
+    (field_expression
+      value: (identifier)
+      field: (field_identifier)))
   (array_type
     (optional_type
       (primitive_type)))
@@ -393,7 +398,7 @@ u33;
       (primitive_type)))
   (optional_type
     (pointer_type
-      (type_identifier)))
+      (identifier)))
   (pointer_type
     (optional_type
       (type_identifier)))
