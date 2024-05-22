@@ -75,6 +75,7 @@ module.exports = grammar({
     [$.anonymous_struct_enum, $.anonymous_array_expr],
     [$.assignment_expression],
     [$.call_expression],
+    [$.parameter, $._expression]
   ],
 
   rules: {
@@ -218,7 +219,12 @@ module.exports = grammar({
         ":",
         field(
           "type",
-          choice($._type, alias("var", $.inference_type), $.variadic_parameter)
+          choice(
+            $._type,
+            alias("anytype", $.inference_type),
+            $.variadic_parameter,
+            $._expression,
+          )
         )
       ),
 

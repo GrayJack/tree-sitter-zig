@@ -120,6 +120,7 @@ Function declaration statements
 fn name() {}
 fn name(a: u8) {}
 fn name(a: u8, b: u8) {}
+fn name(a: u8, b: u8, c: @This()) {}
 fn name() u8 {}
 fn name() @some(a) {}
 
@@ -152,6 +153,21 @@ inline fn name() {}
       (parameter
         name: (identifier)
         type: (primitive_type)))
+    body: (block))
+  (function_declaration
+    name: (identifier)
+    parameters: (parameters
+      (parameter
+        name: (identifier)
+        type: (primitive_type))
+      (parameter
+        name: (identifier)
+        type: (primitive_type))
+      (parameter
+        name: (identifier)
+        type: (build_in_call_expr
+                function: (identifier)
+                arguments: (arguments))))
     body: (block))
   (function_declaration
     name: (identifier)
