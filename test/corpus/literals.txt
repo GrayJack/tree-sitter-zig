@@ -182,3 +182,25 @@ Enum literals
     variant: (enum_identifier))
   (enum_literal
     variant: (enum_identifier)))
+
+
+
+============================================
+Range literal
+============================================
+
+0..;
+50.0..249;
+01101...69;
+
+---
+
+(source_file
+  (range_pattern_exclusive
+    start: (integer_literal))
+  (range_pattern_exclusive
+    start: (float_literal)
+    end: (integer_literal))
+  (range_pattern_inclusive
+    start: (integer_literal)
+    end: (integer_literal)))

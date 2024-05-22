@@ -1279,7 +1279,7 @@ switch (a) {
       (switch_arm
         pattern: (switch_pattern
           (slice_pattern
-            start: (float_literal)
+            start: (integer_literal)
             end: (integer_literal)))
         value: (integer_literal))
       (switch_last_arm
