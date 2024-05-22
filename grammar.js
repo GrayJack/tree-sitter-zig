@@ -154,7 +154,7 @@ module.exports = grammar({
           $.dereference_expression,
           $.orelse_postfix_expression,
           $.try_expression,
-          $.range_pattern,
+          $._range_pattern,
           $.unreachable_expression,
           $.usingnamespace_expression,
           $.defer_expression,
@@ -284,24 +284,28 @@ module.exports = grammar({
     _pattern: ($) =>
       choice(
         $.slice_pattern,
-        $.range_pattern,
+        $._range_pattern,
         alias($.field_expression, $.field_pattern),
         alias($._literals, $.literal_pattern)
       ),
 
     slice_pattern: ($) =>
-      prec(
+      prec.right(
         PREC.call,
-        seq(
-          optional(field("start", $._expression)),
-          "..",
-          optional(field("end", $._expression))
-        )
+        seq(optional(field("start", $._expression)), choice("..", "..."), optional(field("end", $._expression))),
       ),
 
-    range_pattern: ($) =>
-      prec.left(
+    _range_pattern: ($) => choice(
+      $.range_pattern_inclusive,
+      $.range_pattern_exclusive,
+    ),
+    range_pattern_inclusive: ($) =>
+      prec.right(
         seq(field("start", $._expression), "...", field("end", $._expression))
+      ),
+    range_pattern_exclusive: ($) =>
+      prec.right(
+        seq(field("start", $._expression), "..", optional(field("end", $._expression)))
       ),
 
     switch_expression: ($) =>
@@ -769,15 +773,15 @@ module.exports = grammar({
     float_literal: (_) => {
       const decimal = /[0-9][0-9_]*/;
       const hexadecimal = /[0-9a-fA-F][0-9a-fA-F_]*/;
-      return token(
+      return prec.left(token(
         seq(
           choice(
-            seq(/0[xX]/, hexadecimal, optional("."), optional(hexadecimal)),
-            seq(decimal, optional("."), optional(decimal))
+            seq(/0[xX]/, hexadecimal, ".", hexadecimal),
+            seq(decimal, ".", decimal)
           ),
           optional(/[eEpP][+-]?\d+/)
         )
-      );
+      ));
     },
 
     char_literal: ($) =>
